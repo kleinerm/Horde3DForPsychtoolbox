@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC   -shared -Wl,-soname,libHorde3DUtils.so -o libHorde3DUtils.so CMakeFiles/Horde3DUtils.dir/main.o ../Horde3DEngine/libHorde3D.so -lGL -Wl,-rpath,/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine: 

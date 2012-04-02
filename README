@@ -1,0 +1,30 @@
+Horde3DForPsychtoolbox - An interface to the Horde3D engine for Psychtoolbox-3:
+
+Horde3DForPsychtoolbox is a thin interface between Psychtoolbox-3 and the Horde3D
+open-source 3D graphics rendering engine <http://www.horde3d.org/>.
+
+It consists of a set of compiled mex files for GNU/Octave and Matlab, one for
+each supported operating system platform and machine architecture which wrap
+essential Horde3D engine functions in the same style as other Psychtoolbox
+mex files. The Horde3DHelper.m M-File provides higher level convenience functions
+and an interface to Psychtoolbox imaging pipeline, so Horde3D rendering can take
+full advantage of the post-processing and display functionality of Psychtoolbox
+image processing and display pipeline.
+
+A few demo M-File demonstrate basic use of Horde3D + Psychtoolbox for 3D
+rendering of complex scenes.
+
+The Contents/ subfolder contains demo shaders, textures, objects, scenery etc.
+for use by the demos.
+
+The distro also contains a copy of the full Horde3D SDK in the version used
+for building the mex files and precompiled versions of the Horde runtime
+libraries for all supported operating systems. The latest source distribution
+of Horde SDK can be found at their website.
+
+Acknowledgements:
+-----------------
+
+The development of Horde3DForPsychtoolbox was supported by the department for
+Human Perception, Cognition and Action (Prof. Dr. Heinrich H. BŸlthoff)
+at the Max Planck Institute for Biological Cybernetics, Tuebingen, Germany.

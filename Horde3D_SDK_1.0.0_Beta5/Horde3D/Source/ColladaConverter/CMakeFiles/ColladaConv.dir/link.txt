@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/ColladaConv.dir/converter.o CMakeFiles/ColladaConv.dir/daeMain.o CMakeFiles/ColladaConv.dir/main.o CMakeFiles/ColladaConv.dir/optimizer.o CMakeFiles/ColladaConv.dir/utils.o  -o ../../Binaries/Linux/ColladaConv -rdynamic 

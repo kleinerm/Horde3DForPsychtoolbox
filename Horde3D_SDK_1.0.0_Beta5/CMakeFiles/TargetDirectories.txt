@@ -1,0 +1,6 @@
+/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir
+/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/ColladaConverter/CMakeFiles/ColladaConv.dir
+/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir
+/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DUtils/CMakeFiles/Horde3DUtils.dir
+/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/CMakeFiles/Knight.dir
+/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/CMakeFiles/glfw.dir
