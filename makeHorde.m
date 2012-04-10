@@ -30,12 +30,13 @@ end
 
 if IsLinux
     % GNU/Linux build: Works for both Matlab and GNU/Octave 3.2.x:
-    mex -v Horde3DCore.cpp -I./HordeEngineSDK -L./HordeEngineSDK -lHorde3D -lHorde3DUtils
     if IsLinux(1)
-        % 64-Bit:
+        % 64-Bit: Use system installed Horde SDK
+        mex -v Horde3DCore.cpp -I./HordeEngineSDK -lHorde3D -lHorde3DUtils
         movefile(['Horde3DCore.' mexext], ['HordeLinux64/Horde3DCore.' mexext]);        
     else
-        % 32-Bit:
+        % 32-Bit: Use bundled libraries in SDK folder
+        mex -v Horde3DCore.cpp -I./HordeEngineSDK -L./HordeEngineSDK -lHorde3D -lHorde3DUtils
         movefile(['Horde3DCore.' mexext], ['HordeLinux32/Horde3DCore.' mexext]);
     end
 end
