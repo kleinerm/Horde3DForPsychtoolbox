@@ -940,7 +940,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"LoadResource")) {
 		if (nrhs < 3) mexErrMsgTxt("Horde3D: LoadResource: One of the 3 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
 		// Loads a resource
@@ -950,14 +950,14 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 
 	if (IsCommand((char*)"UnloadResource")) {
 		if (nrhs < 1) mexErrMsgTxt("Horde3D: UnloadResource: One required parameter missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Unloads a resource
 		h3dUnloadResource(i1);
 	}
 
 	if (IsCommand((char*)"GetResElemCount")) {
 		if (nrhs < 2) mexErrMsgTxt("Horde3D: GetResElemCount: One of the 2 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Gets the number of elements in a resource.
 		i2 = (int)h3dGetResElemCount(i1, (int) mxGetScalar(prhs[2]));
 		plhs[0] = mxCreateDoubleMatrix(1, 1, mxREAL);
@@ -966,7 +966,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 
 	if (IsCommand((char*)"FindResElement")) {
 		if (nrhs < 4) mexErrMsgTxt("Horde3D: FindResElement: One of the 4 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[4], (char*) &str, MAX_STR_LENGTH-1);
 		// Finds a resource element with the specified property value.
@@ -979,7 +979,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"GetResParamI")) {
 		if (nrhs < 4) mexErrMsgTxt("Horde3D: GetResParamI: One of the 4 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Gets an integer property of a resource element.
 		i2 = (int)h3dGetResParamI(i1, (int) mxGetScalar(prhs[2]), (int) mxGetScalar(prhs[3]), 
 			 (int) mxGetScalar(prhs[4]));
@@ -989,7 +989,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"SetResParamI")) {
 		if (nrhs < 5) mexErrMsgTxt("Horde3D: SetResParamI: One of the 5 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Sets an integer property of a resource element.
 		h3dSetResParamI(i1, (int) mxGetScalar(prhs[2]), (int) mxGetScalar(prhs[3]), 
 					   (int) mxGetScalar(prhs[4]), (int) mxGetScalar(prhs[5]));
@@ -997,7 +997,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"GetResParamF")) {
 		if (nrhs < 5) mexErrMsgTxt("Horde3D: GetResParamF: One of the 5 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Gets a float property of a resource element.
 		v[0] = h3dGetResParamF(i1, (int) mxGetScalar(prhs[2]), (int) mxGetScalar(prhs[3]), 
 			 (int) mxGetScalar(prhs[4]), (int) mxGetScalar(prhs[5]));
@@ -1007,7 +1007,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"SetResParamF")) {
 		if (nrhs < 6) mexErrMsgTxt("Horde3D: SetResParamF: One of the 6 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Sets a float property of a resource element.
 		h3dSetResParamF(i1, (int) mxGetScalar(prhs[2]), (int) mxGetScalar(prhs[3]), 
 					   (int) mxGetScalar(prhs[4]), (int) mxGetScalar(prhs[5]), (float) mxGetScalar(prhs[6]));
@@ -1015,7 +1015,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"GetResParamStr")) {
 		if (nrhs < 4) mexErrMsgTxt("Horde3D: GetResParamStr: One of the 4 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Gets a string property of a resource element.
 		const char *str = h3dGetResParamStr(i1, (int) mxGetScalar(prhs[2]), (int) mxGetScalar(prhs[3]), 
 			 (int) mxGetScalar(prhs[4]));
@@ -1024,7 +1024,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"SetResParamStr")) {
 		if (nrhs < 5) mexErrMsgTxt("Horde3D: SetResParamStr: One of the 5 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
 		// Sets a string property of a resource element.
@@ -1043,7 +1043,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 
 	if (IsCommand((char*)"MapResourceStream")) {
 		if (nrhs < 6) mexErrMsgTxt("Horde3D: MapResourceStream: One of the 6 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Maps the stream of a resource element.
 		void* ptr = h3dMapResStream(i1, (int) mxGetScalar(prhs[2]), (int) mxGetScalar(prhs[3]), 
 						 (int) mxGetScalar(prhs[4]), (bool) mxGetScalar(prhs[5]), (bool) mxGetScalar(prhs[6]));
@@ -1055,7 +1055,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"UnmapResourceStream")) {
 		if (nrhs < 1) mexErrMsgTxt("Horde3D: UnmapResourceStream: One required parameter missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Unmaps a previously mapped resource stream.
 		h3dUnmapResStream(i1);
 	}
@@ -1096,7 +1096,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"SetMaterialUniform")) {
 		if (nrhs < 6) mexErrMsgTxt("Horde3D: SetMaterialUniform: One of the 6 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
 		// Sets a shader uniform of a Material resource.
@@ -1107,7 +1107,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"GetRenderTargetData")) {
 		if (nrhs < 4) mexErrMsgTxt("Horde3D: GetRenderTargetData: One of the 4 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
 		float dataBuffer[100];
@@ -1130,7 +1130,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"GetNodeType")) {
 		if (nrhs < 1) mexErrMsgTxt("Horde3D: GetNodeType: One required parameter missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Returns the type of a scene node.
 		i2 = h3dGetNodeType(i1);
 		plhs[0]  = mxCreateDoubleMatrix(1, 1, mxREAL);
@@ -1139,7 +1139,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"GetNodeParent")) {
 		if (nrhs < 1) mexErrMsgTxt("Horde3D: GetNodeParent: One required parameter missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Returns the Parent of a scene node.
 		i2 = h3dGetNodeParent(i1);
 		plhs[0]  = mxCreateDoubleMatrix(1, 1, mxREAL);
@@ -1148,8 +1148,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"SetNodeParent")) {
 		if (nrhs < 2) mexErrMsgTxt("Horde3D: SetNodeParent: One of the 2 required parameters missing!");
-		i1 = (int)prhs[1];
-		i2 = (int)prhs[2];
+		i1 = (int) mxGetScalar(prhs[1]);
+		i2 = (int) mxGetScalar(prhs[2]);
 		// Relocates a node in the scene graph.
 		if (!h3dSetNodeParent(i1, i2))
 			mexErrMsgTxt("Horde3D: SetNodeParent: The specified node could not be relocated.");
@@ -1157,8 +1157,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"GetNodeChild")) {
 		if (nrhs < 2) mexErrMsgTxt("Horde3D: GetNodeChild: One of the 2 required parameters missing!");
-		i1 = (int)prhs[1];
-		i2 = (int)prhs[2];
+		i1 = (int) mxGetScalar(prhs[1]);
+		i2 = (int) mxGetScalar(prhs[2]);
 		// Returns the handle to a child node.
 		i3 = (int)h3dSetNodeParent(i1, i2);
 		plhs[0]  = mxCreateDoubleMatrix(1, 1, mxREAL);
@@ -1169,14 +1169,14 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 
 	if (IsCommand((char*)"RemoveNode")) {
 		if (nrhs < 1) mexErrMsgTxt("Horde3D: RemoveNode: One required parameter missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Removes a node from the scene.
 		h3dRemoveNode(i1);
 	}
 	
 	if (IsCommand((char*)"SetNodeActivation")) {
 		if (nrhs < 2) mexErrMsgTxt("Horde3D: SetNodeActivation: One of the 2 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		bool b1 = (bool)prhs[2];
 		// Sets the activation (visibility) state of a node.
 		// MK: h3dSetNodeActivation(i1, b1);
@@ -1184,7 +1184,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"CheckNodeTransFlag")) {
 		if (nrhs < 2) mexErrMsgTxt("Horde3D: CheckNodeTransFlag: One of the 2 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		bool b1 = (bool)prhs[2];
 		// Checks if a scene node has been transformed by the engine.
 		if (!h3dCheckNodeTransFlag(i1, b1))
@@ -1226,7 +1226,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 
 	if (IsCommand((char*)"GetNodeParamI")) {
 		if (nrhs < 2) mexErrMsgTxt("Horde3D: GetNodeParamI: One of the 2 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Gets an integer property of a scene node.
 		i2 = (int)h3dGetNodeParamI(i1, (int) mxGetScalar(prhs[2]));
 		plhs[0] = mxCreateDoubleMatrix(1, 1, mxREAL);
@@ -1235,14 +1235,14 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"SetNodeParamI")) {
 		if (nrhs < 3) mexErrMsgTxt("Horde3D: SetNodeParamI: One of the 3 required parameters missing!");
-		i1 = (int) prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Sets an integer property of a scene node.
 		h3dSetNodeParamI(i1, (int) mxGetScalar(prhs[2]), (int) mxGetScalar(prhs[3]));
 	}
 
 	if (IsCommand((char*)"GetNodeParamF")) {
 		if (nrhs < 3) mexErrMsgTxt("Horde3D: GetNodeParamF: One of the 3 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Gets a float property of a scene node.
 		v[0] = h3dGetNodeParamF(i1, (int) mxGetScalar(prhs[2]), (int) mxGetScalar(prhs[3]));
 		plhs[0] = mxCreateDoubleMatrix(1, 1, mxREAL);
@@ -1251,14 +1251,14 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"SetNodeParamF")) {
 		if (nrhs < 4) mexErrMsgTxt("Horde3D: SetNodeParamF: One of the 4 required parameters missing!");
-		i1 = (int) prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Sets a float property of a scene node.
 		h3dSetNodeParamF(i1, (int) mxGetScalar(prhs[2]), (int) mxGetScalar(prhs[3]), (float) mxGetScalar(prhs[4]));
 	}
 
 	if (IsCommand((char*)"GetNodeParamStr")) {
 		if (nrhs < 2) mexErrMsgTxt("Horde3D: GetNodeParamStr: One of the 2 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Gets a string property of a scene node.
 		const char *str = h3dGetNodeParamStr(i1, (int) mxGetScalar(prhs[2]));
 		plhs[0] = mxCreateString(str);
@@ -1266,7 +1266,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"SetNodeParamStr")) {
 		if (nrhs < 3) mexErrMsgTxt("Horde3D: SetNodeParamStr: One of the 3 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
 		// Sets a string property of a scene node.
@@ -1275,7 +1275,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"GetNodeAABB")) {
 		if (nrhs < 1) mexErrMsgTxt("Horde3D: GetNodeAABB: One required parameter missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Get the bounding box of a scene node.
 		h3dGetNodeAABB(i1, &v[0], &v[1], &v[2], &v[3], &v[4], &v[5]);
 		for (i2=0; i2<6; i2++) {
@@ -1286,7 +1286,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"CastRay")) {
 		if (nrhs < 8) mexErrMsgTxt("Horde3D: CastRay: One of the 8 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Performs a recursive ray collision query.
 		i2 = (int)h3dCastRay(i1, (float) mxGetScalar(prhs[2]), (float) mxGetScalar(prhs[3]), (float) mxGetScalar(prhs[4]), 
 					(float) mxGetScalar(prhs[5]), (float) mxGetScalar(prhs[6]), (float) mxGetScalar(prhs[7]), (int) mxGetScalar(prhs[8]));
@@ -1312,8 +1312,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"CheckNodeVisibility")) {
 		if (nrhs < 4) mexErrMsgTxt("Horde3D: CheckNodeVisibility: One of the 4 required parameters missing!");
-		i1 = (int)prhs[1];
-		i2 = (int)prhs[2];
+		i1 = (int) mxGetScalar(prhs[1]);
+		i2 = (int) mxGetScalar(prhs[2]);
 		// Checks if a node is visible.
 		i3 = (int)h3dCheckNodeVisibility(i1, i2, (bool) mxGetScalar(prhs[3]), (bool) mxGetScalar(prhs[4]));
 		plhs[0] = mxCreateDoubleMatrix(1, 1, mxREAL);
@@ -1324,7 +1324,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"AddGroupNode")) {
 		if (nrhs < 2) mexErrMsgTxt("Horde3D: AddGroupNode: One of the 2 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
 		// Adds a Group node to the scene.
@@ -1337,10 +1337,10 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"AddModelNode")) {
 		if (nrhs < 3) mexErrMsgTxt("Horde3D: AddModelNode: One of the 3 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
-		i2 = (int)prhs[3];
+		i2 = (int) mxGetScalar(prhs[3]);
 		// Adds a Model node to the scene.
 		i3 = (int)h3dAddModelNode(i1, str, i2);
 		plhs[0] = mxCreateDoubleMatrix(1, 1, mxREAL);
@@ -1351,7 +1351,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"SetModelMorpher")) {
 		if (nrhs < 3) mexErrMsgTxt("Horde3D: SetModelMorpher: One of the 3 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
 		// Sets the weight of a morph target.
@@ -1361,10 +1361,10 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"AddMeshNode")) {
 		if (nrhs < 7) mexErrMsgTxt("Horde3D: AddMeshNode: One of the 7 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
-		i2 = (int)prhs[3];
+		i2 = (int) mxGetScalar(prhs[3]);
 		// Adds a Mesh node to the scene.
 		i3 = (int)h3dAddMeshNode(i1, str, i2, (int) mxGetScalar(prhs[3]), (int) mxGetScalar(prhs[3]), 
 						(int) mxGetScalar(prhs[3]), (int) mxGetScalar(prhs[3]));
@@ -1376,7 +1376,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"AddJointNode")) {
 		if (nrhs < 3) mexErrMsgTxt("Horde3D: AddJointNode: One of the 3 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
 		// Adds a Joint node to the scene.
@@ -1389,10 +1389,10 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"AddCameraNode")) {
 		if (nrhs < 3) mexErrMsgTxt("Horde3D: AddCameraNode: One of the 3 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
-		i2 = (int)prhs[3];
+		i2 = (int) mxGetScalar(prhs[3]);
 		// Adds a Camera node to the scene.
 		i3 = (int)h3dAddCameraNode(i1, str, i2);
 		plhs[0] = mxCreateDoubleMatrix(1, 1, mxREAL);
@@ -1403,7 +1403,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"GetCameraProjMat")) {
 		if (nrhs < 1) mexErrMsgTxt("Horde3D: GetCameraProjMat: One required parameter missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		float projM[16];
 		// Gets the camera projection matrix.
 		h3dGetCameraProjMat(i1, projM);
@@ -1415,11 +1415,11 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 
 	if (IsCommand((char*)"AddEmitterNode")) {
 		if (nrhs < 6) mexErrMsgTxt("Horde3D: AddEmitterNode: One of the 6 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
-		i2 = (int)prhs[3];
-		i3 = (int)prhs[4];
+		i2 = (int) mxGetScalar(prhs[3]);
+		i3 = (int) mxGetScalar(prhs[4]);
 		// Adds an Emitter node to the scene.
 		i4 = (int)h3dAddEmitterNode(i1, str, i2, i3, (int) mxGetScalar(prhs[5]), (int) mxGetScalar(prhs[6]));
 		plhs[0] = mxCreateDoubleMatrix(1, 1, mxREAL);
@@ -1430,14 +1430,14 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	
 	if (IsCommand((char*)"AdvanceEmitterTime")) {
 		if (nrhs < 2) mexErrMsgTxt("Horde3D: AdvanceEmitterTime: One of the 2 required parameters missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Advances the time value of an Emitter node.
 		h3dAdvanceEmitterTime(i1, (float) mxGetScalar(prhs[2]));
 	}
 
 	if (IsCommand((char*)"HasEmitterFinished")) {
 		if (nrhs < 1) mexErrMsgTxt("Horde3D: HasEmitterFinished: One required parameter missing!");
-		i1 = (int)prhs[1];
+		i1 = (int) mxGetScalar(prhs[1]);
 		// Checks if an Emitter node is still alive.
 		if(!h3dHasEmitterFinished(i1))
 			mexErrMsgTxt("Horde3d: HasEmitterFinished: The specified emitter node is not active.");
