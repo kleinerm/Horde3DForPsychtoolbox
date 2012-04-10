@@ -1042,15 +1042,17 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	}
 
 	if (IsCommand((char*)"MapResourceStream")) {
+		// MK: TODO FIXME - Probably not really supportable without huge trickery?
 		if (nrhs < 6) mexErrMsgTxt("Horde3D: MapResourceStream: One of the 6 required parameters missing!");
+		mexErrMsgTxt("Horde3D: Function unsupported!");
 		i1 = (int) mxGetScalar(prhs[1]);
 		// Maps the stream of a resource element.
 		void* ptr = h3dMapResStream(i1, (int) mxGetScalar(prhs[2]), (int) mxGetScalar(prhs[3]), 
 						 (int) mxGetScalar(prhs[4]), (bool) mxGetScalar(prhs[5]), (bool) mxGetScalar(prhs[6]));
 		if (ptr == NULL)
 			mexErrMsgTxt("Horde3D: MapResourceStream: The specified extension is NOT contained in the DLL/shared object of the engine..");
-		plhs[0]  = mxCreateDoubleMatrix(1, 1, mxREAL);
-		*(mxGetPr(plhs[0])) = (int)ptr;
+		plhs[0] = mxCreateDoubleMatrix(1, 1, mxREAL);
+		// *(mxGetPr(plhs[0])) = (int) ptr;
 	}
 	
 	if (IsCommand((char*)"UnmapResourceStream")) {
@@ -1106,7 +1108,9 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 	}
 	
 	if (IsCommand((char*)"GetRenderTargetData")) {
+		// MK TODO FIXME:
 		if (nrhs < 4) mexErrMsgTxt("Horde3D: GetRenderTargetData: One of the 4 required parameters missing!");
+		mexErrMsgTxt("Horde3D: NOT YET SUPPORTED!");
 		i1 = (int) mxGetScalar(prhs[1]);
 		str[0] = 0;
 		mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
@@ -1124,7 +1128,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 			plhs[2]  = mxCreateDoubleMatrix(1, 1, mxREAL);
 			*(mxGetPr(plhs[2])) = i4;
 			plhs[3]  = mxCreateDoubleMatrix(1, 1, mxREAL);
-			*(mxGetPr(plhs[3])) = (int)dataBuffer;
+			// *(mxGetPr(plhs[3])) = (int)dataBuffer;
 		}
 	}
 	
