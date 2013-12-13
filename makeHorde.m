@@ -44,11 +44,16 @@ end
 if IsOSX
     % OS/X build:
     if IsOctave
-        mex -v Horde3DCore.cpp -I./HordeEngineSDK -W" -framework Horde3D -framework Horde3DUtils"
+        mex -v Horde3DCore.cpp -I./HordeEngineSDK -W" -framework Horde3D -framework Horde3DUtils" "-W, -mmacosx-version-min='10.6'" "-Wl,-headerpad_max_install_names -F/System/Library/Frameworks/ -F/Library/Frameworks/ ,-syslibroot,'/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk' -mmacosx-version-min='10.6'"
     else
-        mex -v Horde3DCore.cpp -I./HordeEngineSDK CXXLIBS='-framework Horde3D -framework Horde3DUtils' CLIBS='-framework Horde3D -framework Horde3DUtils'
+        mex -v Horde3DCore.cpp -I./HordeEngineSDK LDFLAGS="\$LDFLAGS -framework Horde3D -framework Horde3DUtils"
     end
-    movefile(['Horde3DCore.' mexext], ['HordeOSX32/Horde3DCore.' mexext]);
+    
+    if Is64Bit
+        movefile(['Horde3DCore.' mexext], ['HordeOSX64/Horde3DCore.' mexext]);
+    else
+        movefile(['Horde3DCore.' mexext], ['HordeOSX32/Horde3DCore.' mexext]);
+    end
 end
 
 return
