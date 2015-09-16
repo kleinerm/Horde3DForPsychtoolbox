@@ -18,31 +18,9 @@ function HordeVRHMDDemo1
 global HE;
 
 % Check if Psychtoolbox is properly installed and ready:
-AssertOpenGL;
-
-if nargin < 1
-    smode = [];
-end
-
-if isempty(smode)
-    smode = 8;
-end
-
-% Windowed or not?
-if nargin < 2
-    % Default to fullscreen:
-    windowed = 0;
-end
-
-% 'windowed' == 1: Show in 800 x 600 pixels window. Else show fullscreen:
-if windowed
-    rect = [0 0 800 600];
-else
-    rect = [];
-end
+PsychDefaultSetup(2);
 
 % Setup keys on keyboard that trigger actions:
-KbName('UnifyKeyNames');
 space = KbName('space');
 escape = KbName('ESCAPE');
 
@@ -53,19 +31,14 @@ KbReleaseWait;
 InitializeMatlabOpenGL;
 
 % Open window on screen 0, the main display:
-screenid = 0;
+screenid = max(Screen('Screens'));
+%screenid = 0
 
 % Use Psychtoolbox imaging pipeline. This needs special setup...
 PsychImaging('PrepareConfiguration');
-win  = PsychImaging('OpenWindow', screenid, 0, rect, [], [], smode);
-if ismember(smode, [8,9])
-    % Some extra beauty for red-blue anglyphs...
-    %SetAnaglyphStereoParameters('OptimizedColorAnaglyphMode', win);
-    SetAnaglyphStereoParameters('HalfColorAnaglyphMode', win);
-end
-
-% Query windows size w x h pixels for later Horde renderer setup:
-[w,h] = Screen('WindowSize', win);
+hmd = PsychOculusVR('AutoSetupDefaultHMD');
+win  = PsychImaging('OpenWindow', screenid, 0);
+[w,h] = Screen('WindowSize', win)
 
 % Set textsize to 24 pixels:
 Screen('TextSize', win, 24);
@@ -221,16 +194,16 @@ try
     %Horde3DCore('SetNodeParamf', light, HE.H3DLight.Col_B, 0, 0.7 );
 
     % Define the viewport for rendering: The target rectangle of the target
-    % window into which rendering should go: (xs, ys, widht, height):
+    % window into which rendering should go: (xs, ys, width, height):
     Horde3DCore('SetupViewport', camera(1), 0, 0, w, h);
     Horde3DCore('SetupViewport', camera(2), 0, 0, w, h);
 
-    % Set camera intrinsics for aspect ratio correct rendering in a window of
-    % width 'w' and height 'h' and 45 deg. field of view. Objects closer
-    % than 0.1 units to the camera plane or farther away than 1000 units
-    % shall be clipped to save some rendering time:
-    Horde3DCore('SetupCameraView', camera(1), 45.0, w / h, 0.1, 1000.0);
-    Horde3DCore('SetupCameraView', camera(2), 45.0, w / h, 0.1, 1000.0);
+    % Retrieve projection matrix for optimal rendering on the HMD:
+    [projL, projR] = PsychOculusVR('GetStaticRenderParameters', hmd);
+
+    % Assign it to cameras:
+    Horde3DCore('SetCameraProjMat', camera(1), projL);
+    Horde3DCore('SetCameraProjMat', camera(2), projR);
 
     % Set initial camera position and orientation:
     cx = 5; cy = 13; cz = 19; crx = -17; cry = 15; eyehalfsep = 0.25; eyerot = 1;
@@ -246,6 +219,13 @@ try
     mmode = 0;
     [mxo, myo] = GetMouse;
     oldisdown = 0;
+
+    % Start the headtracker of the HMD:
+    PsychOculusVR('Start', hmd);
+    PsychOculusVRCore ('Verbosity', 2);
+
+    eyeShift(1, :) = -1 * PsychOculusVR('GetEyeShiftVector', hmd, 0);
+    eyeShift(2, :) = -1 * PsychOculusVR('GetEyeShiftVector', hmd, 1);
 
     % Animation loop: Run until keypress:
     while 1
@@ -367,8 +347,21 @@ try
         % Batch-Submit new animation parameters:
         Horde3DCore('SetModelsAnimParameters', anims);
 
+        % Track head position and orientation, retrieve modelview camera matrices for each eye:
+        [eyePoseL, eyePoseR] = PsychOculusVR('StartRender', hmd);
+
+        Horde3DCore('SetNodeTransMat', camera(1), eyePoseToCameraMatrix(eyePoseL));
+        Horde3DCore('SetNodeTransMat', camera(2), eyePoseToCameraMatrix(eyePoseR));
+
         for sbuf = 0:1
             Screen('SelectStereoDrawbuffer', win, sbuf);
+
+            % Setup modelView matrix:
+%            if sbuf == 0
+%                modelView = eyePoseToCameraGLModelviewMatrix(eyePoseL)
+%            else
+%                modelView = eyePoseToCameraGLModelviewMatrix(eyePoseR)
+%            end
 
             % Prepare next 3D render-pass:
             Screen('BeginOpenGL', win);
