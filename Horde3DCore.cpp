@@ -371,6 +371,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
                 mexPrintf("-- Creates a new Joint node and attaches it to the specified parent node.\n\n");
                 mexPrintf("handle = %s('AddCameraNode', parent, name, pipelineRes);\n", me);
                 mexPrintf("-- Creates a new Camera node and attaches it to the specified parent node.\n\n");
+                mexPrintf("%s('SetCameraProjMat', cameraNode, mat4x4);\n", me);
+                mexPrintf("-- Sets the absolute 4x4 projection matrix of the specified camera node.\n\n");
                 mexPrintf("projMat = %s('GetCameraProjMat', cameraNode);\n", me);
                 mexPrintf("-- Gets the camera projection matrix used for bringing the geometry to screen space and copies it to the specified array.\n\n");
                 mexPrintf("handle = %s('AddEmitterNode', parent, name, materialRes, particleEffectRes, maxParticleCount, respawnCount);\n", me);
@@ -1197,7 +1199,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
                 i1 = (int) mxGetScalar(prhs[1]);
 
                 float relMat[3][3], absMat[3][3];
-                //
+                // TODO FIXME relMat and absMat should be pointers!
                 h3dGetNodeTransMats(i1, (const float**)relMat, (const float**)absMat);
 
                 plhs[0] = mxCreateDoubleMatrix(3, 3, mxREAL);
@@ -1215,9 +1217,9 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
                 // Node handle:
                 i1 = (int) mxGetScalar(prhs[1]);
                 float mat[16];
-                for (i3 = 0; i3 < 3; i3++) {
-                        for (i2 = 0; i2 < 3; i2++) {
-                                mat[i2*3+i3] = (float) *(mxGetPr(prhs[2])+i2*3+i3);
+                for (i3 = 0; i3 < 4; i3++) {
+                        for (i2 = 0; i2 < 4; i2++) {
+                                mat[i2*4+i3] = (float) *(mxGetPr(prhs[2])+i2*4+i3);
                         }
                 }
                 //
@@ -1399,6 +1401,20 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
                 *(mxGetPr(plhs[0])) = i3;
                 if (i3 == 0)
                         mexErrMsgTxt("Horde3d: AddCameraNode: The specified camera node could not be added to the scene.");
+        }
+
+        if (IsCommand((char*)"SetCameraProjMat")) {
+            if (nrhs < 2) mexErrMsgTxt("Horde3D: SetCameraProjMat: One of the 2 required parameters missing!");
+            i1 = (int) mxGetScalar(prhs[1]);
+
+            // Sets the camera projection matrix.
+            float mat[16];
+            for (i3 = 0; i3 < 4; i3++) {
+                for (i2 = 0; i2 < 4; i2++) {
+                    mat[i2*4+i3] = (float) *(mxGetPr(prhs[2])+i2*4+i3);
+                }
+            }
+            h3dSetCameraProjMat(i1, (float*) mat);
         }
 
         if (IsCommand((char*)"GetCameraProjMat")) {
