@@ -12,6 +12,9 @@ function HordeDemo(windowed)
 % Press ESCape key to exit.
 %
 
+% History:
+% 15-Sep-2015  mk  Update for Horde 1.0.0 Beta 5 git master + PTB 3.0.12.
+
 % This global HE is defined by HorderHelper('Initialize') and contains all
 % important Horde engine constants conveniently defined as a struct:
 global HE;
@@ -59,24 +62,19 @@ msamples = 0;
 
 if imgpipe == 0
     win = Screen('OpenWindow', screenid, 0, rect, [], [], [], msamples);
-    rendertarget = HordeHelper('GetRendertargetForWindow', win);
+    woff = win;
 else
     % Use Psychtoolbox imaging pipeline. This needs special setup...
     PsychImaging('PrepareConfiguration');
     PsychImaging('AddTask', 'General', 'UseVirtualFramebuffer');
     % Show final image left/right mirrored:
     PsychImaging('AddTask', 'AllViews', 'FlipHorizontal');
-    win  = PsychImaging('OpenWindow', screenid, 0, rect);
+    win  = PsychImaging('OpenWindow', screenid, 0, rect, [], [], [], msamples);
+    woff = win;
 
     if imgpipe == 1
         % Setup a offscreen window 'woff' as rendertarget:
-        woff = Screen('OpenOffscreenWindow', win);
-        rendertarget = HordeHelper('GetRendertargetForWindow', woff);
-    end
-
-    if imgpipe == 2
-        % Setup regular onscreen 'win'dow as rendertarget:
-        rendertarget = HordeHelper('GetRendertargetForWindow', win);
+        woff = Screen('OpenOffscreenWindow', win)
     end
 end
 
@@ -90,7 +88,7 @@ ts = Screen('Flip', win);
 t = ts;
 
 % Switch to 3D mode:
-Screen('BeginOpenGL', win);
+Screen('BeginOpenGL', woff);
 
 try
     % Initialize Horde3DCore and define all HE.xxxx constants for use:
@@ -389,29 +387,14 @@ try
         % Store debug output (if any) to log file:
         Horde3DCore('DumpMessages');
 
-        if imgpipe == 0
-            % Done with 3D rendering:
-			glGetError;
-            Screen('EndOpenGL', win);
-            % This would work as well:
-            % HordeHelper('EndOpenGL', rendertarget);
-        end
+        % Done with 3D rendering:
+        Screen('EndOpenGL', win);
 
         if imgpipe == 1
-            % Finalize OpenGL rendering for 'rendertarget'. This copies the
-            % final Horde image into the associated offscreen window:
-            HordeHelper('EndOpenGL', rendertarget);
-
-            % For the fun of it, blit the offscreen window 'woff' twict
+            % For the fun of it, blit the offscreen window 'woff' twice
             % into PTB's framebuffer, using different methods:
             Screen('CopyWindow', woff, win);
-            Screen('DrawTexture', win, woff, [], [0 0 w/2 h/2]);
-        end
-
-        if imgpipe == 2
-            % Finalize OpenGL rendering for 'rendertarget'. This copies the
-            % final Horde image into our associated onscreen window 'win':
-            HordeHelper('EndOpenGL', rendertarget);
+            Screen('DrawTexture', win, woff, [], CenterRect([0 0 w/2 h/2], Screen('Rect', win)), tSimulation * 10);
         end
 
         % Print some status text onto the screen:
@@ -420,11 +403,10 @@ try
         % Show rendered frame at next vertical retrace, retrieve true stimulus
         % onset timestamp 't':
         t = Screen('Flip', win, [], [], 0);
-
         % t = GetSecs;
 
         % Prepare next 3D render-pass:
-        Screen('BeginOpenGL', win);
+        Screen('BeginOpenGL', woff);
 
         % Repeat...
         fc = fc + 1;
