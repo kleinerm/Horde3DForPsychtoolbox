@@ -197,7 +197,7 @@ void hordeUpdate(float tSimulation, float curFPS)
 	
 	// Animate particle systems (several emitters in a group node)
 	unsigned int cnt = h3dFindNodes( _particleSys, "", H3DNodeTypes::Emitter );
-	for( unsigned int i = 0; i < cnt; ++i ) h3dAdvanceEmitterTime( h3dGetNodeFindResult( i ), 1.0f / curFPS );
+        for( unsigned int i = 0; i < cnt; ++i ) h3dUpdateEmitter( h3dGetNodeFindResult( i ), 1.0f / curFPS );
 
 	// Show logo
 // MK:	h3dShowOverlays( 0.75f, 0.8f, 0, 1, 0.75f, 1, 0, 0,
@@ -381,6 +381,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 		mexPrintf("handle = %s('AddEmitterNode', parent, name, materialRes, particleEffectRes, maxParticleCount, respawnCount);\n", me);
 		mexPrintf("-- Creates a new Emitter node and attaches it to the specified parent node.\n\n");
 		mexPrintf("%s('AdvanceEmitterTime', emitterNode, timeDelta);\n", me);
+                mexPrintf("%s('UpdateEmitter', emitterNode, timeDelta);\n", me);
 		mexPrintf("-- Advances the time value of an Emitter node with timeDelta being the time elapsed since the last call of this function.\n\n");
 		mexPrintf("%s('HasEmitterFinished', emitterNode);\n", me);
 		mexPrintf("-- Checks if an Emitter node is still alive and has living particles or will spawn new particles.\n\n");
@@ -1432,12 +1433,12 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 			mexErrMsgTxt("Horde3d: AddEmitterNode: The specified emitter node could not be added to the scene.");
 	}
 	
-	if (IsCommand((char*)"AdvanceEmitterTime")) {
-		if (nrhs < 2) mexErrMsgTxt("Horde3D: AdvanceEmitterTime: One of the 2 required parameters missing!");
+	if (IsCommand((char*)"AdvanceEmitterTime") || IsCommand((char*)"UpdateEmitter")) {
+            if (nrhs < 2) mexErrMsgTxt("Horde3D: AdvanceEmitterTime/UpdateEmitter: One of the 2 required parameters missing!");
 		i1 = (int) mxGetScalar(prhs[1]);
 		// Advances the time value of an Emitter node.
-		h3dAdvanceEmitterTime(i1, (float) mxGetScalar(prhs[2]));
-	}
+                h3dUpdateEmitter(i1, (float) mxGetScalar(prhs[2]));
+        }
 
 	if (IsCommand((char*)"HasEmitterFinished")) {
 		if (nrhs < 1) mexErrMsgTxt("Horde3D: HasEmitterFinished: One required parameter missing!");
