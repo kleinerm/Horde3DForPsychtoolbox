@@ -38,7 +38,7 @@ screenid = max(Screen('Screens'));
 PsychImaging('PrepareConfiguration');
 hmd = PsychOculusVR('AutoSetupDefaultHMD');
 win  = PsychImaging('OpenWindow', screenid, 0);
-[w,h] = Screen('WindowSize', win)
+[w,h] = Screen('WindowSize', win);
 
 % Set textsize to 24 pixels:
 Screen('TextSize', win, 24);
@@ -91,14 +91,16 @@ try
     % files which define the scene/model/animation tracks etc.:
     Horde3DCore('LoadResources', [fileparts(mfilename('fullpath')) filesep 'Content']);
 
-    % Add a camera to the scene: The behaviour and basic rendering parameters
-    % of the camera are defined by the Pipeline resource 'PipeRes', and it has
-    % the name 'MyCamera'. The name can be anything...
+    % Add a stereo camera pair to the scene: The behaviour and basic rendering parameters
+    % of the cameras are defined by the Pipeline resource 'PipeRes', and they have the
+    % names 'MyLeft/RightCamera'. The name can be anything...
     %
-    % 'camera' is the handle that you can use to modify camera settings later
+    % 'camera(1:2)' are the handles that you can use to modify camera settings later
     % on:
     camera(1) = Horde3DCore('AddCamera', 'MyLeftCamera', PipeRes);
     camera(2) = Horde3DCore('AddCamera', 'MyRightCamera', PipeRes);
+
+    %Horde3DCore('SetNodeTransform', HE.H3DRootNode, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0.1);
 
     % Add scenegraph with the environment scene 'envRes' to the root of the
     % scenegraph, return handle 'env' to it for later manipulations:
@@ -111,6 +113,7 @@ try
     % Scaling  (sx,sy,sz) = [20, 20, 20] units.
     Horde3DCore('SetNodeTransform', env, 0, -20, 0, 0, 0, 0, 20, 20, 20);
 
+    % Some sky box, so the world has an (open) ending:
     sky = Horde3DCore('AddNodes', HE.H3DRootNode, skyRes);
     Horde3DCore('SetNodeTransform', sky, 0, 0, 0, 0, 0, 0, 210, 50, 210 );
 
@@ -198,10 +201,10 @@ try
     Horde3DCore('SetupViewport', camera(1), 0, 0, w, h);
     Horde3DCore('SetupViewport', camera(2), 0, 0, w, h);
 
-    % Retrieve projection matrix for optimal rendering on the HMD:
+    % Retrieve camera projection matrices for optimal rendering on the HMD:
     [projL, projR] = PsychOculusVR('GetStaticRenderParameters', hmd);
 
-    % Assign it to cameras:
+    % Assign them to cameras:
     Horde3DCore('SetCameraProjMat', camera(1), projL);
     Horde3DCore('SetCameraProjMat', camera(2), projR);
 
@@ -224,6 +227,7 @@ try
     PsychOculusVR('Start', hmd);
     PsychOculusVRCore ('Verbosity', 2);
 
+    % Get eyeshift vectors to apply to cameras in separate eye rendering mode:
     eyeShift(1, :) = -1 * PsychOculusVR('GetEyeShiftVector', hmd, 0);
     eyeShift(2, :) = -1 * PsychOculusVR('GetEyeShiftVector', hmd, 1);
 
@@ -325,7 +329,7 @@ try
 
         % Update rotation angle of knights right hand joint:
         [hposX, hposY, hposZ, hrotX, hrotY, hrotZ, hsX, hsY, hsZ] = Horde3DCore('GetNodeTransform', handjoint);
-        hrotX = 90 * sin(tSimulation * 0.1);
+        hrotX = 90 * sin(tSimulation * 0.5);
         Horde3DCore('SetNodeTransform', handjoint, hposX, hposY, hposZ, hrotX, hrotY, hrotZ, hsX, hsY, hsZ);
 
         % Update position of the circle walking guys on their circle:
@@ -366,25 +370,24 @@ try
             % Prepare next 3D render-pass:
             Screen('BeginOpenGL', win);
 
-            % Render updated models and scene into framebuffer, using camera
-            % 'camera':
+            % Render updated models and scene into framebuffer, using camera 'camera':
             Horde3DCore('Render', camera(sbuf+1));
 
             Screen('EndOpenGL', win);
 
             % Print some status text onto the screen:
-            DrawFormattedText(win, [modetxt, sprintf('\nMorphWeight = %f\n', weight)], 0, 0, 255);
+            % DrawFormattedText(win, [modetxt, sprintf('\nMorphWeight = %f\n', weight)], 0, 0, 255);
         end
 
         % We're done with rendering for this frame:
         Horde3DCore('FinalizeFrame');
 
         % Store debug output (if any) to log file:
-        Horde3DCore('DumpMessages');
+        % Horde3DCore('DumpMessages');
 
         % Show rendered frame at next vertical retrace, retrieve true stimulus
         % onset timestamp 't':
-        t = Screen('Flip', win, [], [], 0);
+        t = Screen('Flip', win);
 
         % Repeat...
         fc = fc + 1;
