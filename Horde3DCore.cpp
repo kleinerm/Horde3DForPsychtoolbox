@@ -3,7 +3,7 @@
 *
 * Horde3DCore is a thin wrapper around the C/C++ interface of the Horde3D graphics engine.
 * It allows to interface scripting languages with a Matlab MEX API compatible interface to
-* Horde3D. As such it is useable on Matlab and on GNU/Octave Version 3.2 and later.
+* Horde3D. As such it is useable on Matlab and on GNU/Octave Version 3.8 and later.
 *
 * This file needs Psychtoolbox-3 for OpenGL context and window setup and management.
 * It acts as a 3D OpenGL rendering plugin for rendering with Horde3D into Psychtoolbox
@@ -21,7 +21,7 @@
 *
 * This wrapper plugin is licensed as follows:
 *
-* Copyright (c) 2009 - 2012 Mario Kleiner.
+* Copyright (c) 2009 - 2015 Mario Kleiner.
 * Copyright (c) 2011 Yasir N. Khan.
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -443,7 +443,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 
         if (IsCommand((char*)"License")) {
                 // Dump or License info to screen:
-                mexPrintf("Copyright (c) 2009 - 2012 Mario Kleiner.\n");
+                mexPrintf("Copyright (c) 2009 - 2015 Mario Kleiner.\n");
                 mexPrintf("Copyright (c) 2011 Yasir N. Khan.\n");
                 mexPrintf("\n");
                 mexPrintf("Permission is hereby granted, free of charge, to any person obtaining a copy\n");
