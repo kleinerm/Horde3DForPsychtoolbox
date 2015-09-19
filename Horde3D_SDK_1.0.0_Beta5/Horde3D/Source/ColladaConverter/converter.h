@@ -52,6 +52,8 @@ struct TriGroup
 	TriGroup() : posIndexToVertices( 0x0 )
 	{
 	}
+
+	~TriGroup() { delete[] posIndexToVertices; }
 };
 
 
@@ -75,12 +77,17 @@ struct SceneNode
 		daeInstance = 0x0;
 		parent = 0x0;
 	}
+
+	virtual ~SceneNode()
+	{
+		for( unsigned int i = 0; i < children.size(); ++i ) delete children[i];
+	}
 };
 
 
 struct Mesh : public SceneNode
 {
-	std::vector< TriGroup >  triGroups;
+	std::vector< TriGroup* > triGroups;
 	unsigned int             lodLevel;
 	
 	Mesh()
@@ -89,6 +96,9 @@ struct Mesh : public SceneNode
 		parent = 0x0;
 		lodLevel = 0;
 	}
+
+	~Mesh() { for( int i = triGroups.size(); i>0; ) delete triGroups[--i];  }
+
 };
 
 
@@ -137,8 +147,8 @@ public:
 	
 	bool convertModel( bool optimize );
 	
-	bool writeModel( const std::string &assetPath, const std::string &assetName );
-	bool writeMaterials( const std::string &assetPath, bool replace );
+	bool writeModel( const std::string &assetPath, const std::string &assetName, const std::string &modelName );
+	bool writeMaterials( const std::string &assetPath, const std::string &modelName, bool replace );
 	bool hasAnimation();
 	bool writeAnimation( const std::string &assetPath, const std::string &assetName );
 
@@ -153,8 +163,8 @@ private:
 	void processJoints();
 	void processMeshes( bool optimize );
 	bool writeGeometry( const std::string &assetPath, const std::string &assetName );
-	void writeSGNode( const std::string &assetPath, SceneNode *node, unsigned int depth, std::ofstream &outf );
-	bool writeSceneGraph( const std::string &assetPath, const std::string &assetName );
+	void writeSGNode( const std::string &assetPath, const std::string &modelName, SceneNode *node, unsigned int depth, std::ofstream &outf );
+	bool writeSceneGraph( const std::string &assetPath, const std::string &assetName, const std::string &modelName );
 	void writeAnimFrames( SceneNode &node, FILE *f );
 
 private:
@@ -165,6 +175,7 @@ private:
 	std::vector< Mesh * >        _meshes;
 	std::vector< Joint * >       _joints;
 	std::vector< MorphTarget >   _morphTargets;
+	std::vector< SceneNode* >    _nodes;
 
 	std::string                  _outPath;
 	float                        _lodDist1, _lodDist2, _lodDist3, _lodDist4;

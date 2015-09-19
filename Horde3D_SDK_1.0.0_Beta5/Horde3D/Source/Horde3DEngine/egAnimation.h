@@ -98,7 +98,6 @@ public:
 	virtual const std::string &getANName() = 0;
 	virtual IAnimatableNode *getANParent() = 0;
 	virtual Matrix4f &getANRelTransRef() = 0;
-	virtual bool &getANIgnoreAnimRef() = 0;
 };
 
 struct AnimStage
@@ -132,6 +131,9 @@ public:
 	                     const std::string &startNode, bool additive );
 	bool setAnimParams( int stage, float time, float weight );
 	bool animate();
+
+    int  getAnimCount();
+    void getAnimParams( int stage, float *time, float *weight );
 
 protected:
 	void mapAnimRes( uint32 node, uint32 stage );

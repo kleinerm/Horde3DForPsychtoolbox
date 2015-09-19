@@ -2,8 +2,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/Chicago.dir/app.o"
   "CMakeFiles/Chicago.dir/crowd.o"
   "CMakeFiles/Chicago.dir/main.o"
-  "../../Binaries/Linux/Chicago.pdb"
-  "../../Binaries/Linux/Chicago"
+  "../../Binaries/Darwin/Chicago.pdb"
+  "../../Binaries/Darwin/Chicago.app/Contents/MacOS/Chicago"
 )
 
 # Per-language clean rules from dependency scanning.

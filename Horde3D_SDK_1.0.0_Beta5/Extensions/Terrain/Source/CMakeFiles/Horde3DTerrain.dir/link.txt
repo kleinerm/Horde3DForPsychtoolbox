@@ -1,0 +1,2 @@
+/usr/bin/ar cr libHorde3DTerrain.a  CMakeFiles/Horde3DTerrain.dir/extension.o CMakeFiles/Horde3DTerrain.dir/terrain.o
+/usr/bin/ranlib libHorde3DTerrain.a

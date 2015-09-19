@@ -4,14 +4,24 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/app.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/CMakeFiles/Knight.dir/app.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/main.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/CMakeFiles/Knight.dir/main.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/app.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/CMakeFiles/Knight.dir/app.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/main.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/CMakeFiles/Knight.dir/main.o"
   )
-SET(CMAKE_CXX_COMPILER_ID "GNU")
+SET(CMAKE_CXX_COMPILER_ID "Clang")
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/DependInfo.cmake"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DUtils/CMakeFiles/Horde3DUtils.dir/DependInfo.cmake"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/CMakeFiles/glfw.dir/DependInfo.cmake"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/DependInfo.cmake"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DUtils/CMakeFiles/Horde3DUtils.dir/DependInfo.cmake"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/CMakeFiles/glfw.dir/DependInfo.cmake"
+  "/Users/kleinerm/projects/Horde3D/Extensions/Terrain/Source/CMakeFiles/Horde3DTerrain.dir/DependInfo.cmake"
   )
+
+# The include file search paths:
+SET(CMAKE_C_TARGET_INCLUDE_PATH
+  "Horde3D/Samples/Knight/../../Bindings/C++"
+  "Horde3D/Samples/Knight/../glfw"
+  )
+SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

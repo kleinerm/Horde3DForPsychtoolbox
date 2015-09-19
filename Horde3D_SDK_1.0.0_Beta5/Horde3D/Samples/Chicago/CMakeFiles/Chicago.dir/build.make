@@ -4,7 +4,7 @@
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canoncical targets will work.
+# Disable implicit rules so canonical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
@@ -26,16 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/Cellar/cmake/2.8.12.1/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /usr/local/Cellar/cmake/2.8.12.1/bin/cmake -E remove -f
+
+# Escaping for special characters.
+EQUALS = =
+
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/local/Cellar/cmake/2.8.12.1/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5
+CMAKE_SOURCE_DIR = /Users/kleinerm/projects/Horde3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5
+CMAKE_BINARY_DIR = /Users/kleinerm/projects/Horde3D
 
 # Include any dependencies generated for this target.
 include Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/depend.make
@@ -48,17 +54,17 @@ include Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/flags.make
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.o: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/flags.make
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.o: Horde3D/Samples/Chicago/app.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Chicago.dir/app.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/app.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Chicago.dir/app.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/app.cpp
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Chicago.dir/app.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/app.cpp > CMakeFiles/Chicago.dir/app.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/app.cpp > CMakeFiles/Chicago.dir/app.i
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Chicago.dir/app.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/app.cpp -o CMakeFiles/Chicago.dir/app.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/app.cpp -o CMakeFiles/Chicago.dir/app.s
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.o.requires:
 .PHONY : Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.o.requires
@@ -68,21 +74,20 @@ Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.o.provides: Horde3D/Samples/C
 .PHONY : Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.o.provides
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.o.provides.build: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.o
-.PHONY : Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.o.provides.build
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.o: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/flags.make
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.o: Horde3D/Samples/Chicago/crowd.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Chicago.dir/crowd.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/crowd.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Chicago.dir/crowd.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/crowd.cpp
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Chicago.dir/crowd.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/crowd.cpp > CMakeFiles/Chicago.dir/crowd.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/crowd.cpp > CMakeFiles/Chicago.dir/crowd.i
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Chicago.dir/crowd.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/crowd.cpp -o CMakeFiles/Chicago.dir/crowd.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/crowd.cpp -o CMakeFiles/Chicago.dir/crowd.s
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.o.requires:
 .PHONY : Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.o.requires
@@ -92,21 +97,20 @@ Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.o.provides: Horde3D/Samples
 .PHONY : Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.o.provides
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.o.provides.build: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.o
-.PHONY : Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.o.provides.build
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.o: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/flags.make
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.o: Horde3D/Samples/Chicago/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Chicago.dir/main.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/main.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Chicago.dir/main.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/main.cpp
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Chicago.dir/main.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/main.cpp > CMakeFiles/Chicago.dir/main.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/main.cpp > CMakeFiles/Chicago.dir/main.i
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Chicago.dir/main.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/main.cpp -o CMakeFiles/Chicago.dir/main.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/main.cpp -o CMakeFiles/Chicago.dir/main.s
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.o.requires:
 .PHONY : Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.o.requires
@@ -116,7 +120,6 @@ Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.o.provides: Horde3D/Samples/
 .PHONY : Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.o.provides
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.o.provides.build: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.o
-.PHONY : Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.o.provides.build
 
 # Object files for target Chicago
 Chicago_OBJECTS = \
@@ -127,21 +130,21 @@ Chicago_OBJECTS = \
 # External object files for target Chicago
 Chicago_EXTERNAL_OBJECTS =
 
-Horde3D/Binaries/Linux/Chicago: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.o
-Horde3D/Binaries/Linux/Chicago: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.o
-Horde3D/Binaries/Linux/Chicago: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.o
-Horde3D/Binaries/Linux/Chicago: Horde3D/Source/Horde3DEngine/libHorde3D.so
-Horde3D/Binaries/Linux/Chicago: Horde3D/Source/Horde3DUtils/libHorde3DUtils.so
-Horde3D/Binaries/Linux/Chicago: Horde3D/Samples/glfw/libglfw.a
-Horde3D/Binaries/Linux/Chicago: /usr/lib/libX11.so
-Horde3D/Binaries/Linux/Chicago: Horde3D/Source/Horde3DEngine/libHorde3D.so
-Horde3D/Binaries/Linux/Chicago: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/build.make
-Horde3D/Binaries/Linux/Chicago: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ../../Binaries/Linux/Chicago"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Chicago.dir/link.txt --verbose=$(VERBOSE)
+Horde3D/Binaries/Darwin/Chicago.app/Contents/MacOS/Chicago: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.o
+Horde3D/Binaries/Darwin/Chicago.app/Contents/MacOS/Chicago: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/crowd.o
+Horde3D/Binaries/Darwin/Chicago.app/Contents/MacOS/Chicago: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/main.o
+Horde3D/Binaries/Darwin/Chicago.app/Contents/MacOS/Chicago: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/build.make
+Horde3D/Binaries/Darwin/Chicago.app/Contents/MacOS/Chicago: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D
+Horde3D/Binaries/Darwin/Chicago.app/Contents/MacOS/Chicago: Horde3D/Source/Horde3DUtils/Horde3DUtils.framework/Versions/A/Horde3DUtils
+Horde3D/Binaries/Darwin/Chicago.app/Contents/MacOS/Chicago: Horde3D/Samples/glfw/libglfw.a
+Horde3D/Binaries/Darwin/Chicago.app/Contents/MacOS/Chicago: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D
+Horde3D/Binaries/Darwin/Chicago.app/Contents/MacOS/Chicago: Extensions/Terrain/Source/libHorde3DTerrain.a
+Horde3D/Binaries/Darwin/Chicago.app/Contents/MacOS/Chicago: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ../../Binaries/Darwin/Chicago.app/Contents/MacOS/Chicago"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Chicago.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/build: Horde3D/Binaries/Linux/Chicago
+Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/build: Horde3D/Binaries/Darwin/Chicago.app/Contents/MacOS/Chicago
 .PHONY : Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/build
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/requires: Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/app.o.requires
@@ -150,10 +153,10 @@ Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/requires: Horde3D/Samples/Chicago
 .PHONY : Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/requires
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/clean:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago && $(CMAKE_COMMAND) -P CMakeFiles/Chicago.dir/cmake_clean.cmake
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago && $(CMAKE_COMMAND) -P CMakeFiles/Chicago.dir/cmake_clean.cmake
 .PHONY : Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/clean
 
 Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/depend:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/kleinerm/projects/Horde3D && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/kleinerm/projects/Horde3D /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago /Users/kleinerm/projects/Horde3D /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago /Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir/depend
 

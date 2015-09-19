@@ -4,7 +4,7 @@
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canoncical targets will work.
+# Disable implicit rules so canonical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
@@ -26,16 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/Cellar/cmake/2.8.12.1/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /usr/local/Cellar/cmake/2.8.12.1/bin/cmake -E remove -f
+
+# Escaping for special characters.
+EQUALS = =
+
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/local/Cellar/cmake/2.8.12.1/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5
+CMAKE_SOURCE_DIR = /Users/kleinerm/projects/Horde3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5
+CMAKE_BINARY_DIR = /Users/kleinerm/projects/Horde3D
 
 # Include any dependencies generated for this target.
 include Horde3D/Samples/glfw/CMakeFiles/glfw.dir/depend.make
@@ -48,17 +54,17 @@ include Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.o: Horde3D/Samples/glfw/lib/enable.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/enable.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/enable.c
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/glfw.dir/lib/enable.o   -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/enable.c
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/enable.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/enable.c > CMakeFiles/glfw.dir/lib/enable.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/enable.c > CMakeFiles/glfw.dir/lib/enable.i
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/enable.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/enable.c -o CMakeFiles/glfw.dir/lib/enable.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/enable.c -o CMakeFiles/glfw.dir/lib/enable.s
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.o.requires:
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.o.requires
@@ -68,21 +74,20 @@ Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.o.provides: Horde3D/Samples/
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.o.provides
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.o.provides.build
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.o: Horde3D/Samples/glfw/lib/fullscreen.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/fullscreen.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/fullscreen.c
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/glfw.dir/lib/fullscreen.o   -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/fullscreen.c
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/fullscreen.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/fullscreen.c > CMakeFiles/glfw.dir/lib/fullscreen.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/fullscreen.c > CMakeFiles/glfw.dir/lib/fullscreen.i
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/fullscreen.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/fullscreen.c -o CMakeFiles/glfw.dir/lib/fullscreen.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/fullscreen.c -o CMakeFiles/glfw.dir/lib/fullscreen.s
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.o.requires:
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.o.requires
@@ -92,21 +97,20 @@ Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.o.provides: Horde3D/Samp
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.o.provides
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.o.provides.build
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.o: Horde3D/Samples/glfw/lib/glext.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/glext.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/glext.c
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/glfw.dir/lib/glext.o   -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/glext.c
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/glext.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/glext.c > CMakeFiles/glfw.dir/lib/glext.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/glext.c > CMakeFiles/glfw.dir/lib/glext.i
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/glext.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/glext.c -o CMakeFiles/glfw.dir/lib/glext.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/glext.c -o CMakeFiles/glfw.dir/lib/glext.s
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.o.requires:
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.o.requires
@@ -116,21 +120,20 @@ Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.o.provides: Horde3D/Samples/g
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.o.provides
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.o.provides.build
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.o: Horde3D/Samples/glfw/lib/image.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/image.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/image.c
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/glfw.dir/lib/image.o   -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/image.c
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/image.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/image.c > CMakeFiles/glfw.dir/lib/image.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/image.c > CMakeFiles/glfw.dir/lib/image.i
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/image.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/image.c -o CMakeFiles/glfw.dir/lib/image.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/image.c -o CMakeFiles/glfw.dir/lib/image.s
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.o.requires:
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.o.requires
@@ -140,21 +143,20 @@ Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.o.provides: Horde3D/Samples/g
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.o.provides
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.o.provides.build
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.o: Horde3D/Samples/glfw/lib/init.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/init.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/init.c
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/glfw.dir/lib/init.o   -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/init.c
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/init.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/init.c > CMakeFiles/glfw.dir/lib/init.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/init.c > CMakeFiles/glfw.dir/lib/init.i
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/init.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/init.c -o CMakeFiles/glfw.dir/lib/init.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/init.c -o CMakeFiles/glfw.dir/lib/init.s
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.o.requires:
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.o.requires
@@ -164,21 +166,20 @@ Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.o.provides: Horde3D/Samples/gl
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.o.provides
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.o.provides.build
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.o: Horde3D/Samples/glfw/lib/input.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/input.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/input.c
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/glfw.dir/lib/input.o   -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/input.c
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/input.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/input.c > CMakeFiles/glfw.dir/lib/input.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/input.c > CMakeFiles/glfw.dir/lib/input.i
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/input.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/input.c -o CMakeFiles/glfw.dir/lib/input.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/input.c -o CMakeFiles/glfw.dir/lib/input.s
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.o.requires:
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.o.requires
@@ -188,21 +189,20 @@ Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.o.provides: Horde3D/Samples/g
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.o.provides
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.o.provides.build
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.o: Horde3D/Samples/glfw/lib/joystick.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/joystick.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/joystick.c
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/glfw.dir/lib/joystick.o   -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/joystick.c
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/joystick.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/joystick.c > CMakeFiles/glfw.dir/lib/joystick.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/joystick.c > CMakeFiles/glfw.dir/lib/joystick.i
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/joystick.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/joystick.c -o CMakeFiles/glfw.dir/lib/joystick.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/joystick.c -o CMakeFiles/glfw.dir/lib/joystick.s
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.o.requires:
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.o.requires
@@ -212,21 +212,20 @@ Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.o.provides: Horde3D/Sample
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.o.provides
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.o.provides.build
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.o: Horde3D/Samples/glfw/lib/stream.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/stream.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/stream.c
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/glfw.dir/lib/stream.o   -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/stream.c
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/stream.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/stream.c > CMakeFiles/glfw.dir/lib/stream.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/stream.c > CMakeFiles/glfw.dir/lib/stream.i
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/stream.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/stream.c -o CMakeFiles/glfw.dir/lib/stream.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/stream.c -o CMakeFiles/glfw.dir/lib/stream.s
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.o.requires:
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.o.requires
@@ -236,21 +235,20 @@ Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.o.provides: Horde3D/Samples/
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.o.provides
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.o.provides.build
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.o: Horde3D/Samples/glfw/lib/tga.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/tga.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/tga.c
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/glfw.dir/lib/tga.o   -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/tga.c
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/tga.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/tga.c > CMakeFiles/glfw.dir/lib/tga.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/tga.c > CMakeFiles/glfw.dir/lib/tga.i
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/tga.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/tga.c -o CMakeFiles/glfw.dir/lib/tga.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/tga.c -o CMakeFiles/glfw.dir/lib/tga.s
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.o.requires:
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.o.requires
@@ -260,21 +258,20 @@ Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.o.provides: Horde3D/Samples/glf
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.o.provides
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.o.provides.build
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o: Horde3D/Samples/glfw/lib/thread.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/thread.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/thread.c
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/glfw.dir/lib/thread.o   -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/thread.c
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/thread.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/thread.c > CMakeFiles/glfw.dir/lib/thread.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/thread.c > CMakeFiles/glfw.dir/lib/thread.i
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/thread.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/thread.c -o CMakeFiles/glfw.dir/lib/thread.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/thread.c -o CMakeFiles/glfw.dir/lib/thread.s
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o.requires:
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o.requires
@@ -284,21 +281,20 @@ Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o.provides: Horde3D/Samples/
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o.provides
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o.provides.build
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o: Horde3D/Samples/glfw/lib/time.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_11)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/time.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/time.c
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/glfw.dir/lib/time.o   -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/time.c
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/time.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/time.c > CMakeFiles/glfw.dir/lib/time.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/time.c > CMakeFiles/glfw.dir/lib/time.i
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/time.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/time.c -o CMakeFiles/glfw.dir/lib/time.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/time.c -o CMakeFiles/glfw.dir/lib/time.s
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o.requires:
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o.requires
@@ -308,21 +304,20 @@ Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o.provides: Horde3D/Samples/gl
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o.provides
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o.provides.build
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o: Horde3D/Samples/glfw/lib/window.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_12)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_12)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/window.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/window.c
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/glfw.dir/lib/window.o   -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/window.c
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/window.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/window.c > CMakeFiles/glfw.dir/lib/window.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/window.c > CMakeFiles/glfw.dir/lib/window.i
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/window.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/window.c -o CMakeFiles/glfw.dir/lib/window.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/window.c -o CMakeFiles/glfw.dir/lib/window.s
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o.requires:
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o.requires
@@ -332,223 +327,190 @@ Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o.provides: Horde3D/Samples/
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o.provides
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o.provides.build
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o: Horde3D/Samples/glfw/lib/x11/x11_enable.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_13)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/x11/x11_enable.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_enable.c
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o: Horde3D/Samples/glfw/lib/cocoa/cocoa_enable.m
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_13)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_enable.m
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/x11/x11_enable.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_enable.c > CMakeFiles/glfw.dir/lib/x11/x11_enable.i
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.i"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_enable.m > CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.i
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/x11/x11_enable.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_enable.c -o CMakeFiles/glfw.dir/lib/x11/x11_enable.s
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.s"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_enable.m -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.s
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o.requires:
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o.requires:
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o.requires
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o.requires
-	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o.provides.build
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o.provides
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o.requires
+	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o.provides.build
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o.provides
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o.provides.build
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o: Horde3D/Samples/glfw/lib/x11/x11_fullscreen.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_14)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_fullscreen.c
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o: Horde3D/Samples/glfw/lib/cocoa/cocoa_fullscreen.m
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_14)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_fullscreen.m
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_fullscreen.c > CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.i
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.i"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_fullscreen.m > CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.i
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_fullscreen.c -o CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.s
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.s"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_fullscreen.m -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.s
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o.requires:
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o.requires:
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o.requires
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o.requires
-	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o.provides.build
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o.provides
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o.requires
+	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o.provides.build
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o.provides
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o.provides.build
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o: Horde3D/Samples/glfw/lib/x11/x11_glext.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_15)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/x11/x11_glext.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_glext.c
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o: Horde3D/Samples/glfw/lib/cocoa/cocoa_glext.m
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_15)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_glext.m
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/x11/x11_glext.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_glext.c > CMakeFiles/glfw.dir/lib/x11/x11_glext.i
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.i"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_glext.m > CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.i
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/x11/x11_glext.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_glext.c -o CMakeFiles/glfw.dir/lib/x11/x11_glext.s
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.s"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_glext.m -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.s
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o.requires:
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o.requires:
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o.requires
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o.requires
-	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o.provides.build
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o.provides
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o.requires
+	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o.provides.build
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o.provides
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o.provides.build
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o: Horde3D/Samples/glfw/lib/x11/x11_init.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_16)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/x11/x11_init.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_init.c
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o: Horde3D/Samples/glfw/lib/cocoa/cocoa_init.m
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_16)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_init.m
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/x11/x11_init.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_init.c > CMakeFiles/glfw.dir/lib/x11/x11_init.i
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.i"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_init.m > CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.i
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/x11/x11_init.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_init.c -o CMakeFiles/glfw.dir/lib/x11/x11_init.s
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.s"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_init.m -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.s
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o.requires:
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o.requires:
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o.requires
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o.requires
-	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o.provides.build
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o.provides
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o.requires
+	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o.provides.build
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o.provides
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o.provides.build
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o: Horde3D/Samples/glfw/lib/x11/x11_joystick.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_17)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/x11/x11_joystick.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_joystick.c
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o: Horde3D/Samples/glfw/lib/cocoa/cocoa_joystick.m
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_17)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_joystick.m
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/x11/x11_joystick.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_joystick.c > CMakeFiles/glfw.dir/lib/x11/x11_joystick.i
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.i"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_joystick.m > CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.i
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/x11/x11_joystick.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_joystick.c -o CMakeFiles/glfw.dir/lib/x11/x11_joystick.s
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.s"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_joystick.m -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.s
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o.requires:
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o.requires:
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o.requires
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o.requires
-	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o.provides.build
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o.provides
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o.requires
+	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o.provides.build
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o.provides
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o.provides.build
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o: Horde3D/Samples/glfw/lib/x11/x11_keysym2unicode.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_18)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_keysym2unicode.c
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o: Horde3D/Samples/glfw/lib/cocoa/cocoa_thread.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_18)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o   -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_thread.c
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_keysym2unicode.c > CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.i
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.i"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_thread.c > CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.i
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_keysym2unicode.c -o CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.s
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.s"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_thread.c -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.s
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o.requires:
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o.requires:
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o.requires
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o.requires
-	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o.provides.build
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o.provides
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o.requires
+	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o.provides.build
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o.provides
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o.provides.build
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o: Horde3D/Samples/glfw/lib/x11/x11_thread.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_19)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/x11/x11_thread.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_thread.c
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o: Horde3D/Samples/glfw/lib/cocoa/cocoa_time.m
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_19)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_time.m
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/x11/x11_thread.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_thread.c > CMakeFiles/glfw.dir/lib/x11/x11_thread.i
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.i"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_time.m > CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.i
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/x11/x11_thread.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_thread.c -o CMakeFiles/glfw.dir/lib/x11/x11_thread.s
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.s"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_time.m -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.s
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o.requires:
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o.requires:
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o.requires
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o.requires
-	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o.provides.build
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o.provides
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o.requires
+	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o.provides.build
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o.provides
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o.provides.build
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o: Horde3D/Samples/glfw/lib/x11/x11_time.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_20)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/x11/x11_time.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_time.c
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o: Horde3D/Samples/glfw/lib/cocoa/cocoa_window.m
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_20)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_window.m
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/x11/x11_time.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_time.c > CMakeFiles/glfw.dir/lib/x11/x11_time.i
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.i"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_window.m > CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.i
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/x11/x11_time.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_time.c -o CMakeFiles/glfw.dir/lib/x11/x11_time.s
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.s"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_window.m -o CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.s
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o.requires:
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o.requires:
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o.requires
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o.requires
-	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o.provides.build
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o.provides
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o.requires
+	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o.provides.build
+.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o.provides
 
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o.provides.build
-
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/flags.make
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o: Horde3D/Samples/glfw/lib/x11/x11_window.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_21)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -o CMakeFiles/glfw.dir/lib/x11/x11_window.o   -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_window.c
-
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glfw.dir/lib/x11/x11_window.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_window.c > CMakeFiles/glfw.dir/lib/x11/x11_window.i
-
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glfw.dir/lib/x11/x11_window.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -D_GLFW_HAS_GLXGETPROCADDRESSARB -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_window.c -o CMakeFiles/glfw.dir/lib/x11/x11_window.s
-
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o.requires:
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o.requires
-
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o.provides: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o.requires
-	$(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o.provides.build
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o.provides
-
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o
-.PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o.provides.build
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o.provides.build: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o
 
 # Object files for target glfw
 glfw_OBJECTS = \
@@ -564,15 +526,14 @@ glfw_OBJECTS = \
 "CMakeFiles/glfw.dir/lib/thread.o" \
 "CMakeFiles/glfw.dir/lib/time.o" \
 "CMakeFiles/glfw.dir/lib/window.o" \
-"CMakeFiles/glfw.dir/lib/x11/x11_enable.o" \
-"CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o" \
-"CMakeFiles/glfw.dir/lib/x11/x11_glext.o" \
-"CMakeFiles/glfw.dir/lib/x11/x11_init.o" \
-"CMakeFiles/glfw.dir/lib/x11/x11_joystick.o" \
-"CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o" \
-"CMakeFiles/glfw.dir/lib/x11/x11_thread.o" \
-"CMakeFiles/glfw.dir/lib/x11/x11_time.o" \
-"CMakeFiles/glfw.dir/lib/x11/x11_window.o"
+"CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o" \
+"CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o" \
+"CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o" \
+"CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o" \
+"CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o" \
+"CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o" \
+"CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o" \
+"CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o"
 
 # External object files for target glfw
 glfw_EXTERNAL_OBJECTS =
@@ -589,20 +550,19 @@ Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga
 Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o
 Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o
 Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o
-Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o
-Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o
-Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o
-Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o
-Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o
-Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o
-Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o
-Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o
-Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o
+Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o
+Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o
+Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o
+Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o
+Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o
+Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o
+Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o
+Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o
 Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make
 Horde3D/Samples/glfw/libglfw.a: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C static library libglfw.a"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && $(CMAKE_COMMAND) -P CMakeFiles/glfw.dir/cmake_clean_target.cmake
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/glfw.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libglfw.a"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && $(CMAKE_COMMAND) -P CMakeFiles/glfw.dir/cmake_clean_target.cmake
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/glfw.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build: Horde3D/Samples/glfw/libglfw.a
@@ -620,22 +580,21 @@ Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFil
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o.requires
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o.requires
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o.requires
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o.requires
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o.requires
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o.requires
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o.requires
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o.requires
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o.requires
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o.requires
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o.requires
-Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o.requires
+Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o.requires
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/requires
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/clean:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw && $(CMAKE_COMMAND) -P CMakeFiles/glfw.dir/cmake_clean.cmake
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw && $(CMAKE_COMMAND) -P CMakeFiles/glfw.dir/cmake_clean.cmake
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/clean
 
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/depend:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/CMakeFiles/glfw.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/kleinerm/projects/Horde3D && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/kleinerm/projects/Horde3D /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw /Users/kleinerm/projects/Horde3D /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/CMakeFiles/glfw.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/depend
 
