@@ -46,6 +46,7 @@ if IsOSX
     % OS/X build:
     if IsOctave
         mex -v Horde3DCore.cpp -I./HordeEngineSDK -W" -framework Horde3D -framework Horde3DUtils" "-W, -mmacosx-version-min='10.8'" "-Wl,-headerpad_max_install_names -F/System/Library/Frameworks/ -F/Library/Frameworks/,-syslibroot,'/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk' -mmacosx-version-min='10.8'"
+        osxsetoctaverpath('Horde3DCore');
     else
         mex -v Horde3DCore.cpp -I./HordeEngineSDK LDFLAGS="\$LDFLAGS -framework Horde3D -framework Horde3DUtils"
     end
