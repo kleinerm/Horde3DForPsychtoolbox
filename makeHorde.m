@@ -24,9 +24,13 @@ function makeHorde
 % rendering support, as well as for OSX 10.10 build environment.
 
 if IsWin
-    % Windows build: Works for both Matlab and GNU/Octave 3.2.x:
-    mex -v Horde3DCore.cpp -I.\HordeEngineSDK -L.\HordeEngineSDK -lHorde3D_vc8 -lHorde3DUtils_vc8
-    movefile(['Horde3DCore.' mexext], ['HordeWin32/Horde3DCore.' mexext]);
+    if ~IsWin(1)
+        error('Building Horde3DCore for 32-Bit Windows is no longer supported.');
+    end
+
+    % Windows 64-Bit build for Matlab:
+    mex -v Horde3DCore.cpp -I.\HordeEngineSDK -L.\HordeEngineSDK -lHorde3D_vc10 -lHorde3DUtils_vc10
+    movefile(['Horde3DCore.' mexext], ['HordeWin64/Horde3DCore.' mexext]);
 end
 
 if IsLinux
