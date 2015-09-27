@@ -11,7 +11,7 @@ function HordeVRHMDDemo1
 %
 
 % History:
-% 15-Sep-2015  mk  Written. Derived from HordeStereoDemo.
+% 15-Sep-2015  mk  Started. Derived from HordeStereoDemo.
 
 % This global HE is defined by HorderHelper('Initialize') and contains all
 % important Horde engine constants conveniently defined as a struct:
@@ -223,10 +223,6 @@ try
     [mxo, myo] = GetMouse;
     oldisdown = 0;
 
-    % Get eyeshift vectors to apply to cameras in separate eye rendering mode:
-    eyeShift(1, :) = -1 * PsychVRHMD('GetEyeShiftVector', hmd, 0);
-    eyeShift(2, :) = -1 * PsychVRHMD('GetEyeShiftVector', hmd, 1);
-
     % Animation loop: Run until keypress:
     while 1
         % Keyboard query:
@@ -347,21 +343,16 @@ try
         % Batch-Submit new animation parameters:
         Horde3DCore('SetModelsAnimParameters', anims);
 
-        % Track head position and orientation, retrieve modelview camera matrices for each eye:
-        [eyePoseL, eyePoseR] = PsychVRHMD('StartRender', hmd);
+        % Track head position and orientation, retrieve camera matrices for each eye,
+        % as well as tracking state:
+        state = PsychVRHMD('PrepareRender', hmd, 2);
 
-        Horde3DCore('SetNodeTransMat', camera(1), eyePoseToCameraMatrix(eyePoseL));
-        Horde3DCore('SetNodeTransMat', camera(2), eyePoseToCameraMatrix(eyePoseR));
+        % Setup Horde3D cameras from camera view matrices:
+        Horde3DCore('SetNodeTransMat', camera(1), state.cameraView{1});
+        Horde3DCore('SetNodeTransMat', camera(2), state.cameraView{2});
 
         for sbuf = 0:1
             Screen('SelectStereoDrawbuffer', win, sbuf);
-
-            % Setup modelView matrix:
-%            if sbuf == 0
-%                modelView = eyePoseToCameraGLModelviewMatrix(eyePoseL)
-%            else
-%                modelView = eyePoseToCameraGLModelviewMatrix(eyePoseR)
-%            end
 
             % Prepare next 3D render-pass:
             Screen('BeginOpenGL', win);
@@ -370,9 +361,6 @@ try
             Horde3DCore('Render', camera(sbuf+1));
 
             Screen('EndOpenGL', win);
-
-            % Print some status text onto the screen:
-            % DrawFormattedText(win, [modetxt, sprintf('\nMorphWeight = %f\n', weight)], 0, 0, 255);
         end
 
         % We're done with rendering for this frame:
@@ -380,6 +368,12 @@ try
 
         % Store debug output (if any) to log file:
         % Horde3DCore('DumpMessages');
+
+        % Head position tracked?
+        if ~bitand(state.tracked, 2)
+          % Nope, user out of cameras view frustum. Tell it like it is:
+          DrawFormattedText(win, 'Vision based tracking lost\nGet back into the cameras field of view!', 'center', 'center', [1 0 0]);
+        end
 
         % Show rendered frame at next vertical retrace, retrieve true stimulus
         % onset timestamp 't':
