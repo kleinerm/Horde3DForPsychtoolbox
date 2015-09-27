@@ -32,11 +32,10 @@ InitializeMatlabOpenGL;
 
 % Open window on screen 0, the main display:
 screenid = max(Screen('Screens'));
-%screenid = 0
 
 % Use Psychtoolbox imaging pipeline. This needs special setup...
 PsychImaging('PrepareConfiguration');
-hmd = PsychOculusVR('AutoSetupDefaultHMD');
+hmd = PsychVRHMD('AutoSetupHMD', 'Tracked3DVR', 'LowPersistence TimeWarp');
 win  = PsychImaging('OpenWindow', screenid, 0);
 [w,h] = Screen('WindowSize', win);
 
@@ -202,7 +201,7 @@ try
     Horde3DCore('SetupViewport', camera(2), 0, 0, w, h);
 
     % Retrieve camera projection matrices for optimal rendering on the HMD:
-    [projL, projR] = PsychOculusVR('GetStaticRenderParameters', hmd);
+    [projL, projR] = PsychVRHMD('GetStaticRenderParameters', hmd);
 
     % Assign them to cameras:
     Horde3DCore('SetCameraProjMat', camera(1), projL);
@@ -223,13 +222,9 @@ try
     [mxo, myo] = GetMouse;
     oldisdown = 0;
 
-    % Start the headtracker of the HMD:
-    PsychOculusVR('Start', hmd);
-    PsychOculusVRCore ('Verbosity', 2);
-
     % Get eyeshift vectors to apply to cameras in separate eye rendering mode:
-    eyeShift(1, :) = -1 * PsychOculusVR('GetEyeShiftVector', hmd, 0);
-    eyeShift(2, :) = -1 * PsychOculusVR('GetEyeShiftVector', hmd, 1);
+    eyeShift(1, :) = -1 * PsychVRHMD('GetEyeShiftVector', hmd, 0);
+    eyeShift(2, :) = -1 * PsychVRHMD('GetEyeShiftVector', hmd, 1);
 
     % Animation loop: Run until keypress:
     while 1
@@ -352,7 +347,7 @@ try
         Horde3DCore('SetModelsAnimParameters', anims);
 
         % Track head position and orientation, retrieve modelview camera matrices for each eye:
-        [eyePoseL, eyePoseR] = PsychOculusVR('StartRender', hmd);
+        [eyePoseL, eyePoseR] = PsychVRHMD('StartRender', hmd);
 
         Horde3DCore('SetNodeTransMat', camera(1), eyePoseToCameraMatrix(eyePoseL));
         Horde3DCore('SetNodeTransMat', camera(2), eyePoseToCameraMatrix(eyePoseR));
