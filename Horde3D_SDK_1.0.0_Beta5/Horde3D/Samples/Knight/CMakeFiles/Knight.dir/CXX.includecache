@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/app.cpp
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/app.cpp
 app.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/app.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/app.h
 Horde3D.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/Horde3D.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/Horde3D.h
 Horde3DUtils.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/Horde3DUtils.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/Horde3DUtils.h
 math.h
 -
 iomanip
 -
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/app.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/app.h
 Horde3D.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/Horde3D.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/Horde3D.h
 sstream
 -
 string
 -
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/main.cpp
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/main.cpp
 iostream
 -
 cstdlib
@@ -36,9 +36,9 @@ cstring
 cstdio
 -
 glfw.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/glfw.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/glfw.h
 app.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Knight/app.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/app.h
 
 Horde3D/Samples/Knight/../../Bindings/C++/Horde3D.h
 

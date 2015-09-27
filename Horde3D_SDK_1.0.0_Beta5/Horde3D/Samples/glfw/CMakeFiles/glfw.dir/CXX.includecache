@@ -6,39 +6,39 @@
 
 #IncludeRegexTransform: 
 
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/cocoa_enable.m
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_enable.m
 internal.h
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/internal.h
 
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/cocoa_fullscreen.m
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_fullscreen.m
 internal.h
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/internal.h
 
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/cocoa_glext.m
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_glext.m
 internal.h
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/internal.h
 
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/cocoa_init.m
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_init.m
 crt_externs.h
 -
 internal.h
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/internal.h
 
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/cocoa_joystick.m
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_joystick.m
 internal.h
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/internal.h
 
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/cocoa_time.m
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_time.m
 internal.h
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/internal.h
 sys/time.h
 -
 
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/cocoa_window.m
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_window.m
 internal.h
-/Users/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/cocoa/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/internal.h
 
-Horde3D/Samples/glfw/./lib/../glfw.h
+Horde3D/Samples/glfw/./glfw.h
 OpenGL/gl.h
 -
 OpenGL/glu.h
@@ -54,7 +54,7 @@ Cocoa/Cocoa.h
 pthread.h
 -
 ../glfw.h
-Horde3D/Samples/glfw/./lib/cocoa/../glfw.h
+Horde3D/Samples/glfw/./lib/glfw.h
 
 Horde3D/Samples/glfw/./lib/internal.h
 stdlib.h

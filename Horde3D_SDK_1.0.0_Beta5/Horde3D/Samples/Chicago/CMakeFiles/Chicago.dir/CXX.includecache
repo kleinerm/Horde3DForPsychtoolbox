@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/app.cpp
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/app.cpp
 app.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/app.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/app.h
 Horde3D.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/Horde3D.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/Horde3D.h
 Horde3DUtils.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/Horde3DUtils.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/Horde3DUtils.h
 math.h
 -
 iomanip
 -
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/app.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/app.h
 crowd.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/crowd.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/crowd.h
 string
 -
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/crowd.cpp
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/crowd.cpp
 crowd.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/crowd.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/crowd.h
 math.h
 -
 stdlib.h
@@ -34,17 +34,17 @@ stdlib.h
 time.h
 -
 Horde3DUtils.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/Horde3DUtils.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/Horde3DUtils.h
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/crowd.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/crowd.h
 Horde3D.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/Horde3D.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/Horde3D.h
 vector
 -
 string
 -
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/main.cpp
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/main.cpp
 iostream
 -
 cstdlib
@@ -54,9 +54,9 @@ cstring
 cstdio
 -
 glfw.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/glfw.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/glfw.h
 app.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/Chicago/app.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/app.h
 
 Horde3D/Samples/Chicago/../../Bindings/C++/Horde3D.h
 

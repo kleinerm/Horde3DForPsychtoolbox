@@ -4,7 +4,7 @@
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canoncical targets will work.
+# Disable implicit rules so canonical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
@@ -26,16 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/Cellar/cmake/2.8.12.1/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /usr/local/Cellar/cmake/2.8.12.1/bin/cmake -E remove -f
+
+# Escaping for special characters.
+EQUALS = =
+
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/local/Cellar/cmake/2.8.12.1/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5
+CMAKE_SOURCE_DIR = /Users/kleinerm/projects/Horde3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5
+CMAKE_BINARY_DIR = /Users/kleinerm/projects/Horde3D
 
 # Include any dependencies generated for this target.
 include Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/depend.make
@@ -46,19 +52,119 @@ include Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/progress.make
 # Include the compile flags for this target's objects.
 include Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egAnimatables.h: Horde3D/Source/Horde3DEngine/egAnimatables.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egAnimatables.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egAnimatables.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egAnimatables.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egAnimation.h: Horde3D/Source/Horde3DEngine/egAnimation.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egAnimation.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egAnimation.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egAnimation.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egCamera.h: Horde3D/Source/Horde3DEngine/egCamera.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egCamera.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egCamera.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egCamera.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egCom.h: Horde3D/Source/Horde3DEngine/egCom.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egCom.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egCom.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egCom.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egExtensions.h: Horde3D/Source/Horde3DEngine/egExtensions.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egExtensions.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egExtensions.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egExtensions.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egGeometry.h: Horde3D/Source/Horde3DEngine/egGeometry.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egGeometry.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egGeometry.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egGeometry.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egLight.h: Horde3D/Source/Horde3DEngine/egLight.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egLight.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egLight.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egLight.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egMaterial.h: Horde3D/Source/Horde3DEngine/egMaterial.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egMaterial.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egMaterial.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egMaterial.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egModel.h: Horde3D/Source/Horde3DEngine/egModel.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egModel.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egModel.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egModel.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egModules.h: Horde3D/Source/Horde3DEngine/egModules.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egModules.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egModules.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egModules.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egParticle.h: Horde3D/Source/Horde3DEngine/egParticle.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egParticle.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egParticle.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egParticle.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egPipeline.h: Horde3D/Source/Horde3DEngine/egPipeline.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egPipeline.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egPipeline.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egPipeline.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egPrerequisites.h: Horde3D/Source/Horde3DEngine/egPrerequisites.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egPrerequisites.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egPrerequisites.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egPrerequisites.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egPrimitives.h: Horde3D/Source/Horde3DEngine/egPrimitives.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egPrimitives.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egPrimitives.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egPrimitives.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egRenderer.h: Horde3D/Source/Horde3DEngine/egRenderer.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egRenderer.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egRenderer.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egRenderer.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egRendererBase.h: Horde3D/Source/Horde3DEngine/egRendererBase.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egRendererBase.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egRendererBase.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egRendererBase.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egResource.h: Horde3D/Source/Horde3DEngine/egResource.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egResource.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egResource.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egResource.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egScene.h: Horde3D/Source/Horde3DEngine/egScene.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egScene.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egScene.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egScene.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egSceneGraphRes.h: Horde3D/Source/Horde3DEngine/egSceneGraphRes.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egSceneGraphRes.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egSceneGraphRes.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egSceneGraphRes.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egShader.h: Horde3D/Source/Horde3DEngine/egShader.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egShader.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egShader.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egShader.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egTexture.h: Horde3D/Source/Horde3DEngine/egTexture.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egTexture.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egTexture.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egTexture.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/utImage.h: Horde3D/Source/Horde3DEngine/utImage.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/utImage.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/utImage.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/utImage.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/utTimer.h: Horde3D/Source/Horde3DEngine/utTimer.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/utTimer.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/utTimer.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/utTimer.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/utOpenGL.h: Horde3D/Source/Horde3DEngine/utOpenGL.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/utOpenGL.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/utOpenGL.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/utOpenGL.h
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Headers/Horde3D.h: Horde3D/Bindings/C++/Horde3D.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Headers/Horde3D.h"
+	$(CMAKE_COMMAND) -E copy /Users/kleinerm/projects/Horde3D/Horde3D/Bindings/C++/Horde3D.h Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Headers/Horde3D.h
+
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o: Horde3D/Source/Horde3DEngine/egAnimatables.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egAnimatables.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egAnimatables.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egAnimatables.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egAnimatables.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egAnimatables.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egAnimatables.cpp > CMakeFiles/Horde3D.dir/egAnimatables.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egAnimatables.cpp > CMakeFiles/Horde3D.dir/egAnimatables.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egAnimatables.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egAnimatables.cpp -o CMakeFiles/Horde3D.dir/egAnimatables.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egAnimatables.cpp -o CMakeFiles/Horde3D.dir/egAnimatables.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o.requires
@@ -68,21 +174,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o.provides: Ho
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o: Horde3D/Source/Horde3DEngine/egAnimation.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egAnimation.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egAnimation.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egAnimation.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egAnimation.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egAnimation.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egAnimation.cpp > CMakeFiles/Horde3D.dir/egAnimation.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egAnimation.cpp > CMakeFiles/Horde3D.dir/egAnimation.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egAnimation.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egAnimation.cpp -o CMakeFiles/Horde3D.dir/egAnimation.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egAnimation.cpp -o CMakeFiles/Horde3D.dir/egAnimation.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o.requires
@@ -92,21 +197,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o.provides: Hord
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o: Horde3D/Source/Horde3DEngine/egCamera.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egCamera.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egCamera.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egCamera.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egCamera.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egCamera.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egCamera.cpp > CMakeFiles/Horde3D.dir/egCamera.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egCamera.cpp > CMakeFiles/Horde3D.dir/egCamera.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egCamera.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egCamera.cpp -o CMakeFiles/Horde3D.dir/egCamera.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egCamera.cpp -o CMakeFiles/Horde3D.dir/egCamera.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o.requires
@@ -116,21 +220,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o.provides: Horde3D
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o: Horde3D/Source/Horde3DEngine/egCom.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egCom.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egCom.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egCom.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egCom.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egCom.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egCom.cpp > CMakeFiles/Horde3D.dir/egCom.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egCom.cpp > CMakeFiles/Horde3D.dir/egCom.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egCom.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egCom.cpp -o CMakeFiles/Horde3D.dir/egCom.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egCom.cpp -o CMakeFiles/Horde3D.dir/egCom.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o.requires
@@ -140,21 +243,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o.provides: Horde3D/So
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o: Horde3D/Source/Horde3DEngine/egExtensions.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egExtensions.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egExtensions.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egExtensions.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egExtensions.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egExtensions.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egExtensions.cpp > CMakeFiles/Horde3D.dir/egExtensions.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egExtensions.cpp > CMakeFiles/Horde3D.dir/egExtensions.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egExtensions.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egExtensions.cpp -o CMakeFiles/Horde3D.dir/egExtensions.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egExtensions.cpp -o CMakeFiles/Horde3D.dir/egExtensions.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o.requires
@@ -164,21 +266,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o.provides: Hor
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o: Horde3D/Source/Horde3DEngine/egGeometry.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egGeometry.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egGeometry.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egGeometry.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egGeometry.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egGeometry.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egGeometry.cpp > CMakeFiles/Horde3D.dir/egGeometry.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egGeometry.cpp > CMakeFiles/Horde3D.dir/egGeometry.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egGeometry.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egGeometry.cpp -o CMakeFiles/Horde3D.dir/egGeometry.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egGeometry.cpp -o CMakeFiles/Horde3D.dir/egGeometry.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o.requires
@@ -188,21 +289,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o.provides: Horde
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o: Horde3D/Source/Horde3DEngine/egLight.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egLight.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egLight.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egLight.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egLight.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egLight.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egLight.cpp > CMakeFiles/Horde3D.dir/egLight.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egLight.cpp > CMakeFiles/Horde3D.dir/egLight.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egLight.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egLight.cpp -o CMakeFiles/Horde3D.dir/egLight.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egLight.cpp -o CMakeFiles/Horde3D.dir/egLight.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o.requires
@@ -212,21 +312,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o.provides: Horde3D/
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o: Horde3D/Source/Horde3DEngine/egMain.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egMain.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egMain.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egMain.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egMain.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egMain.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egMain.cpp > CMakeFiles/Horde3D.dir/egMain.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egMain.cpp > CMakeFiles/Horde3D.dir/egMain.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egMain.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egMain.cpp -o CMakeFiles/Horde3D.dir/egMain.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egMain.cpp -o CMakeFiles/Horde3D.dir/egMain.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o.requires
@@ -236,21 +335,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o.provides: Horde3D/S
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o: Horde3D/Source/Horde3DEngine/egMaterial.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egMaterial.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egMaterial.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egMaterial.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egMaterial.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egMaterial.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egMaterial.cpp > CMakeFiles/Horde3D.dir/egMaterial.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egMaterial.cpp > CMakeFiles/Horde3D.dir/egMaterial.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egMaterial.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egMaterial.cpp -o CMakeFiles/Horde3D.dir/egMaterial.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egMaterial.cpp -o CMakeFiles/Horde3D.dir/egMaterial.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o.requires
@@ -260,21 +358,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o.provides: Horde
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o: Horde3D/Source/Horde3DEngine/egModel.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egModel.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egModel.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egModel.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egModel.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egModel.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egModel.cpp > CMakeFiles/Horde3D.dir/egModel.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egModel.cpp > CMakeFiles/Horde3D.dir/egModel.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egModel.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egModel.cpp -o CMakeFiles/Horde3D.dir/egModel.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egModel.cpp -o CMakeFiles/Horde3D.dir/egModel.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o.requires
@@ -284,21 +381,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o.provides: Horde3D/
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o: Horde3D/Source/Horde3DEngine/egModules.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_11)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egModules.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egModules.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egModules.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egModules.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egModules.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egModules.cpp > CMakeFiles/Horde3D.dir/egModules.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egModules.cpp > CMakeFiles/Horde3D.dir/egModules.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egModules.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egModules.cpp -o CMakeFiles/Horde3D.dir/egModules.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egModules.cpp -o CMakeFiles/Horde3D.dir/egModules.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o.requires
@@ -308,21 +404,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o.provides: Horde3
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o: Horde3D/Source/Horde3DEngine/egParticle.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_12)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_12)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egParticle.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egParticle.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egParticle.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egParticle.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egParticle.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egParticle.cpp > CMakeFiles/Horde3D.dir/egParticle.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egParticle.cpp > CMakeFiles/Horde3D.dir/egParticle.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egParticle.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egParticle.cpp -o CMakeFiles/Horde3D.dir/egParticle.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egParticle.cpp -o CMakeFiles/Horde3D.dir/egParticle.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o.requires
@@ -332,21 +427,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o.provides: Horde
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o: Horde3D/Source/Horde3DEngine/egPipeline.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_13)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_13)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egPipeline.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egPipeline.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egPipeline.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egPipeline.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egPipeline.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egPipeline.cpp > CMakeFiles/Horde3D.dir/egPipeline.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egPipeline.cpp > CMakeFiles/Horde3D.dir/egPipeline.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egPipeline.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egPipeline.cpp -o CMakeFiles/Horde3D.dir/egPipeline.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egPipeline.cpp -o CMakeFiles/Horde3D.dir/egPipeline.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o.requires
@@ -356,21 +450,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o.provides: Horde
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o: Horde3D/Source/Horde3DEngine/egPrimitives.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_14)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_14)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egPrimitives.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egPrimitives.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egPrimitives.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egPrimitives.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egPrimitives.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egPrimitives.cpp > CMakeFiles/Horde3D.dir/egPrimitives.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egPrimitives.cpp > CMakeFiles/Horde3D.dir/egPrimitives.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egPrimitives.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egPrimitives.cpp -o CMakeFiles/Horde3D.dir/egPrimitives.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egPrimitives.cpp -o CMakeFiles/Horde3D.dir/egPrimitives.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o.requires
@@ -380,21 +473,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o.provides: Hor
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o: Horde3D/Source/Horde3DEngine/egRendererBase.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_15)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_15)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egRendererBase.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egRendererBase.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egRendererBase.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egRendererBase.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egRendererBase.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egRendererBase.cpp > CMakeFiles/Horde3D.dir/egRendererBase.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egRendererBase.cpp > CMakeFiles/Horde3D.dir/egRendererBase.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egRendererBase.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egRendererBase.cpp -o CMakeFiles/Horde3D.dir/egRendererBase.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egRendererBase.cpp -o CMakeFiles/Horde3D.dir/egRendererBase.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o.requires
@@ -404,21 +496,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o.provides: H
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o: Horde3D/Source/Horde3DEngine/egRenderer.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_16)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_16)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egRenderer.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egRenderer.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egRenderer.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egRenderer.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egRenderer.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egRenderer.cpp > CMakeFiles/Horde3D.dir/egRenderer.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egRenderer.cpp > CMakeFiles/Horde3D.dir/egRenderer.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egRenderer.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egRenderer.cpp -o CMakeFiles/Horde3D.dir/egRenderer.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egRenderer.cpp -o CMakeFiles/Horde3D.dir/egRenderer.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o.requires
@@ -428,21 +519,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o.provides: Horde
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o: Horde3D/Source/Horde3DEngine/egResource.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_17)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_17)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egResource.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egResource.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egResource.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egResource.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egResource.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egResource.cpp > CMakeFiles/Horde3D.dir/egResource.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egResource.cpp > CMakeFiles/Horde3D.dir/egResource.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egResource.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egResource.cpp -o CMakeFiles/Horde3D.dir/egResource.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egResource.cpp -o CMakeFiles/Horde3D.dir/egResource.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o.requires
@@ -452,21 +542,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o.provides: Horde
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o: Horde3D/Source/Horde3DEngine/egScene.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_18)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_18)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egScene.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egScene.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egScene.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egScene.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egScene.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egScene.cpp > CMakeFiles/Horde3D.dir/egScene.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egScene.cpp > CMakeFiles/Horde3D.dir/egScene.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egScene.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egScene.cpp -o CMakeFiles/Horde3D.dir/egScene.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egScene.cpp -o CMakeFiles/Horde3D.dir/egScene.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o.requires
@@ -476,21 +565,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o.provides: Horde3D/
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o: Horde3D/Source/Horde3DEngine/egSceneGraphRes.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_19)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_19)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egSceneGraphRes.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egSceneGraphRes.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egSceneGraphRes.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egSceneGraphRes.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egSceneGraphRes.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egSceneGraphRes.cpp > CMakeFiles/Horde3D.dir/egSceneGraphRes.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egSceneGraphRes.cpp > CMakeFiles/Horde3D.dir/egSceneGraphRes.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egSceneGraphRes.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egSceneGraphRes.cpp -o CMakeFiles/Horde3D.dir/egSceneGraphRes.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egSceneGraphRes.cpp -o CMakeFiles/Horde3D.dir/egSceneGraphRes.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o.requires
@@ -500,21 +588,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o.provides: 
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o: Horde3D/Source/Horde3DEngine/egShader.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_20)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_20)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egShader.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egShader.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egShader.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egShader.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egShader.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egShader.cpp > CMakeFiles/Horde3D.dir/egShader.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egShader.cpp > CMakeFiles/Horde3D.dir/egShader.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egShader.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egShader.cpp -o CMakeFiles/Horde3D.dir/egShader.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egShader.cpp -o CMakeFiles/Horde3D.dir/egShader.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o.requires
@@ -524,21 +611,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o.provides: Horde3D
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o: Horde3D/Source/Horde3DEngine/egTexture.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_21)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_21)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egTexture.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egTexture.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/egTexture.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egTexture.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/egTexture.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egTexture.cpp > CMakeFiles/Horde3D.dir/egTexture.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egTexture.cpp > CMakeFiles/Horde3D.dir/egTexture.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/egTexture.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egTexture.cpp -o CMakeFiles/Horde3D.dir/egTexture.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egTexture.cpp -o CMakeFiles/Horde3D.dir/egTexture.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o.requires
@@ -548,21 +634,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o.provides: Horde3
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o: Horde3D/Source/Horde3DEngine/utImage.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_22)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_22)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/utImage.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/utImage.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/utImage.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/utImage.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/utImage.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/utImage.cpp > CMakeFiles/Horde3D.dir/utImage.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/utImage.cpp > CMakeFiles/Horde3D.dir/utImage.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/utImage.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/utImage.cpp -o CMakeFiles/Horde3D.dir/utImage.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/utImage.cpp -o CMakeFiles/Horde3D.dir/utImage.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o.requires
@@ -572,21 +657,20 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o.provides: Horde3D/
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o.provides.build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/flags.make
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o: Horde3D/Source/Horde3DEngine/utOpenGL.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles $(CMAKE_PROGRESS_23)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/kleinerm/projects/Horde3D/CMakeFiles $(CMAKE_PROGRESS_23)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/utOpenGL.o -c /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/utOpenGL.cpp
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Horde3D.dir/utOpenGL.o -c /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/utOpenGL.cpp
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Horde3D.dir/utOpenGL.i"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/utOpenGL.cpp > CMakeFiles/Horde3D.dir/utOpenGL.i
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/utOpenGL.cpp > CMakeFiles/Horde3D.dir/utOpenGL.i
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Horde3D.dir/utOpenGL.s"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/utOpenGL.cpp -o CMakeFiles/Horde3D.dir/utOpenGL.s
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/utOpenGL.cpp -o CMakeFiles/Horde3D.dir/utOpenGL.s
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o.requires:
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o.requires
@@ -596,7 +680,6 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o.provides: Horde3D
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o.provides
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o.provides.build: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o
-.PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o.provides.build
 
 # Object files for target Horde3D
 Horde3D_OBJECTS = \
@@ -627,36 +710,64 @@ Horde3D_OBJECTS = \
 # External object files for target Horde3D
 Horde3D_EXTERNAL_OBJECTS =
 
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build.make
-Horde3D/Source/Horde3DEngine/libHorde3D.so: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library libHorde3D.so"
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Horde3D.dir/link.txt --verbose=$(VERBOSE)
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build.make
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Extensions/Terrain/Source/libHorde3DTerrain.a
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library Horde3D.framework/Horde3D"
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Horde3D.dir/link.txt --verbose=$(VERBOSE)
+
+Horde3D/Source/Horde3DEngine/Horde3D.framework/Horde3D: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D
 
 # Rule to build all files generated by this target.
-Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/libHorde3D.so
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Horde3D
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Headers/Horde3D.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egAnimatables.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egAnimation.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egCamera.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egCom.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egExtensions.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egGeometry.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egLight.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egMaterial.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egModel.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egModules.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egParticle.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egPipeline.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egPrerequisites.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egPrimitives.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egRenderer.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egRendererBase.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egResource.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egScene.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egSceneGraphRes.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egShader.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/egTexture.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/utImage.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/utOpenGL.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build: Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/PrivateHeaders/utTimer.h
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/build
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/requires: Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o.requires
@@ -685,10 +796,10 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/requires: Horde3D/Source/Hor
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/requires
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/clean:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine && $(CMAKE_COMMAND) -P CMakeFiles/Horde3D.dir/cmake_clean.cmake
+	cd /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine && $(CMAKE_COMMAND) -P CMakeFiles/Horde3D.dir/cmake_clean.cmake
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/clean
 
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/depend:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/kleinerm/projects/Horde3D && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/kleinerm/projects/Horde3D /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine /Users/kleinerm/projects/Horde3D /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine /Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/depend
 

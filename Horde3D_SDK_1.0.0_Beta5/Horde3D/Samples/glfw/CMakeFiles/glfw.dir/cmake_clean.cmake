@@ -11,20 +11,19 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/glfw.dir/lib/thread.o"
   "CMakeFiles/glfw.dir/lib/time.o"
   "CMakeFiles/glfw.dir/lib/window.o"
-  "CMakeFiles/glfw.dir/lib/x11/x11_enable.o"
-  "CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o"
-  "CMakeFiles/glfw.dir/lib/x11/x11_glext.o"
-  "CMakeFiles/glfw.dir/lib/x11/x11_init.o"
-  "CMakeFiles/glfw.dir/lib/x11/x11_joystick.o"
-  "CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o"
-  "CMakeFiles/glfw.dir/lib/x11/x11_thread.o"
-  "CMakeFiles/glfw.dir/lib/x11/x11_time.o"
-  "CMakeFiles/glfw.dir/lib/x11/x11_window.o"
+  "CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o"
+  "CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o"
+  "CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o"
+  "CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o"
+  "CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o"
+  "CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o"
+  "CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o"
+  "CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o"
   "libglfw.pdb"
   "libglfw.a"
 )
 
 # Per-language clean rules from dependency scanning.
-FOREACH(lang C)
+FOREACH(lang C CXX)
   INCLUDE(CMakeFiles/glfw.dir/cmake_clean_${lang}.cmake OPTIONAL)
 ENDFOREACH(lang)

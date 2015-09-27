@@ -24,6 +24,8 @@
 
 namespace Horde3D {
 
+const uint32 ModelCustomVecCount = 4;
+
 // =================================================================================================
 // Model Node
 // =================================================================================================
@@ -37,7 +39,17 @@ struct ModelNodeParams
 		LodDist1F,
 		LodDist2F,
 		LodDist3F,
-		LodDist4F
+		LodDist4F,
+		AnimCountI
+	};
+};
+
+struct ModelUpdateFlags
+{
+	enum Flags
+	{
+		Animation = 1,
+		Geometry = 2
 	};
 };
 
@@ -80,6 +92,7 @@ public:
 	void recreateNodeList();
 	void setupAnimStage( int stage, AnimationResource *anim, int layer,
 	                     const std::string &startNode, bool additive );
+	void getAnimParams( int stage, float *time, float *weight );
 	void setAnimParams( int stage, float time, float weight );
 	bool setMorphParam( const std::string &targetName, float weight );
 
@@ -88,8 +101,10 @@ public:
 	float getParamF( int param, int compIdx );
 	void setParamF( int param, int compIdx, float value );
 
-	bool updateGeometry();
+	void update( int flags );
 	uint32 calcLodLevel( const Vec3f &viewPoint );
+
+	void setCustomInstData( float *data, uint32 count );
 
 	GeometryResource *getGeometryResource() { return _geometryRes; }
 	bool jointExists( uint32 jointIndex ) { return jointIndex < _skinMatRows.size() / 3; }
@@ -106,6 +121,8 @@ protected:
 	void updateLocalMeshAABBs();
 	void setGeometryRes( GeometryResource &geoRes );
 
+	bool updateGeometry();
+
 	void onPostUpdate();
 	void onFinishedUpdate();
 
@@ -118,6 +135,8 @@ protected:
 	std::vector< JointNode * >    _jointList;
 	std::vector< Vec4f >          _skinMatRows;
 	AnimationController           _animCtrl;
+
+	Vec4f                         _customInstData[ModelCustomVecCount];
 
 	std::vector< Morpher >        _morphers;
 	bool                          _softwareSkinning, _skinningDirty;

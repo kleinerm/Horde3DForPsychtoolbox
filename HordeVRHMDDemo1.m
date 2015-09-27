@@ -52,7 +52,7 @@ Screen('BeginOpenGL', win);
 try
     % Initialize Horde3DCore and define all HE.xxxx constants for use:
     HordeHelper('Initialize');
-catch
+catch %#ok<CTCH>
     sca;
     psychrethrow(psychlasterror);
     return;
@@ -89,6 +89,7 @@ try
     % the current working directory which contains all the subfolders and data
     % files which define the scene/model/animation tracks etc.:
     Horde3DCore('LoadResources', [fileparts(mfilename('fullpath')) filesep 'Content']);
+    gluErrorString % Query and clear gl error on Apples fragile snowflake
 
     % Add a stereo camera pair to the scene: The behaviour and basic rendering parameters
     % of the cameras are defined by the Pipeline resource 'PipeRes', and they have the
@@ -139,7 +140,7 @@ try
     % knight, ie., the subnode of 'knight' with name 'Bip01_R_Hand' of type
     % HE.H3DNodeTypes.Joint. This allows to manipulate that 'handjoint' by
     % its handle 'handjoint':
-    handjoint = Horde3DCore('FindNodes', knight, 'Bip01_R_Hand', HE.H3DNodeTypes.Joint); %#ok<NASGU>
+    handjoint = Horde3DCore('FindNodes', knight, 'Bip01_R_Hand', HE.H3DNodeTypes.Joint); 
 
     % Add fifty additional scenegraph nodes, each with the same
     % characterRes model ("Agent Smith") and animation track

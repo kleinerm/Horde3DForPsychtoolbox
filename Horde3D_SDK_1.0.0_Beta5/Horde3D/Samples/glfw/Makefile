@@ -8,7 +8,7 @@ default_target: all
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canoncical targets will work.
+# Disable implicit rules so canonical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
@@ -30,75 +30,40 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/Cellar/cmake/2.8.12.1/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /usr/local/Cellar/cmake/2.8.12.1/bin/cmake -E remove -f
+
+# Escaping for special characters.
+EQUALS = =
+
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/local/Cellar/cmake/2.8.12.1/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5
+CMAKE_SOURCE_DIR = /Users/kleinerm/projects/Horde3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5
+CMAKE_BINARY_DIR = /Users/kleinerm/projects/Horde3D
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/local/Cellar/cmake/2.8.12.1/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-.PHONY : install/local/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-.PHONY : install/strip/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/Cellar/cmake/2.8.12.1/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -107,14 +72,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(CMAKE_COMMAND) -E cmake_progress_start /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/CMakeFiles/progress.marks
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f CMakeFiles/Makefile2 Horde3D/Samples/glfw/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/CMakeFiles 0
+	cd /Users/kleinerm/projects/Horde3D && $(CMAKE_COMMAND) -E cmake_progress_start /Users/kleinerm/projects/Horde3D/CMakeFiles /Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/CMakeFiles/progress.marks
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f CMakeFiles/Makefile2 Horde3D/Samples/glfw/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kleinerm/projects/Horde3D/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f CMakeFiles/Makefile2 Horde3D/Samples/glfw/clean
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f CMakeFiles/Makefile2 Horde3D/Samples/glfw/clean
 .PHONY : clean
 
 # The main clean target
@@ -123,22 +88,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f CMakeFiles/Makefile2 Horde3D/Samples/glfw/preinstall
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f CMakeFiles/Makefile2 Horde3D/Samples/glfw/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f CMakeFiles/Makefile2 Horde3D/Samples/glfw/preinstall
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f CMakeFiles/Makefile2 Horde3D/Samples/glfw/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/kleinerm/projects/Horde3D && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/rule:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f CMakeFiles/Makefile2 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/rule
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f CMakeFiles/Makefile2 Horde3D/Samples/glfw/CMakeFiles/glfw.dir/rule
 .PHONY : Horde3D/Samples/glfw/CMakeFiles/glfw.dir/rule
 
 # Convenience name for target.
@@ -147,323 +112,308 @@ glfw: Horde3D/Samples/glfw/CMakeFiles/glfw.dir/rule
 
 # fast build rule for target.
 glfw/fast:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build
 .PHONY : glfw/fast
 
 # target to build an object file
+lib/cocoa/cocoa_enable.o:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.o
+.PHONY : lib/cocoa/cocoa_enable.o
+
+# target to preprocess a source file
+lib/cocoa/cocoa_enable.i:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.i
+.PHONY : lib/cocoa/cocoa_enable.i
+
+# target to generate assembly for a file
+lib/cocoa/cocoa_enable.s:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_enable.s
+.PHONY : lib/cocoa/cocoa_enable.s
+
+# target to build an object file
+lib/cocoa/cocoa_fullscreen.o:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.o
+.PHONY : lib/cocoa/cocoa_fullscreen.o
+
+# target to preprocess a source file
+lib/cocoa/cocoa_fullscreen.i:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.i
+.PHONY : lib/cocoa/cocoa_fullscreen.i
+
+# target to generate assembly for a file
+lib/cocoa/cocoa_fullscreen.s:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_fullscreen.s
+.PHONY : lib/cocoa/cocoa_fullscreen.s
+
+# target to build an object file
+lib/cocoa/cocoa_glext.o:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.o
+.PHONY : lib/cocoa/cocoa_glext.o
+
+# target to preprocess a source file
+lib/cocoa/cocoa_glext.i:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.i
+.PHONY : lib/cocoa/cocoa_glext.i
+
+# target to generate assembly for a file
+lib/cocoa/cocoa_glext.s:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_glext.s
+.PHONY : lib/cocoa/cocoa_glext.s
+
+# target to build an object file
+lib/cocoa/cocoa_init.o:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.o
+.PHONY : lib/cocoa/cocoa_init.o
+
+# target to preprocess a source file
+lib/cocoa/cocoa_init.i:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.i
+.PHONY : lib/cocoa/cocoa_init.i
+
+# target to generate assembly for a file
+lib/cocoa/cocoa_init.s:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_init.s
+.PHONY : lib/cocoa/cocoa_init.s
+
+# target to build an object file
+lib/cocoa/cocoa_joystick.o:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.o
+.PHONY : lib/cocoa/cocoa_joystick.o
+
+# target to preprocess a source file
+lib/cocoa/cocoa_joystick.i:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.i
+.PHONY : lib/cocoa/cocoa_joystick.i
+
+# target to generate assembly for a file
+lib/cocoa/cocoa_joystick.s:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_joystick.s
+.PHONY : lib/cocoa/cocoa_joystick.s
+
+# target to build an object file
+lib/cocoa/cocoa_thread.o:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.o
+.PHONY : lib/cocoa/cocoa_thread.o
+
+# target to preprocess a source file
+lib/cocoa/cocoa_thread.i:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.i
+.PHONY : lib/cocoa/cocoa_thread.i
+
+# target to generate assembly for a file
+lib/cocoa/cocoa_thread.s:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_thread.s
+.PHONY : lib/cocoa/cocoa_thread.s
+
+# target to build an object file
+lib/cocoa/cocoa_time.o:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.o
+.PHONY : lib/cocoa/cocoa_time.o
+
+# target to preprocess a source file
+lib/cocoa/cocoa_time.i:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.i
+.PHONY : lib/cocoa/cocoa_time.i
+
+# target to generate assembly for a file
+lib/cocoa/cocoa_time.s:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_time.s
+.PHONY : lib/cocoa/cocoa_time.s
+
+# target to build an object file
+lib/cocoa/cocoa_window.o:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.o
+.PHONY : lib/cocoa/cocoa_window.o
+
+# target to preprocess a source file
+lib/cocoa/cocoa_window.i:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.i
+.PHONY : lib/cocoa/cocoa_window.i
+
+# target to generate assembly for a file
+lib/cocoa/cocoa_window.s:
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/cocoa/cocoa_window.s
+.PHONY : lib/cocoa/cocoa_window.s
+
+# target to build an object file
 lib/enable.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.o
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.o
 .PHONY : lib/enable.o
 
 # target to preprocess a source file
 lib/enable.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.i
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.i
 .PHONY : lib/enable.i
 
 # target to generate assembly for a file
 lib/enable.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.s
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/enable.s
 .PHONY : lib/enable.s
 
 # target to build an object file
 lib/fullscreen.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.o
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.o
 .PHONY : lib/fullscreen.o
 
 # target to preprocess a source file
 lib/fullscreen.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.i
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.i
 .PHONY : lib/fullscreen.i
 
 # target to generate assembly for a file
 lib/fullscreen.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.s
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/fullscreen.s
 .PHONY : lib/fullscreen.s
 
 # target to build an object file
 lib/glext.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.o
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.o
 .PHONY : lib/glext.o
 
 # target to preprocess a source file
 lib/glext.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.i
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.i
 .PHONY : lib/glext.i
 
 # target to generate assembly for a file
 lib/glext.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.s
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/glext.s
 .PHONY : lib/glext.s
 
 # target to build an object file
 lib/image.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.o
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.o
 .PHONY : lib/image.o
 
 # target to preprocess a source file
 lib/image.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.i
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.i
 .PHONY : lib/image.i
 
 # target to generate assembly for a file
 lib/image.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.s
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/image.s
 .PHONY : lib/image.s
 
 # target to build an object file
 lib/init.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.o
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.o
 .PHONY : lib/init.o
 
 # target to preprocess a source file
 lib/init.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.i
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.i
 .PHONY : lib/init.i
 
 # target to generate assembly for a file
 lib/init.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.s
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/init.s
 .PHONY : lib/init.s
 
 # target to build an object file
 lib/input.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.o
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.o
 .PHONY : lib/input.o
 
 # target to preprocess a source file
 lib/input.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.i
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.i
 .PHONY : lib/input.i
 
 # target to generate assembly for a file
 lib/input.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.s
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/input.s
 .PHONY : lib/input.s
 
 # target to build an object file
 lib/joystick.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.o
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.o
 .PHONY : lib/joystick.o
 
 # target to preprocess a source file
 lib/joystick.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.i
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.i
 .PHONY : lib/joystick.i
 
 # target to generate assembly for a file
 lib/joystick.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.s
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/joystick.s
 .PHONY : lib/joystick.s
 
 # target to build an object file
 lib/stream.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.o
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.o
 .PHONY : lib/stream.o
 
 # target to preprocess a source file
 lib/stream.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.i
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.i
 .PHONY : lib/stream.i
 
 # target to generate assembly for a file
 lib/stream.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.s
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/stream.s
 .PHONY : lib/stream.s
 
 # target to build an object file
 lib/tga.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.o
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.o
 .PHONY : lib/tga.o
 
 # target to preprocess a source file
 lib/tga.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.i
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.i
 .PHONY : lib/tga.i
 
 # target to generate assembly for a file
 lib/tga.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.s
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/tga.s
 .PHONY : lib/tga.s
 
 # target to build an object file
 lib/thread.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.o
 .PHONY : lib/thread.o
 
 # target to preprocess a source file
 lib/thread.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.i
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.i
 .PHONY : lib/thread.i
 
 # target to generate assembly for a file
 lib/thread.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.s
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/thread.s
 .PHONY : lib/thread.s
 
 # target to build an object file
 lib/time.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.o
 .PHONY : lib/time.o
 
 # target to preprocess a source file
 lib/time.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.i
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.i
 .PHONY : lib/time.i
 
 # target to generate assembly for a file
 lib/time.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.s
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/time.s
 .PHONY : lib/time.s
 
 # target to build an object file
 lib/window.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.o
 .PHONY : lib/window.o
 
 # target to preprocess a source file
 lib/window.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.i
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.i
 .PHONY : lib/window.i
 
 # target to generate assembly for a file
 lib/window.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.s
+	cd /Users/kleinerm/projects/Horde3D && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/window.s
 .PHONY : lib/window.s
-
-# target to build an object file
-lib/x11/x11_enable.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.o
-.PHONY : lib/x11/x11_enable.o
-
-# target to preprocess a source file
-lib/x11/x11_enable.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.i
-.PHONY : lib/x11/x11_enable.i
-
-# target to generate assembly for a file
-lib/x11/x11_enable.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_enable.s
-.PHONY : lib/x11/x11_enable.s
-
-# target to build an object file
-lib/x11/x11_fullscreen.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.o
-.PHONY : lib/x11/x11_fullscreen.o
-
-# target to preprocess a source file
-lib/x11/x11_fullscreen.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.i
-.PHONY : lib/x11/x11_fullscreen.i
-
-# target to generate assembly for a file
-lib/x11/x11_fullscreen.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_fullscreen.s
-.PHONY : lib/x11/x11_fullscreen.s
-
-# target to build an object file
-lib/x11/x11_glext.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.o
-.PHONY : lib/x11/x11_glext.o
-
-# target to preprocess a source file
-lib/x11/x11_glext.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.i
-.PHONY : lib/x11/x11_glext.i
-
-# target to generate assembly for a file
-lib/x11/x11_glext.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_glext.s
-.PHONY : lib/x11/x11_glext.s
-
-# target to build an object file
-lib/x11/x11_init.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.o
-.PHONY : lib/x11/x11_init.o
-
-# target to preprocess a source file
-lib/x11/x11_init.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.i
-.PHONY : lib/x11/x11_init.i
-
-# target to generate assembly for a file
-lib/x11/x11_init.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_init.s
-.PHONY : lib/x11/x11_init.s
-
-# target to build an object file
-lib/x11/x11_joystick.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.o
-.PHONY : lib/x11/x11_joystick.o
-
-# target to preprocess a source file
-lib/x11/x11_joystick.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.i
-.PHONY : lib/x11/x11_joystick.i
-
-# target to generate assembly for a file
-lib/x11/x11_joystick.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_joystick.s
-.PHONY : lib/x11/x11_joystick.s
-
-# target to build an object file
-lib/x11/x11_keysym2unicode.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.o
-.PHONY : lib/x11/x11_keysym2unicode.o
-
-# target to preprocess a source file
-lib/x11/x11_keysym2unicode.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.i
-.PHONY : lib/x11/x11_keysym2unicode.i
-
-# target to generate assembly for a file
-lib/x11/x11_keysym2unicode.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_keysym2unicode.s
-.PHONY : lib/x11/x11_keysym2unicode.s
-
-# target to build an object file
-lib/x11/x11_thread.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.o
-.PHONY : lib/x11/x11_thread.o
-
-# target to preprocess a source file
-lib/x11/x11_thread.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.i
-.PHONY : lib/x11/x11_thread.i
-
-# target to generate assembly for a file
-lib/x11/x11_thread.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_thread.s
-.PHONY : lib/x11/x11_thread.s
-
-# target to build an object file
-lib/x11/x11_time.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.o
-.PHONY : lib/x11/x11_time.o
-
-# target to preprocess a source file
-lib/x11/x11_time.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.i
-.PHONY : lib/x11/x11_time.i
-
-# target to generate assembly for a file
-lib/x11/x11_time.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_time.s
-.PHONY : lib/x11/x11_time.s
-
-# target to build an object file
-lib/x11/x11_window.o:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.o
-.PHONY : lib/x11/x11_window.o
-
-# target to preprocess a source file
-lib/x11/x11_window.i:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.i
-.PHONY : lib/x11/x11_window.i
-
-# target to generate assembly for a file
-lib/x11/x11_window.s:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(MAKE) -f Horde3D/Samples/glfw/CMakeFiles/glfw.dir/build.make Horde3D/Samples/glfw/CMakeFiles/glfw.dir/lib/x11/x11_window.s
-.PHONY : lib/x11/x11_window.s
 
 # Help Target
 help:
@@ -473,11 +423,31 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... glfw"
-	@echo "... install"
-	@echo "... install/local"
-	@echo "... install/strip"
-	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... lib/cocoa/cocoa_enable.o"
+	@echo "... lib/cocoa/cocoa_enable.i"
+	@echo "... lib/cocoa/cocoa_enable.s"
+	@echo "... lib/cocoa/cocoa_fullscreen.o"
+	@echo "... lib/cocoa/cocoa_fullscreen.i"
+	@echo "... lib/cocoa/cocoa_fullscreen.s"
+	@echo "... lib/cocoa/cocoa_glext.o"
+	@echo "... lib/cocoa/cocoa_glext.i"
+	@echo "... lib/cocoa/cocoa_glext.s"
+	@echo "... lib/cocoa/cocoa_init.o"
+	@echo "... lib/cocoa/cocoa_init.i"
+	@echo "... lib/cocoa/cocoa_init.s"
+	@echo "... lib/cocoa/cocoa_joystick.o"
+	@echo "... lib/cocoa/cocoa_joystick.i"
+	@echo "... lib/cocoa/cocoa_joystick.s"
+	@echo "... lib/cocoa/cocoa_thread.o"
+	@echo "... lib/cocoa/cocoa_thread.i"
+	@echo "... lib/cocoa/cocoa_thread.s"
+	@echo "... lib/cocoa/cocoa_time.o"
+	@echo "... lib/cocoa/cocoa_time.i"
+	@echo "... lib/cocoa/cocoa_time.s"
+	@echo "... lib/cocoa/cocoa_window.o"
+	@echo "... lib/cocoa/cocoa_window.i"
+	@echo "... lib/cocoa/cocoa_window.s"
 	@echo "... lib/enable.o"
 	@echo "... lib/enable.i"
 	@echo "... lib/enable.s"
@@ -514,33 +484,6 @@ help:
 	@echo "... lib/window.o"
 	@echo "... lib/window.i"
 	@echo "... lib/window.s"
-	@echo "... lib/x11/x11_enable.o"
-	@echo "... lib/x11/x11_enable.i"
-	@echo "... lib/x11/x11_enable.s"
-	@echo "... lib/x11/x11_fullscreen.o"
-	@echo "... lib/x11/x11_fullscreen.i"
-	@echo "... lib/x11/x11_fullscreen.s"
-	@echo "... lib/x11/x11_glext.o"
-	@echo "... lib/x11/x11_glext.i"
-	@echo "... lib/x11/x11_glext.s"
-	@echo "... lib/x11/x11_init.o"
-	@echo "... lib/x11/x11_init.i"
-	@echo "... lib/x11/x11_init.s"
-	@echo "... lib/x11/x11_joystick.o"
-	@echo "... lib/x11/x11_joystick.i"
-	@echo "... lib/x11/x11_joystick.s"
-	@echo "... lib/x11/x11_keysym2unicode.o"
-	@echo "... lib/x11/x11_keysym2unicode.i"
-	@echo "... lib/x11/x11_keysym2unicode.s"
-	@echo "... lib/x11/x11_thread.o"
-	@echo "... lib/x11/x11_thread.i"
-	@echo "... lib/x11/x11_thread.s"
-	@echo "... lib/x11/x11_time.o"
-	@echo "... lib/x11/x11_time.i"
-	@echo "... lib/x11/x11_time.s"
-	@echo "... lib/x11/x11_window.o"
-	@echo "... lib/x11/x11_window.i"
-	@echo "... lib/x11/x11_window.s"
 .PHONY : help
 
 
@@ -552,6 +495,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/kleinerm/projects/Horde3D && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -55,6 +55,9 @@ if strcmpi(cmd, 'Initialize')
     % Call Initialize routine of Horde engine core to setup the engine for
     % all further commands:
     Horde3DCore('Initialize');
+    
+    % Eat gl errors to cope with Apples fragile OSX:
+    while glGetError; end;
 
     % Define all relevant enums for parameter passing to engine:
     HE.H3DResTypes.Undefined  = 0;

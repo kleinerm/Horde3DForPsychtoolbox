@@ -20,12 +20,17 @@ function makeHorde
 %
 % Written by Mario Kleiner, 25.7.2009.
 % Updated 1.4.2012 in preparation of public release.
-%
+% Updated 19.9.2015 for current Horde 1.0.0-Beta 5 git master and VR HMD
+% rendering support, as well as for OSX 10.10 build environment.
 
 if IsWin
-    % Windows build: Works for both Matlab and GNU/Octave 3.2.x:
-    mex -v Horde3DCore.cpp -I.\HordeEngineSDK -L.\HordeEngineSDK -lHorde3D_vc8 -lHorde3DUtils_vc8
-    movefile(['Horde3DCore.' mexext], ['HordeWin32/Horde3DCore.' mexext]);
+    if ~IsWin(1)
+        error('Building Horde3DCore for 32-Bit Windows is no longer supported.');
+    end
+
+    % Windows 64-Bit build for Matlab:
+    mex -v Horde3DCore.cpp -I.\HordeEngineSDK -L.\HordeEngineSDK -lHorde3D_vc10 -lHorde3DUtils_vc10
+    movefile(['Horde3DCore.' mexext], ['HordeWin64/Horde3DCore.' mexext]);
 end
 
 if IsLinux
@@ -44,7 +49,8 @@ end
 if IsOSX
     % OS/X build:
     if IsOctave
-        mex -v Horde3DCore.cpp -I./HordeEngineSDK -W" -framework Horde3D -framework Horde3DUtils" "-W, -mmacosx-version-min='10.6'" "-Wl,-headerpad_max_install_names -F/System/Library/Frameworks/ -F/Library/Frameworks/ ,-syslibroot,'/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk' -mmacosx-version-min='10.6'"
+        mex -v Horde3DCore.cpp -I./HordeEngineSDK -W" -framework Horde3D -framework Horde3DUtils" "-W, -mmacosx-version-min='10.8'" "-Wl,-headerpad_max_install_names -F/System/Library/Frameworks/ -F/Library/Frameworks/,-syslibroot,'/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk' -mmacosx-version-min='10.8'"
+        osxsetoctaverpath('Horde3DCore');
     else
         mex -v Horde3DCore.cpp -I./HordeEngineSDK LDFLAGS="\$LDFLAGS -framework Horde3D -framework Horde3DUtils"
     end
