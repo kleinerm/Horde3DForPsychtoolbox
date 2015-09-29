@@ -36,7 +36,7 @@ screenid = max(Screen('Screens'));
 % Use Psychtoolbox imaging pipeline. This needs special setup...
 PsychImaging('PrepareConfiguration');
 hmd = PsychVRHMD('AutoSetupHMD', 'Tracked3DVR', 'LowPersistence TimeWarp');
-win  = PsychImaging('OpenWindow', screenid, 0);
+[win, winRect] = PsychImaging('OpenWindow', screenid, 0);
 [w,h] = Screen('WindowSize', win);
 
 % Set textsize to 24 pixels:
@@ -209,7 +209,11 @@ try
     tstart = GetSecs;
     weight = 0.0;
     mmode = 0;
-    [mxo, myo] = GetMouse;
+    [xc, yc] = RectCenter(winRect);
+    SetMouse(xc,yc, screenid);
+    HideCursor(screenid);
+    [mxo, myo] = GetMouse(screenid);
+
     oldisdown = 0;
 
     % Animation loop: Run until keypress:
@@ -240,7 +244,7 @@ try
         oldisdown = isdown;
 
         % Query mouse position and button state:
-        [mx, my, mb] = GetMouse;
+        [mx, my, mb] = GetMouse(screenid);
 
         if any(mb)
             % Deltas for mouse relative movement:
@@ -291,8 +295,10 @@ try
                     warning('Unknown mmode state! Fix your script!!'); %#ok<WNTAG>
             end
         end
-        mxo = mx;
-        myo = my;
+
+        % Reposition mouse cursor for next drive cycle:
+        SetMouse(xc,yc, screenid);
+        [mxo, myo] = GetMouse(screenid);
 
         % Update animation for simulationtime t - ts, render scene:
         tSimulation = t - ts;
