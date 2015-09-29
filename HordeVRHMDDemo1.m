@@ -1,6 +1,6 @@
 function HordeVRHMDDemo1
 % Demonstration of usage of Horde3D engine from within Psychtoolbox with
-% VR Head mounted display (HMD), e.g., the Oculus Rift DK2.
+% supported VR Head mounted displays (HMDs), e.g., the Oculus Rift DK2.
 %
 % Usage:
 %
@@ -17,7 +17,7 @@ function HordeVRHMDDemo1
 % important Horde engine constants conveniently defined as a struct:
 global HE;
 
-% Check if Psychtoolbox is properly installed and ready:
+% Check if Psychtoolbox is properly installed and ready, set defaults:
 PsychDefaultSetup(2);
 
 % Setup keys on keyboard that trigger actions:
@@ -30,7 +30,7 @@ KbReleaseWait;
 % Prepare Psychtoolbox for OpenGL low-level 3D rendering operations:
 InitializeMatlabOpenGL;
 
-% Open window on screen 0, the main display:
+% Open window on secondary screen:
 screenid = max(Screen('Screens'));
 
 % Use Psychtoolbox imaging pipeline. This needs special setup...
@@ -46,7 +46,7 @@ Screen('TextSize', win, 24);
 ts = Screen('Flip', win);
 t = ts;
 
-% Switch to 3D mode:
+% Switch to 3D mode for Horde3D setup:
 Screen('BeginOpenGL', win);
 
 try
@@ -89,7 +89,7 @@ try
     % the current working directory which contains all the subfolders and data
     % files which define the scene/model/animation tracks etc.:
     Horde3DCore('LoadResources', [fileparts(mfilename('fullpath')) filesep 'Content']);
-    gluErrorString % Query and clear gl error on Apples fragile snowflake
+    gluErrorString % Query and clear gl error on Apples fragile and buggy snowflake
 
     % Add a stereo camera pair to the scene: The behaviour and basic rendering parameters
     % of the cameras are defined by the Pipeline resource 'PipeRes', and they have the
@@ -99,8 +99,6 @@ try
     % on:
     camera(1) = Horde3DCore('AddCamera', 'MyLeftCamera', PipeRes);
     camera(2) = Horde3DCore('AddCamera', 'MyRightCamera', PipeRes);
-
-    %Horde3DCore('SetNodeTransform', HE.H3DRootNode, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0.1);
 
     % Add scenegraph with the environment scene 'envRes' to the root of the
     % scenegraph, return handle 'env' to it for later manipulations:
@@ -120,10 +118,6 @@ try
     % Add scenegraph with the human body model 'knightRes' to the root of the
     % scenegraph, return handle 'knight' to it for later manipulations:
     knight = Horde3DCore('AddNodes', HE.H3DRootNode, knightRes);
-
-    % This call disables software skinning and uses GPU accelerated
-    % hardware skinning instead:
-    % FIXME: Horde3DCore('SetNodeParami', knight, HE.H3DModel.SWSkinning, 0);
 
     % Set rigid start position, orientation, scale of the knight as well:
     kx = 0; ky = 0; kz = 0; khead = 180;
@@ -193,8 +187,6 @@ try
     Horde3DCore('SetNodeParami', light, HE.H3DLight.ShadowMapCountI, 1 );
     Horde3DCore('SetNodeParamf', light, HE.H3DLight.ShadowMapBiasF, 0, 0.01 );
     Horde3DCore('SetNodeParamf', light, HE.H3DLight.ColorF3, 0, 1.0 );
-    %Horde3DCore('SetNodeParamf', light, HE.H3DLight.Col_G, 0, 0.8 );     % TODO:
-    %Horde3DCore('SetNodeParamf', light, HE.H3DLight.Col_B, 0, 0.7 );
 
     % Define the viewport for rendering: The target rectangle of the target
     % window into which rendering should go: (xs, ys, width, height):
@@ -209,10 +201,7 @@ try
     Horde3DCore('SetCameraProjMat', camera(2), projR);
 
     % Set initial camera position and orientation:
-    cx = 5; cy = 13; cz = 19; crx = -17; cry = 15; eyehalfsep = 0.25; eyerot = 1;
-    Horde3DCore('SetNodeTransform', camera(1), cx-eyehalfsep, cy, cz, crx, cry-eyerot, 0, 1, 1, 1);
-    Horde3DCore('SetNodeTransform', camera(2), cx+eyehalfsep, cy, cz, crx, cry+eyerot, 0, 1, 1, 1);
-
+    cx = 5; cy = 13; cz = 19; heading = 15;
     Screen('EndOpenGL', win);
 
     modetxt = 'Press SPACE to switch control modes, mouse buttons to change parameters.';
@@ -273,21 +262,13 @@ try
                         cy = cy - mdy;
                     end
 
-                    % Apply new camera node transform:
-                    Horde3DCore('SetNodeTransform', camera(1), cx-eyehalfsep, cy, cz, crx, cry-eyerot, 0, 1, 1, 1);
-                    Horde3DCore('SetNodeTransform', camera(2), cx+eyehalfsep, cy, cz, crx, cry+eyerot, 0, 1, 1, 1);
-
                 case 1,
                     mdx = mdx * 0.1;
                     mdy = mdy * 0.1;
 
                     % Camera rotation:
-                    crx = crx + mdy;
-                    cry = cry - mdx;
+                    heading = heading - mdx;
 
-                    % Apply new camera node transform:
-                    Horde3DCore('SetNodeTransform', camera(1), cx-eyehalfsep, cy, cz, crx, cry-eyerot, 0, 1, 1, 1);
-                    Horde3DCore('SetNodeTransform', camera(2), cx+eyehalfsep, cy, cz, crx, cry+eyerot, 0, 1, 1, 1);
                 case 2,
                     % Knight translation and rotation:
                     if mb(1)
@@ -300,6 +281,7 @@ try
                         khead = khead + mdx;
                     end
                     Horde3DCore('SetNodeTransform', knight, kx, ky, kz, 0, khead, 0, 0.1, 0.1, 0.1 );
+
                 case 3,
                     % Control morph weight between knights trajectories:
                     if mb(1)
@@ -344,8 +326,9 @@ try
         Horde3DCore('SetModelsAnimParameters', anims);
 
         % Track head position and orientation, retrieve camera matrices for each eye,
-        % as well as tracking state:
-        state = PsychVRHMD('PrepareRender', hmd, 2);
+        % as well as tracking state. Apply global pose transform globalHeadPose:
+        globalHeadPose = PsychGetPositionYawMatrix([cx, cy, cz], heading);
+        state = PsychVRHMD('PrepareRender', hmd, globalHeadPose);
 
         % Setup Horde3D cameras from camera view matrices:
         Horde3DCore('SetNodeTransMat', camera(1), state.cameraView{1});
@@ -366,9 +349,6 @@ try
         % We're done with rendering for this frame:
         Horde3DCore('FinalizeFrame');
 
-        % Store debug output (if any) to log file:
-        % Horde3DCore('DumpMessages');
-
         % Head position tracked?
         if ~bitand(state.tracked, 2)
           % Nope, user out of cameras view frustum. Tell it like it is:
@@ -383,9 +363,6 @@ try
         fc = fc + 1;
     end
 
-    avgfps = fc / (t - tstart);
-    fprintf('Average update rate was %f FPS.\n', avgfps);
-
     % Enable 3D rendering so we can call Horde shutdown properly:
     Screen('BeginOpenGL', win);
 
@@ -396,8 +373,10 @@ try
     Screen('EndOpenGL', win);
 
     % Close window, release all ressources:
-    Screen('CloseAll');
+    sca;
 
+    avgfps = fc / (t - tstart);
+    fprintf('Average update rate was %f FPS.\n', avgfps);
 catch
     % Shutdown Horde3DCore:
     Horde3DCore('Shutdown');
