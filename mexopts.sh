@@ -201,11 +201,11 @@ echo "Error: Did not imbed 'options.sh' code"; exit 1 #imbed options.sh mac 12
             # CkeyVersion:
             CC='llvm-gcc'
             #SDKROOT='/Developer/SDKs/MacOSX10.6.sdk'
-            SDKROOT='/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk'
-            MACOSX_DEPLOYMENT_TARGET='10.6'
+            SDKROOT='/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk'
+            MACOSX_DEPLOYMENT_TARGET='10.8'
             ARCHS='x86_64'
             # MK DISABLED, use below without -isysroot: CFLAGS="-fno-common -no-cpp-precomp -arch $ARCHS -isysroot $SDKROOT -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET"
-            CFLAGS="-fno-common -no-cpp-precomp -arch $ARCHS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET"
+            CFLAGS="-fno-common -no-cpp-precomp -arch $ARCHS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET -Dchar16_t=UINT16_T"
             CFLAGS="$CFLAGS  -fexceptions"
             CLIBS="$MLIBS"
             COPTIMFLAGS='-O2 -DNDEBUG'
@@ -218,7 +218,7 @@ echo "Error: Did not imbed 'options.sh' code"; exit 1 #imbed options.sh mac 12
             # C++keyVersion: 
             CXX=llvm-g++
             # MK DISABLED, use below without -isysroot: CXXFLAGS="-fno-common -no-cpp-precomp -fexceptions -arch $ARCHS -isysroot $SDKROOT -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET"
-            CXXFLAGS="-fno-common -no-cpp-precomp -fexceptions -arch $ARCHS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET"
+            CXXFLAGS="-fno-common -no-cpp-precomp -fexceptions -arch $ARCHS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET -Dchar16_t=UINT16_T"
             CXXLIBS="$MLIBS -lstdc++"
             CXXOPTIMFLAGS='-O2 -DNDEBUG'
             CXXDEBUGFLAGS='-g'

@@ -6,18 +6,16 @@
 
 #IncludeRegexTransform: 
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DUtils/main.cpp
+/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DUtils/main.cpp
 Horde3D.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DUtils/Horde3D.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DUtils/Horde3D.h
 utPlatform.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DUtils/utPlatform.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DUtils/utPlatform.h
 utMath.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DUtils/utMath.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DUtils/utMath.h
 math.h
 -
 windows.h
--
-GL/gl.h
 -
 cstdlib
 -

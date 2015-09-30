@@ -163,6 +163,11 @@ TextureResource::TextureResource( const string &name, uint32 width, uint32 heigh
 		delete[] pixels;
 		if( _texObject == 0 ) initDefault();
 	}
+
+	if(_texObject != 0) 
+		_texNativeRef = gRDI->getTextureNativeReference(_texObject);
+	else
+		_texNativeRef = 0;
 }
 
 
@@ -179,6 +184,7 @@ void TextureResource::initDefault()
 	_width = 0; _height = 0; _depth = 0;
 	_sRGB = false;
 	_hasMipMaps = true;
+	_texNativeRef = 0;
 	
 	if( _texType == TextureTypes::TexCube )
 		_texObject = defTexCubeObject;
@@ -202,6 +208,7 @@ void TextureResource::release()
 	}
 
 	_texObject = 0;
+	_texNativeRef = 0;
 }
 
 
@@ -425,6 +432,7 @@ bool TextureResource::loadSTBI( const char *data, int size )
 		*ptr++ = (col & 0xFF00FF00) | ((col & 0x000000FF) << 16) | ((col & 0x00FF0000) >> 16);
 	}
 	
+	_depth = 1;
 	_texType = TextureTypes::Tex2D;
 	_texFormat = hdr ? TextureFormats::RGBA16F : TextureFormats::BGRA8;
 	_sRGB = (_flags & ResourceFlags::TexSRGB) != 0;
@@ -486,6 +494,8 @@ int TextureResource::getElemParamI( int elem, int elemIdx, int param )
 			return _texFormat;
 		case TextureResData::TexSliceCountI:
 			return _texType == TextureTypes::TexCube ? 6 : 1;
+		case TextureResData::TexNativeRefI:
+			return _texNativeRef;
 		}
 		break;
 	case TextureResData::ImageElem:

@@ -310,6 +310,7 @@ struct H3DShaderRes
 		UniformElem     - Uniform element
 		ContNameStr     - Name of context [read-only]
 		SampNameStr     - Name of sampler [read-only]
+		SampDefTexResI  - Default texture resouce of sampler [read-only]
 		UnifNameStr     - Name of uniform [read-only]
 		UnifSizeI       - Size (number of components) of uniform [read-only]
 		UnifDefValueF4  - Default value of uniform (a, b, c, d)
@@ -321,6 +322,7 @@ struct H3DShaderRes
 		UniformElem,
 		ContNameStr,
 		SampNameStr,
+		SampDefTexResI,
 		UnifNameStr,
 		UnifSizeI,
 		UnifDefValueF4
@@ -354,7 +356,8 @@ struct H3DTexRes
 		TexSliceCountI,
 		ImgWidthI,
 		ImgHeightI,
-		ImgPixelStream
+		ImgPixelStream,
+		TexNativeRefI
 	};
 };
 
@@ -493,6 +496,7 @@ struct H3DModel
 		               (may not be smaller than LodDist2) (default: infinite)
 		LodDist4F    - Distance to camera from which on LOD4 is used
 		               (may not be smaller than LodDist3) (default: infinite)
+		AnimCountI   - Number of active animation stages [read-only]
 	*/
 	enum List
 	{
@@ -501,7 +505,8 @@ struct H3DModel
 		LodDist1F,
 		LodDist2F,
 		LodDist3F,
-		LodDist4F
+		LodDist4F,
+		AnimCountI
 	};
 };
 
@@ -638,6 +643,22 @@ struct H3DEmitter
 		EmissionRateF,
 		SpreadAngleF,
 		ForceF3
+	};
+};
+
+
+struct H3DModelUpdateFlags
+{
+	/*	Enum: H3DModelUpdateFlags
+			The available flags for h3dUpdateModel.
+		
+		Animation  - Apply animation
+		Geometry   - Apply morphers and software skinning
+	*/
+	enum Flags
+	{
+		Animation = 1,
+		Geometry = 2
 	};
 };
 
@@ -1762,6 +1783,24 @@ DLL int h3dFindNodes( H3DNode startNode, const char *name, int type );
 */
 DLL H3DNode h3dGetNodeFindResult( int index );
 
+/* Function: h3dSetNodeUniforms
+		Sets per-instance uniform data for a node.
+
+	Details:
+		This function sets the custom per-instance uniform data for a node that can be accessed
+		from within a shader. The specified number of floats is copied from the specified memory location.
+		Currently only Model nodes will store this data.
+
+	Parameters:
+		node         - node for which data will be set
+		uniformData  - pointer to float array
+		count        - number of floats to be copied
+		
+	Returns:
+		nothing
+*/
+DLL void h3dSetNodeUniforms( H3DNode node, float *uniformData, int count );
+
 /* Function: h3dCastRay
 		Performs a recursive ray collision query.
 	
@@ -1893,6 +1932,29 @@ DLL H3DNode h3dAddModelNode( H3DNode parent, const char *name, H3DRes geometryRe
 DLL void h3dSetupModelAnimStage( H3DNode modelNode, int stage, H3DRes animationRes, int layer,
                                  const char *startNode, bool additive );
 
+/* Function: h3dGetModelAnimParams
+		Gets the animation stage parameters of a Model node.
+	
+	Details:
+		This function gets the current animation time and weight for a specified stage of the
+		specified model. The time corresponds to the frames of the animation and the animation is
+		looped if the time is higher than the maximum number of frames in the Animation resource.
+		The weight is used for animation blending and determines how much influence the stage has compared
+		to the other active stages.
+	
+	Parameters:
+		modelNode  - handle to the Model node to be accessed
+		stage      - index of the animation stage to be accessed
+		time       - pointer to variable where the time of the animation stage will be stored
+                 (can be NULL if not required)
+		weight     - pointer to variable where the blend weight of the animation stage will be stored
+                 (can be NULL if not required)
+		
+	Returns:
+		nothing
+*/
+DLL void h3dGetModelAnimParams( H3DNode modelNode, int stage, float *time, float *weight );
+
 /* Function: h3dSetModelAnimParams
 		Sets the animation stage parameters of a Model node.
 	
@@ -1935,6 +1997,25 @@ DLL void h3dSetModelAnimParams( H3DNode modelNode, int stage, float time, float 
 		true if morph target was found, otherwise false
 */
 DLL bool h3dSetModelMorpher( H3DNode modelNode, const char *target, float weight );
+
+
+/* Function: h3dUpdateModel
+		Applies animation and/or geometry updates.
+	
+	Details:
+		This function applies skeletal animation and geometry updates to the specified model, depending on
+		the specified update flags. Geometry updates include morph targets and software skinning if enabled.
+		If the animation or morpher parameters did not change, the function returns immediately. This function
+		has to be called so that changed animation or morpher parameters will take effect.
+	
+	Parameters:
+		modelNode  - handle to the Model node to be updated
+		flags      - combination of H3DModelUpdate flags
+		
+	Returns:
+		nothing
+*/
+DLL void h3dUpdateModel( H3DNode modelNode, int flags );
 
 
 /* Group: Mesh-specific scene graph functions */
@@ -2057,6 +2138,21 @@ DLL void h3dSetupCameraView( H3DNode cameraNode, float fov, float aspect, float 
 */
 DLL void h3dGetCameraProjMat( H3DNode cameraNode, float *projMat );
 
+/* Function: h3dSetCameraProjMat
+		Sets the camera projection matrix.
+	
+	Details:
+		This function sets the camera projection matrix used for bringing the geometry to
+		screen space.
+	
+	Parameters:
+		cameraNode  - handle to Camera node
+		projMat     - pointer to float array with 16 elements
+		
+	Returns:
+		nothing
+*/
+DLL void h3dSetCameraProjMat( H3DNode cameraNode, float *projMat );
 
 /* Group: Emitter-specific scene graph functions */
 /* Function: h3dAddEmitterNode
@@ -2080,22 +2176,22 @@ DLL void h3dGetCameraProjMat( H3DNode cameraNode, float *projMat );
 DLL H3DNode h3dAddEmitterNode( H3DNode parent, const char *name, H3DRes materialRes,
                                H3DRes particleEffectRes, int maxParticleCount, int respawnCount );
 
-/* Function: h3dAdvanceEmitterTime
-		Advances the time value of an Emitter node.
+/* Function: h3dUpdateEmitter
+		Advances emitter time and performs particle simulation.
 	
 	Details:
-		This function advances the simulation time of a particle system and continues the particle simulation
+		This function advances the simulation time of a particle system and performs the particle simulation
 		with timeDelta being the time elapsed since the last call of this function. The specified
 		node must be an Emitter node.
 	
 	Parameters:
-		emitterNode  - handle to the Emitter node which will be modified
+		emitterNode  - handle to the Emitter node which will be updated
 		timeDelta    - time delta in seconds
 		
 	Returns:
 		nothing
 */
-DLL void h3dAdvanceEmitterTime( H3DNode emitterNode, float timeDelta );
+DLL void h3dUpdateEmitter( H3DNode emitterNode, float timeDelta );
 
 /* Function: h3dHasEmitterFinished
 		Checks if an Emitter node is still alive.

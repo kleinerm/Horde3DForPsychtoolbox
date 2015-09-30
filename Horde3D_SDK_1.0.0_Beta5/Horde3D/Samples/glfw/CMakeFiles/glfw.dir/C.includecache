@@ -6,31 +6,39 @@
 
 #IncludeRegexTransform: 
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/enable.c
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/cocoa_thread.c
 internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/cocoa/internal.h
+sys/time.h
+-
+sys/sysctl.h
+-
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/fullscreen.c
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/enable.c
 internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/internal.h
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/glext.c
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/fullscreen.c
 internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/internal.h
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/image.c
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/glext.c
 internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/internal.h
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/init.c
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/image.c
 internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/internal.h
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/input.c
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/init.c
 internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/internal.h
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/input.c
+internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/internal.h
+
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/internal.h
 stdlib.h
 -
 string.h
@@ -38,79 +46,51 @@ string.h
 stdio.h
 -
 platform.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/platform.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/platform.h
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/joystick.c
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/joystick.c
 internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/internal.h
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/stream.c
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/stream.c
 internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/internal.h
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/tga.c
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/tga.c
 internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/internal.h
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/thread.c
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/thread.c
 internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/internal.h
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/time.c
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/time.c
 internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/internal.h
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/window.c
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/window.c
 internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/internal.h
+/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/lib/internal.h
 limits.h
 -
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_enable.c
-internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/internal.h
-
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_fullscreen.c
-internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/internal.h
-limits.h
+Horde3D/Samples/glfw/./glfw.h
+OpenGL/gl.h
+-
+OpenGL/glu.h
+-
+GL/gl.h
+-
+GL/glu.h
 -
 
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_glext.c
-internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/internal.h
-
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_init.c
-internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/internal.h
-
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_joystick.c
-internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/internal.h
-sys/ioctl.h
+Horde3D/Samples/glfw/./lib/cocoa/platform.h
+Cocoa/Cocoa.h
 -
-fcntl.h
+pthread.h
 -
-errno.h
--
-
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_keysym2unicode.c
-internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/internal.h
-
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_thread.c
-internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/internal.h
-
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_time.c
-internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/internal.h
-
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/x11_window.c
-internal.h
-/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Samples/glfw/lib/x11/internal.h
-limits.h
--
+../glfw.h
+Horde3D/Samples/glfw/./lib/glfw.h
 
 Horde3D/Samples/glfw/./lib/internal.h
 stdlib.h
@@ -121,46 +101,4 @@ stdio.h
 -
 platform.h
 Horde3D/Samples/glfw/./lib/platform.h
-
-Horde3D/Samples/glfw/./lib/x11/../../glfw.h
-OpenGL/gl.h
--
-OpenGL/glu.h
--
-GL/gl.h
--
-GL/glu.h
--
-
-Horde3D/Samples/glfw/./lib/x11/platform.h
-sys/time.h
--
-unistd.h
--
-signal.h
--
-X11/Xlib.h
--
-X11/keysym.h
--
-X11/Xatom.h
--
-GL/glx.h
--
-../../glfw.h
-Horde3D/Samples/glfw/./lib/x11/../../glfw.h
-pthread.h
--
-sched.h
--
-X11/extensions/xf86vmode.h
--
-X11/extensions/Xrandr.h
--
-dlfcn.h
--
-sys/types.h
--
-sys/sysctl.h
--
 

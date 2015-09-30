@@ -11,6 +11,7 @@ function varargout = HordeHelper(cmd, varargin)
 % This will also define a global struct variable 'global HE' which contains
 % all interesting Horde engine constants.
 %
+% DEPRECATED FUNCTIONS - NO LONGER NEEDED:
 %
 % rendertarget = HordeHelper('GetRendertargetForWindow', win);
 % - Setup onscreen or offscreen window 'win' for rendering and return the
@@ -30,6 +31,7 @@ function varargout = HordeHelper(cmd, varargin)
 % History:
 % 29.7.2009  MK  Written.
 % ??.?.2010  YNK  Updated to Horde version 1.0.0 Beta4.
+% 16.9.2015  MK  Updated to Horde version 1.0.0 Beta5 - Current git master.
 
 % This global variable will hold all global Horde data structures and
 % enumerations of Horde3D parameters:
@@ -53,6 +55,9 @@ if strcmpi(cmd, 'Initialize')
     % Call Initialize routine of Horde engine core to setup the engine for
     % all further commands:
     Horde3DCore('Initialize');
+    
+    % Eat gl errors to cope with Apples fragile OSX:
+    while glGetError; end;
 
     % Define all relevant enums for parameter passing to engine:
     HE.H3DResTypes.Undefined  = 0;
@@ -157,7 +162,7 @@ if strcmpi(cmd, 'GetRendertargetForWindow')
     else
         % Offscreen window: Query its texture handle directly:
         thingo.wofftex = Screen('GetOpenGLTexture', win, win);
-		thingo.onscreen = 0;
+        thingo.onscreen = 0;
     end
 
     % Assign remaining properties needed later for 'EndOpenGL' ops:
@@ -179,18 +184,6 @@ if strcmpi(cmd, 'EndOpenGL')
     if isstruct(thingo)
         % Real rendertarget. Do the end/unbind/rebind/copy op:
         Screen('EndOpenGL', thingo.win);
-        winfo = Screen('GetWindowInfo', thingo.win);
-        glBindFramebufferEXT(GL.FRAMEBUFFER_EXT, 0);
-        glBindTexture(GL.TEXTURE_RECTANGLE_EXT, thingo.wofftex);
-        glCopyTexSubImage2D(GL.TEXTURE_RECTANGLE_EXT, 0, 0, 0, 0, 0, thingo.w, thingo.h);
-        glBindTexture(GL.TEXTURE_RECTANGLE_EXT, 0);
-		if winfo.StereoMode > 0
-			Screen('SelectStereoDrawBuffer', thingo.win, winfo.StereoDrawBuffer);
-		else
-			if thingo.onscreen
-				Screen('SelectStereoDrawBuffer', thingo.win, 0);
-			end
-		end
     else
         % Normal window. Just do regular end op:
         Screen('EndOpenGL', thingo);

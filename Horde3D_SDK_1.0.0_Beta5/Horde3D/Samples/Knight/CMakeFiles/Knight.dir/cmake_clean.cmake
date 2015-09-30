@@ -1,8 +1,8 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/Knight.dir/app.o"
   "CMakeFiles/Knight.dir/main.o"
-  "../../Binaries/Linux/Knight.pdb"
-  "../../Binaries/Linux/Knight"
+  "../../Binaries/Darwin/Knight.pdb"
+  "../../Binaries/Darwin/Knight.app/Contents/MacOS/Knight"
 )
 
 # Per-language clean rules from dependency scanning.

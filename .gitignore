@@ -1,2 +1,6 @@
 *.o
 .DS_Store
+
+*.manifest
+
+*.map

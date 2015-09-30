@@ -3,7 +3,7 @@ function HordeDemo2(windowed)
 %
 % Usage:
 %
-% HordeDemo([windowed=0]);
+% HordeDemo2([windowed=0]);
 % - The optional 'windowed' parameter, if set to a non-zero value, will
 % display the rendering in a window. Otherwise it will be shown in a
 % fullscreen display.
@@ -11,6 +11,9 @@ function HordeDemo2(windowed)
 % Use mouse buttons, mouse moves and space key to change parameters.
 % Press ESCape key to exit.
 %
+
+% History:
+% 15-Sep-2015  mk  Update for Horde 1.0.0 Beta 5 git master + PTB 3.0.12.
 
 % This global HE is defined by HorderHelper('Initialize') and contains all
 % important Horde engine constants conveniently defined as a struct:
@@ -59,7 +62,7 @@ msamples = 0;
 
 if imgpipe == 0
     win = Screen('OpenWindow', screenid, 0, rect, [], [], [], msamples);
-    rendertarget = HordeHelper('GetRendertargetForWindow', win);
+    woff = win;
 else
     % Use Psychtoolbox imaging pipeline. This needs special setup...
     PsychImaging('PrepareConfiguration');
@@ -67,16 +70,11 @@ else
     % Show final image left/right mirrored:
     PsychImaging('AddTask', 'AllViews', 'FlipHorizontal');
     win  = PsychImaging('OpenWindow', screenid, 0, rect);
+    woff = win;
 
     if imgpipe == 1
         % Setup a offscreen window 'woff' as rendertarget:
         woff = Screen('OpenOffscreenWindow', win);
-        rendertarget = HordeHelper('GetRendertargetForWindow', woff);
-    end
-
-    if imgpipe == 2
-        % Setup regular onscreen 'win'dow as rendertarget:
-        rendertarget = HordeHelper('GetRendertargetForWindow', win);
     end
 end
 
@@ -90,7 +88,7 @@ ts = Screen('Flip', win);
 t = ts;
 
 % Switch to 3D mode:
-Screen('BeginOpenGL', win);
+Screen('BeginOpenGL', woff);
 
 try
     % Initialize Horde3DCore and define all HE.xxxx constants for use:
@@ -103,15 +101,15 @@ end
 
 try
 
-	% display horde's version string
-	%ver = Horde3DCore('HordeVersion');
-	%ver;
+    % display horde's version string
+    %ver = Horde3DCore('HordeVersion');
+    %ver;
 
-	% check if there is an error
-	% Horde3DCore('GetError');
-	disp('Checcking for Messages...');
-	[msg, lvl, tme] = Horde3DCore('GetMessage');
-	fprintf('msg=%s, level=%d, time=%d \n', msg, lvl, tme);
+    % check if there is an error
+    % Horde3DCore('GetError');
+    disp('Checcking for Messages...');
+    [msg, lvl, tme] = Horde3DCore('GetMessage');
+    fprintf('msg=%s, level=%d, time=%d \n', msg, lvl, tme);
 
     % Add all required resources:
 
@@ -136,7 +134,7 @@ try
     characterRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/man/man.scene.xml', 0 );
     characterWalkRes = Horde3DCore('AddResource', HE.H3DResTypes.Animation, 'animations/man.anim' );%, 0 );
 
-	moonRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/sphere/sphere.scene.xml');
+    moonRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/sphere/sphere.scene.xml');
 
     % Load all the added resources into engine. 'Content' is the filesystem
     % path to the folder that contains all needed animation resources. All
@@ -146,13 +144,13 @@ try
     % files which define the scene/model/animation tracks etc.:
     Horde3DCore('LoadResources', [fileparts(mfilename('fullpath')) filesep 'Content']);
 
-	disp('Checking Resource knight...');
-	kname = Horde3DCore('GetResName', knightRes);
-	ktype = Horde3DCore('GetResType', knightRes);
-	knelems = Horde3DCore('GetResElemCount', knightRes, 1);
-	fprintf('Resource Name:%s, Type:%d, NoOfElems:%d, IsResLoaded:\n', kname, ktype, knelems);
-	Horde3DCore('IsResLoaded', knightRes);
-	
+    disp('Checking Resource knight...');
+    kname = Horde3DCore('GetResName', knightRes);
+    ktype = Horde3DCore('GetResType', knightRes);
+    knelems = Horde3DCore('GetResElemCount', knightRes, 1);
+    fprintf('Resource Name:%s, Type:%d, NoOfElems:%d, IsResLoaded:\n', kname, ktype, knelems);
+    Horde3DCore('IsResLoaded', knightRes);
+    
     % Add a camera to the scene: The behaviour and basic rendering parameters
     % of the camera are defined by the Pipeline resource 'PipeRes', and it has
     % the name 'MyCamera'. The name can be anything...
@@ -171,7 +169,7 @@ try
     % Rotation (rx,ry,rz) = [0, 0, 0] degrees euler angles.
     % Scaling  (sx,sy,sz) = [20, 20, 20] units.
     Horde3DCore('SetNodeTransform', env, 0, -20, 0, 0, 0, 0, 20, 20, 20);
-	Horde3DCore('SetNodeActivation', env, 0);
+    Horde3DCore('SetNodeActivation', env, 0);
 
     sky = Horde3DCore('AddNodes', HE.H3DRootNode, skyRes);
     Horde3DCore('SetNodeTransform', sky, 0, 0, 0, 0, 0, 180, 210, 50, 210 );
@@ -180,12 +178,12 @@ try
     % scenegraph, return handle 'knight' to it for later manipulations:
     knight = Horde3DCore('AddNodes', HE.H3DRootNode, knightRes);
 
-	par = Horde3DCore('GetNodeParent', knight);
-	pname = Horde3DCore('GetNodeType', par);
-	fprintf('Parent of Knight Node(%d) is: %d\n', Horde3DCore('GetNodeType', knight), pname);
+    par = Horde3DCore('GetNodeParent', knight);
+    pname = Horde3DCore('GetNodeType', par);
+    fprintf('Parent of Knight Node(%d) is: %d\n', Horde3DCore('GetNodeType', knight), pname);
 
-	fprintf('Moon Resource created, IsResLoaded?\n');
-	Horde3DCore('IsResLoaded', moonRes);
+    fprintf('Moon Resource created, IsResLoaded?\n');
+    Horde3DCore('IsResLoaded', moonRes);
     moon = Horde3DCore('AddNodes', HE.H3DRootNode, moonRes);
     Horde3DCore('SetNodeTransform', moon, -20, -40, 0, 0, 0, 0, 10, 10, 10);
 
@@ -387,7 +385,7 @@ try
         hrotZ = 90 * sin(tSimulation * 0.1);
         Horde3DCore('SetNodeTransform', handjoint, hposX, hposY, hposZ, hrotX, hrotY, hrotZ, hsX, hsY, hsZ);
 
-	    Horde3DCore('SetNodeTransform', moon, -20+cos(tSimulation)*50, -10+sin(tSimulation)*50, 0, 0, 0, 0, 10, 10, 10);
+        Horde3DCore('SetNodeTransform', moon, -20+cos(tSimulation)*50, -10+sin(tSimulation)*50, 0, 0, 0, 0, 10, 10, 10);
 
         % Update position of the circle walking guys on their circle:
         p = tSimulation * 35.0 / 360.0 * 50.0;
@@ -399,8 +397,8 @@ try
         tz = r*sin((i + p)/50 * 2 * pi);
         ang = -(i + p)/50 * 360;
         xform([2,3,4,6], :) = [ tx; ty; tz; ang ];
-		dispstr=['tx=', num2str(tx(10)), ', ty=', num2str(ty(10)), ', tz=', num2str(tz(10)), ', yang=', num2str(ang(10))];
-		disp(dispstr);
+        dispstr=['tx=', num2str(tx(10)), ', ty=', num2str(ty(10)), ', tz=', num2str(tz(10)), ', yang=', num2str(ang(10))];
+        disp(dispstr);
 
         % Batch-Update rigid transformations:
         Horde3DCore('SetNodeTransforms', xform);
@@ -411,14 +409,14 @@ try
         % Batch-Submit new animation parameters:
         Horde3DCore('SetModelsAnimParameters', anims);
 
-		% Move camera
-		cx = 15+sin(tSimulation)*10; cy = 23; cz = 89; crx = -17; cry = 15;
-		Horde3DCore('SetNodeTransform', camera, cx, cy, cz, crx, cry, 0, 1, 1, 1);
+        % Move camera
+        cx = 15+sin(tSimulation)*10; cy = 23; cz = 89; crx = -17; cry = 15;
+        Horde3DCore('SetNodeTransform', camera, cx, cy, cz, crx, cry, 0, 1, 1, 1);
 
-		% Move the light in space:
-		Horde3DCore('SetNodeTransform', light, 20+sin(tSimulation)*50, 15+sin(tSimulation)*50, 10, -60, 0, 0, 1, 1, 1 );
+        % Move the light in space:
+        Horde3DCore('SetNodeTransform', light, 20+sin(tSimulation)*50, 15+sin(tSimulation)*50, 10, -60, 0, 0, 1, 1, 1 );
 
-		% Render updated models and scene into framebuffer, using camera
+        % Render updated models and scene into framebuffer, using camera
         % 'camera':
         Horde3DCore('Render', camera);
 
@@ -428,29 +426,14 @@ try
         % Store debug output (if any) to log file:
         Horde3DCore('DumpMessages');
 
-        if imgpipe == 0
-            % Done with 3D rendering:
-			glGetError;
-            Screen('EndOpenGL', win);
-            % This would work as well:
-            % HordeHelper('EndOpenGL', rendertarget);
-        end
+        % Done with 3D rendering:
+        Screen('EndOpenGL', win);
 
         if imgpipe == 1
-            % Finalize OpenGL rendering for 'rendertarget'. This copies the
-            % final Horde image into the associated offscreen window:
-            HordeHelper('EndOpenGL', rendertarget);
-
             % For the fun of it, blit the offscreen window 'woff' twict
             % into PTB's framebuffer, using different methods:
             Screen('CopyWindow', woff, win);
             Screen('DrawTexture', win, woff, [], [0 0 w/2 h/2]);
-        end
-
-        if imgpipe == 2
-            % Finalize OpenGL rendering for 'rendertarget'. This copies the
-            % final Horde image into our associated onscreen window 'win':
-            HordeHelper('EndOpenGL', rendertarget);
         end
 
         % Print some status text onto the screen:
@@ -460,10 +443,8 @@ try
         % onset timestamp 't':
         t = Screen('Flip', win, [], [], 0);
 
-        % t = GetSecs;
-
         % Prepare next 3D render-pass:
-        Screen('BeginOpenGL', win);
+        Screen('BeginOpenGL', woff);
 
         % Repeat...
         fc = fc + 1;

@@ -231,6 +231,7 @@ Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o: Horde3D/Source/
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o: Horde3D/Source/Horde3DEngine/egTexture.h
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o: Horde3D/Source/Horde3DEngine/utOpenGL.h
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o: Horde3D/Source/Horde3DEngine/utTimer.h
+Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o: Horde3D/Source/Horde3DEngine/../../../Extensions/Terrain/Source/extension.h
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o: Horde3D/Source/Horde3DEngine/../../../egExtensions_auto_include.h
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o: Horde3D/Source/Horde3DEngine/../../../egExtensions_auto_install.h
 Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o: Horde3D/Source/Horde3DEngine/../Shared/utDebug.h

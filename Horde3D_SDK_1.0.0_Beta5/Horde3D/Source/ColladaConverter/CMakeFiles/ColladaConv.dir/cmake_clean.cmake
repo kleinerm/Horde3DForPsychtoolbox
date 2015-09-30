@@ -4,8 +4,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/ColladaConv.dir/main.o"
   "CMakeFiles/ColladaConv.dir/optimizer.o"
   "CMakeFiles/ColladaConv.dir/utils.o"
-  "../../Binaries/Linux/ColladaConv.pdb"
-  "../../Binaries/Linux/ColladaConv"
+  "../../Binaries/Darwin/ColladaConv.pdb"
+  "../../Binaries/Darwin/ColladaConv"
 )
 
 # Per-language clean rules from dependency scanning.

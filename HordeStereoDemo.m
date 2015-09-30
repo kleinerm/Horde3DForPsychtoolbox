@@ -16,6 +16,9 @@ function HordeStereoDemo(smode, windowed)
 % Press ESCape key to exit.
 %
 
+% History:
+% 15-Sep-2015  mk  Update for Horde 1.0.0 Beta 5 git master + PTB 3.0.12.
+
 % This global HE is defined by HorderHelper('Initialize') and contains all
 % important Horde engine constants conveniently defined as a struct:
 global HE;
@@ -66,16 +69,6 @@ if ismember(smode, [8,9])
     %SetAnaglyphStereoParameters('OptimizedColorAnaglyphMode', win);
     SetAnaglyphStereoParameters('HalfColorAnaglyphMode', win);
 end
-
-% Setup regular onscreen 'win'dow as rendertarget. Need to setup two
-% rendertargets, one for each stereo view:
-Screen('SelectStereoDrawbuffer', win, 0);
-rendertarget(1) = HordeHelper('GetRendertargetForWindow', win);
-
-Screen('SelectStereoDrawbuffer', win, 1);
-rendertarget(2) = HordeHelper('GetRendertargetForWindow', win);
-
-Screen('SelectStereoDrawbuffer', win, 0);
 
 % Query windows size w x h pixels for later Horde renderer setup:
 [w,h] = Screen('WindowSize', win);
@@ -390,9 +383,7 @@ try
             % 'camera':
             Horde3DCore('Render', camera(sbuf+1));
 
-            % Finalize OpenGL rendering for 'rendertarget'. This copies the
-            % final Horde image into our associated onscreen window 'win':
-            HordeHelper('EndOpenGL', rendertarget(sbuf+1));
+            Screen('EndOpenGL', win);
 
             % Print some status text onto the screen:
             DrawFormattedText(win, [modetxt, sprintf('\nMorphWeight = %f\n', weight)], 0, 0, 255);
@@ -407,8 +398,6 @@ try
         % Show rendered frame at next vertical retrace, retrieve true stimulus
         % onset timestamp 't':
         t = Screen('Flip', win, [], [], 0);
-
-        % t = GetSecs;
 
         % Repeat...
         fc = fc + 1;

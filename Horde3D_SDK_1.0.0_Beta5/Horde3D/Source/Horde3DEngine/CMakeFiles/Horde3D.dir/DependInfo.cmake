@@ -4,37 +4,56 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egAnimatables.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egAnimation.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egCamera.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egCom.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egExtensions.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egGeometry.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egLight.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egMain.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egMaterial.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egModel.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egModules.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egParticle.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egPipeline.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egPrimitives.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egRenderer.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egRendererBase.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egResource.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egScene.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egSceneGraphRes.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egShader.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/egTexture.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/utImage.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o"
-  "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/utOpenGL.cpp" "/home/kleinerm/projects/Horde3DForPsychtoolbox/Horde3D_SDK_1.0.0_Beta5/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egAnimatables.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimatables.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egAnimation.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egAnimation.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egCamera.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCamera.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egCom.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egCom.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egExtensions.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egExtensions.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egGeometry.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egGeometry.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egLight.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egLight.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egMain.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMain.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egMaterial.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egMaterial.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egModel.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModel.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egModules.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egModules.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egParticle.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egParticle.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egPipeline.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPipeline.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egPrimitives.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egPrimitives.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egRenderer.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRenderer.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egRendererBase.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egRendererBase.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egResource.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egResource.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egScene.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egScene.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egSceneGraphRes.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egSceneGraphRes.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egShader.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egShader.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/egTexture.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/egTexture.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/utImage.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utImage.o"
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/utOpenGL.cpp" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir/utOpenGL.o"
   )
-SET(CMAKE_CXX_COMPILER_ID "GNU")
+SET(CMAKE_CXX_COMPILER_ID "Clang")
 
 # Preprocessor definitions for this target.
 SET(CMAKE_TARGET_DEFINITIONS
   "CMAKE"
   )
 
+# Pairs of files generated by the same build rule.
+SET(CMAKE_MULTIPLE_OUTPUT_PAIRS
+  "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/Horde3D.framework/Horde3D" "/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/Horde3D.framework/Versions/A/Horde3D"
+  )
+
+
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
+  "/Users/kleinerm/projects/Horde3D/Extensions/Terrain/Source/CMakeFiles/Horde3DTerrain.dir/DependInfo.cmake"
   )
+
+# The include file search paths:
+SET(CMAKE_C_TARGET_INCLUDE_PATH
+  "Horde3D/Source/Horde3DEngine/."
+  "Horde3D/Source/Horde3DEngine/../Shared"
+  "Horde3D/Source/Horde3DEngine/../../Bindings/C++"
+  "Horde3D/Source/Horde3DEngine/../../.."
+  "."
+  )
+SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
