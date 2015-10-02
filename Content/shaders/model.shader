@@ -384,6 +384,7 @@ void main( void )
 
 uniform sampler2D albedoMap;
 uniform samplerCube ambientMap;
+uniform vec4 matDiffuseCol;
 
 #ifdef _F02_NormalMapping
 	uniform sampler2D normalMap;
@@ -426,7 +427,7 @@ void main( void )
 	// Flip texture vertically to match the GL coordinate system
 	newCoords.t *= -1.0;
 
-	vec4 albedo = texture2D( albedoMap, newCoords.st );
+	vec4 albedo = texture2D( albedoMap, newCoords.st ) * matDiffuseCol;
 	
 #ifdef _F05_AlphaTest
 	if( albedo.a < 0.01 ) discard;
