@@ -545,9 +545,11 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 
                 // Load resources
                 if (!h3dutLoadResourcesFromDisk( str )) {
+                        h3dutDumpMessages();
                         mexPrintf("Failed to load at least one of the requested Resources from basepath %s.\n", str);
                         mexErrMsgTxt("Horde3D: LoadResources: FAILED!");
                 }
+                h3dutDumpMessages();
         }
 
         if (IsCommand((char*)"AddCamera")) {
