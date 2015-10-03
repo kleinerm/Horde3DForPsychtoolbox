@@ -1,10 +1,10 @@
-function HordeVRHMDShowCase(filename)
+function HordeVRHMDShowCase(forceMonoDisplay)
 % Demonstration of usage of Horde3D engine from within Psychtoolbox with
 % supported VR Head mounted displays (HMDs), e.g., the Oculus Rift DK2.
 %
 % Usage:
 %
-% HordeVRHMDShowCase(filename);
+% HordeVRHMDShowCase([forceMonoDisplay=0]);
 %
 % Use mouse buttons, mouse moves and space key to change parameters.
 % Press ESCape key to exit.
@@ -17,6 +17,9 @@ function HordeVRHMDShowCase(filename)
 % important Horde engine constants conveniently defined as a struct:
 global HE;
 
+if nargin < 1 || isempty(forceMonoDisplay)
+    forceMonoDisplay = 0;
+end
 gs = 0.05;
 
 % Check if Psychtoolbox is properly installed and ready, set defaults:
@@ -37,9 +40,16 @@ screenid = max(Screen('Screens'));
 
 % Use Psychtoolbox imaging pipeline. This needs special setup...
 PsychImaging('PrepareConfiguration');
-hmd = PsychVRHMD('AutoSetupHMD', 'Tracked3DVR', 'LowPersistence TimeWarp FastResponse');
+if ~forceMonoDisplay
+    hmd = PsychVRHMD('AutoSetupHMD', 'Tracked3DVR', 'LowPersistence');
+else
+    hmd = [];
+end
+
 if ~isempty(hmd)
     PsychVRHMD('SetHSWDisplayDismiss', hmd, -1);
+else
+    screenid = max(0, screenid - 1);
 end
 [win, winRect] = PsychImaging('OpenWindow', screenid, 0);
 [w,h] = Screen('WindowSize', win);
@@ -89,7 +99,16 @@ try
     ImpulseEngineRoomRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/ImpulseEngineRoom/ImpulseEngineRoom.scene.xml');
     Horde3DCore('DumpMessages');
 
+    FDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/F-Deck-PrimaryHull/F-Deck-PrimaryHull.scene.xml');
+    Horde3DCore('DumpMessages');
+
+    GDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/G-Deck-PrimaryHull/G-Deck-PrimaryHull.scene.xml');
+    Horde3DCore('DumpMessages');
+
     HDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/HDeck/HDeck.scene.xml');
+    Horde3DCore('DumpMessages');
+
+    IDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/I-Deck-PrimaryHull/I-Deck-PrimaryHull.scene.xml');
     Horde3DCore('DumpMessages');
 
     % Load all the added resources into engine. 'Content' is the filesystem
@@ -112,11 +131,17 @@ try
     camera(1) = Horde3DCore('AddCamera', 'MyLeftCamera', PipeRes);
     camera(2) = Horde3DCore('AddCamera', 'MyRightCamera', PipeRes);
 
-    clipFar = 100000.0 * gs;
+    clipFar = 100000.0 * gs / 1;
     clipNear = 0.1;
 
     Horde3DCore('SetNodeParamf', camera(1), HE.H3DCamera.FarPlaneF, 0, clipFar);
     Horde3DCore('SetNodeParamf', camera(2), HE.H3DCamera.FarPlaneF, 0, clipFar);
+
+    % Enable occlusion culling: Does not help much here, but it does cut
+    % the triangle count to submit to GPU in half - sadly that is not
+    % enough for us to get decent performance:
+    Horde3DCore('SetNodeParami', camera(1), HE.H3DCamera.OccCullingI, 1);
+    Horde3DCore('SetNodeParami', camera(2), HE.H3DCamera.OccCullingI, 1);
 
     % Add a rock to the root of the scenegraph, return handle 'rock' to it for later manipulations:
 %    rock = Horde3DCore('AddNodes', HE.H3DRootNode, rockRes);
@@ -130,14 +155,23 @@ try
     Horde3DCore('SetNodeTransform', sky, 0, 0, 0, 0, 0, 0, 24000 * gs, 24000 * gs, 24000 * gs);
 
     % Add our beauty:
-    enterprise = Horde3DCore('AddNodes', HE.H3DRootNode, enterpriseRes);
-    Horde3DCore('SetNodeTransform', enterprise, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
+%    enterprise = Horde3DCore('AddNodes', HE.H3DRootNode, enterpriseRes);
+%    Horde3DCore('SetNodeTransform', enterprise, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
 
-%    ImpulseEngineRoom = Horde3DCore('AddNodes', HE.H3DRootNode, ImpulseEngineRoomRes);
-%    Horde3DCore('SetNodeTransform', ImpulseEngineRoom, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
+%     ImpulseEngineRoom = Horde3DCore('AddNodes', HE.H3DRootNode, ImpulseEngineRoomRes);
+%     Horde3DCore('SetNodeTransform', ImpulseEngineRoom, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
 
-%    HDeck = Horde3DCore('AddNodes', HE.H3DRootNode, HDeckRes);
-%    Horde3DCore('SetNodeTransform', HDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
+%     FDeck = Horde3DCore('AddNodes', HE.H3DRootNode, FDeckRes);
+%     Horde3DCore('SetNodeTransform', FDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
+
+%     GDeck = Horde3DCore('AddNodes', HE.H3DRootNode, GDeckRes);
+%     Horde3DCore('SetNodeTransform', GDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
+
+%     HDeck = Horde3DCore('AddNodes', HE.H3DRootNode, HDeckRes);
+%     Horde3DCore('SetNodeTransform', HDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
+
+    IDeck = Horde3DCore('AddNodes', HE.H3DRootNode, IDeckRes);
+    Horde3DCore('SetNodeTransform', IDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
 
     % Add a light node which defines 1 light source:
     light = Horde3DCore('AddLightNode', HE.H3DRootNode, 'Light1', 0, 'LIGHTING', 'SHADOWMAP');
@@ -176,7 +210,7 @@ try
 
     % Set initial camera position and orientation:
     cx = 0; cy = 80; cz = 250; crx = -17; cry = 0; heading = 0;
-    cx = 0 * gs; cy = 80 * gs; cz = -7100 * gs; crx = -17; cry = 0; heading = 0;
+    cx = 0 * gs; cy = 80 * gs; cz = -7100 * gs; crx = -17; cry = 180; heading = 180;
     
     Screen('EndOpenGL', win);
 
@@ -197,6 +231,7 @@ try
     globalHeadPose = PsychGetPositionYawMatrix([cx, cy, cz], heading);
 
     oldisdown = 0;
+    tic;
 
     % Animation loop: Run until keypress:
     while 1
@@ -301,7 +336,7 @@ try
             %Horde3DCore('SetNodeTransMat', camera(2), state.cameraView{2});
         end
 
-        for renderPass = 0:1
+        for renderPass = 0:(1-forceMonoDisplay)
             if ~isempty(hmd)
                 eyePose = PsychVRHMD('GetEyePose', hmd, renderPass, globalHeadPose);
                 sbuf = eyePose.eyeIndex;
@@ -323,7 +358,7 @@ try
 
         % We're done with rendering for this frame:
         Horde3DCore('FinalizeFrame');
-
+        %elapsed = toc
         % Head position tracked?
         if ~isempty(hmd) && ~bitand(state.tracked, 2)
           % Nope, user out of cameras view frustum. Tell it like it is:
@@ -339,8 +374,16 @@ try
         % onset timestamp 't':
         t = Screen('Flip', win);
 
+        % Stats for nerds:
+        tricount = Horde3DCore('GetStat', HE.H3DStats.TriCount, 1);
+        batchcount = Horde3DCore('GetStat', HE.H3DStats.BatchCount, 1);
+%         GeoUpdateTime = Horde3DCore('GetStat', HE.H3DStats.GeoUpdateTime, 1)
+%        FwdLightsGPUTime = Horde3DCore('GetStat', HE.H3DStats.FwdLightsGPUTime, 1)
+%         ShadowsGPUTime = Horde3DCore('GetStat', HE.H3DStats.ShadowsGPUTime, 1)
+        
         % Repeat...
         fc = fc + 1;
+        stats(:, fc) = [tricount ; batchcount];
     end
 
     % Enable 3D rendering so we can call Horde shutdown properly:
@@ -357,6 +400,9 @@ try
 
     avgfps = fc / (t - tstart);
     fprintf('Average update rate was %f FPS.\n', avgfps);
+    plot(stats(1, :));
+    figure;
+    plot(stats(2, :));
 catch
     % Shutdown Horde3DCore:
     Horde3DCore('Shutdown');
