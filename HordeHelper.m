@@ -95,6 +95,20 @@ if strcmpi(cmd, 'Initialize')
     HE.H3DNodeTypes.Camera    = 6;
     HE.H3DNodeTypes.Emitter   = 7;
 
+    HE.H3DStats.TriCount            = 100;
+    HE.H3DStats.BatchCount          = 101;
+    HE.H3DStats.LightPassCount      = 102;
+    HE.H3DStats.FrameTime           = 103;
+    HE.H3DStats.AnimationTime       = 104;
+    HE.H3DStats.GeoUpdateTime       = 105;
+    HE.H3DStats.ParticleSimTime     = 106;
+    HE.H3DStats.FwdLightsGPUTime    = 107;
+    HE.H3DStats.DefLightsGPUTime    = 108;
+    HE.H3DStats.ShadowsGPUTime      = 109;
+    HE.H3DStats.ParticleGPUTime     = 110;
+    HE.H3DStats.TextureVMem         = 111;
+    HE.H3DStats.GeometryVMem        = 112;
+
     HE.H3DLight.MatResI     = 500;
     HE.H3DLight.RadiusF     = 501;
     HE.H3DLight.FovF        = 502;
@@ -114,15 +128,25 @@ if strcmpi(cmd, 'Initialize')
     HE.H3DCamera.TopPlaneF           = 606;
     HE.H3DCamera.NearPlaneF          = 607;
     HE.H3DCamera.FarPlaneF           = 608;
-    HE.H3DCamera.OrthoI       = 609;
-    HE.H3DCamera.OccCullingI   = 610;
+    HE.H3DCamera.ViewportXI          = 609;
+    HE.H3DCamera.ViewportYI          = 610;
+    HE.H3DCamera.ViewportWidthI      = 611;
+    HE.H3DCamera.ViewportHeightI     = 612;
 
-    HE.H3DModel.GeoResI         = 200;
-    HE.H3DModel.SWSkinningI    = 201;
+    HE.H3DCamera.OrthoI       = 613;
+    HE.H3DCamera.OccCullingI   = 614;
+
+    HE.H3DModel.GeoResI              = 200;
+    HE.H3DModel.SWSkinningI          = 201;
     HE.H3DModel.LodDist1F            = 202;
     HE.H3DModel.LodDist2F            = 203;
     HE.H3DModel.LodDist3F            = 204;
     HE.H3DModel.LodDist4F            = 205;
+
+    HE.H3DNodeFlags.NoDraw           = 1;
+    HE.H3DNodeFlags.NoCastShadow     = 2;
+    HE.H3DNodeFlags.NoRayQuery       = 4;
+    HE.H3DNodeFlags.Inactive         = 7;
 
     % Ready to rock!
     return;
