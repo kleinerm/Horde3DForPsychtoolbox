@@ -17,6 +17,8 @@ function HordeVRHMDShowCase(filename)
 % important Horde engine constants conveniently defined as a struct:
 global HE;
 
+gs = 0.05;
+
 % Check if Psychtoolbox is properly installed and ready, set defaults:
 PsychDefaultSetup(2);
 
@@ -35,7 +37,10 @@ screenid = max(Screen('Screens'));
 
 % Use Psychtoolbox imaging pipeline. This needs special setup...
 PsychImaging('PrepareConfiguration');
-hmd = PsychVRHMD('AutoSetupHMD', 'Tracked3DVR', 'LowPersistence TimeWarp');
+hmd = PsychVRHMD('AutoSetupHMD', 'Tracked3DVR', 'LowPersistence TimeWarp FastResponse');
+if ~isempty(hmd)
+    PsychVRHMD('SetHSWDisplayDismiss', hmd, -1);
+end
 [win, winRect] = PsychImaging('OpenWindow', screenid, 0);
 [w,h] = Screen('WindowSize', win);
 
@@ -107,7 +112,7 @@ try
     camera(1) = Horde3DCore('AddCamera', 'MyLeftCamera', PipeRes);
     camera(2) = Horde3DCore('AddCamera', 'MyRightCamera', PipeRes);
 
-    clipFar = 100000.0;
+    clipFar = 100000.0 * gs;
     clipNear = 0.1;
 
     Horde3DCore('SetNodeParamf', camera(1), HE.H3DCamera.FarPlaneF, 0, clipFar);
@@ -122,17 +127,17 @@ try
 
     % Some sky box, so the world has an (open) ending:
     sky = Horde3DCore('AddNodes', HE.H3DRootNode, skyRes);
-    Horde3DCore('SetNodeTransform', sky, 0, 0, 0, 0, 0, 0, 24000, 24000, 24000);
+    Horde3DCore('SetNodeTransform', sky, 0, 0, 0, 0, 0, 0, 24000 * gs, 24000 * gs, 24000 * gs);
 
     % Add our beauty:
     enterprise = Horde3DCore('AddNodes', HE.H3DRootNode, enterpriseRes);
-    Horde3DCore('SetNodeTransform', enterprise, 0, 0, 0, 0, 0, 0, 1, 1, 1);
+    Horde3DCore('SetNodeTransform', enterprise, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
 
-    ImpulseEngineRoom = Horde3DCore('AddNodes', HE.H3DRootNode, ImpulseEngineRoomRes);
-    Horde3DCore('SetNodeTransform', ImpulseEngineRoom, 0, 0, 0, 0, 0, 0, 1, 1, 1);
+%    ImpulseEngineRoom = Horde3DCore('AddNodes', HE.H3DRootNode, ImpulseEngineRoomRes);
+%    Horde3DCore('SetNodeTransform', ImpulseEngineRoom, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
 
-    HDeck = Horde3DCore('AddNodes', HE.H3DRootNode, HDeckRes);
-    Horde3DCore('SetNodeTransform', HDeck, 0, 0, 0, 0, 0, 0, 1, 1, 1);
+%    HDeck = Horde3DCore('AddNodes', HE.H3DRootNode, HDeckRes);
+%    Horde3DCore('SetNodeTransform', HDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
 
     % Add a light node which defines 1 light source:
     light = Horde3DCore('AddLightNode', HE.H3DRootNode, 'Light1', 0, 'LIGHTING', 'SHADOWMAP');
@@ -171,6 +176,8 @@ try
 
     % Set initial camera position and orientation:
     cx = 0; cy = 80; cz = 250; crx = -17; cry = 0; heading = 0;
+    cx = 0 * gs; cy = 80 * gs; cz = -7100 * gs; crx = -17; cry = 0; heading = 0;
+    
     Screen('EndOpenGL', win);
 
     % Apply new camera node transform:
@@ -186,6 +193,8 @@ try
     SetMouse(xc,yc, screenid);
     HideCursor(screenid);
     [mxo, myo] = GetMouse(screenid);
+
+    globalHeadPose = PsychGetPositionYawMatrix([cx, cy, cz], heading);
 
     oldisdown = 0;
 
@@ -214,12 +223,11 @@ try
 
         % Query mouse position and button state:
         [mx, my, mb] = GetMouse(screenid);
+        % Deltas for mouse relative movement:
+        mdx = mx - mxo;
+        mdy = my - myo;
 
         if any(mb)
-            % Deltas for mouse relative movement:
-            mdx = mx - mxo;
-            mdy = my - myo;
-
             % Some mouse button pressed: Trigger action depending on mmode:
             switch(mmode)
                 case 0,
@@ -228,11 +236,11 @@ try
                     mdy = mdy * 0.1;
                     if ~mb(1)
                         % Forward / Backward:
-                        cz = cz + mdy
+                        cz = cz + mdy;
                     else
                         % Left/Right, Up/Down:
-                        cx = cx + mdx
-                        cy = cy - mdy
+                        cx = cx + mdx;
+                        cy = cy - mdy;
                     end
                     % Apply new camera node transform:
                     Horde3DCore('SetNodeTransform', camera(1), cx, cy, cz, crx, cry, 0, 1, 1, 1);
@@ -244,10 +252,10 @@ try
 
                     % Camera rotation:
                     % Camera rotation:
-                    crx = crx + mdy
-                    cry = cry - mdx
+                    crx = crx + mdy;
+                    cry = cry - mdx;
 
-                    heading = heading - mdx
+                    heading = heading - mdx;
                     % Apply new camera node transform:
                     Horde3DCore('SetNodeTransform', camera(1), cx, cy, cz, crx, cry, 0, 1, 1, 1);
                     Horde3DCore('SetNodeTransform', camera(2), cx, cy, cz, crx, cry, 0, 1, 1, 1);
@@ -267,15 +275,41 @@ try
         if ~isempty(hmd)
             % Track head position and orientation, retrieve camera matrices for each eye,
             % as well as tracking state. Apply global pose transform globalHeadPose:
-            globalHeadPose = PsychGetPositionYawMatrix([cx, cy, cz], heading);
+            if 1
+                if mb(1)
+                    dcz = mdy * 0.25;
+                    dHeading = -mdx * 1;
+                else
+                    dcz = 0;
+                    dHeading = 0;
+                end
+
+                if any(mb(2:3))
+                    dcy = -mdy * 0.1;
+                else
+                    dcy = 0;
+                end
+
+                globalHeadPose = globalHeadPose * PsychGetPositionYawMatrix([0, dcy, dcz], dHeading);
+            else
+                globalHeadPose = PsychGetPositionYawMatrix([cx, cy, cz], heading);
+            end
             state = PsychVRHMD('PrepareRender', hmd, globalHeadPose);
 
             % Setup Horde3D cameras from camera view matrices:
-            Horde3DCore('SetNodeTransMat', camera(1), state.cameraView{1});
-            Horde3DCore('SetNodeTransMat', camera(2), state.cameraView{2});
+            %Horde3DCore('SetNodeTransMat', camera(1), state.cameraView{1});
+            %Horde3DCore('SetNodeTransMat', camera(2), state.cameraView{2});
         end
 
-        for sbuf = 0:1
+        for renderPass = 0:1
+            if ~isempty(hmd)
+                eyePose = PsychVRHMD('GetEyePose', hmd, renderPass, globalHeadPose);
+                sbuf = eyePose.eyeIndex;
+                Horde3DCore('SetNodeTransMat', camera(sbuf+1), eyePose.cameraView);
+            else
+                sbuf = renderPass;
+            end
+
             Screen('SelectStereoDrawbuffer', win, sbuf);
 
             % Prepare next 3D render-pass:
@@ -296,8 +330,10 @@ try
           DrawFormattedText(win, 'Vision based tracking lost\nGet back into the cameras field of view!', 'center', 'center', [1 0 0]);
         end
 
-        % Print some status text onto the screen:
-        DrawFormattedText(win, [modetxt, sprintf('\n[x,yz] = [%f %f %f]\n', cx, cy, cz)], 0, 0, 255);
+        if isempty(hmd)
+            % Print some status text onto the screen:
+            DrawFormattedText(win, [modetxt, sprintf('\n[x,yz] = [%f %f %f]\n', cx, cy, cz)], 0, 0, 255);
+        end
 
         % Show rendered frame at next vertical retrace, retrieve true stimulus
         % onset timestamp 't':
