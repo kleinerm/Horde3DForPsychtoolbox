@@ -351,6 +351,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
                 mexPrintf("-- Gets the specified string property of the specified scene node and returns it as a constant pointer.\n\n");
                 mexPrintf("%s('SetNodeParamStr', node, param, value);\n", me);
                 mexPrintf("-- Sets a specified string property of the specified node to a specified value.\n\n");
+                mexPrintf("flags = %s('GetNodeFlags', node);\n", me);
+                mexPrintf("-- Gets the current flags set for specified node.\n\n");
                 mexPrintf("[minX, minY, minZ, maxX, maxY, maxZ] = %s('GetNodeAABB', node);\n", me);
                 mexPrintf("-- Stores the world coordinates of the axis aligned bounding box of a specified node in the specified variables.\n\n");
                 mexPrintf("value = %s('CastRay', node, ox, oy, oz, dx, dy, dz, numNearest);\n", me);
@@ -410,6 +412,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
                 mexPrintf("-- Set floating point parameter 'paramType' of node 'H3DNode' to value 'value'.\n\n");
                 mexPrintf("%s('SetNodeParami', H3DNode, paramType, value);\n", me);
                 mexPrintf("-- Set integer parameter 'paramType' of node 'H3DNode' to value 'value'.\n\n");
+                mexPrintf("%s('SetNodeFlags', node, flags, recursive);\n", me);
+                mexPrintf("-- Sets the current flags for specified node to 'flags'. If recursive is 1 then apply to all child nodes as well, otherwise 0 only to given node.\n\n");
                 mexPrintf("%s('SetupViewport', camera, x, y, winWidth, winHeight);\n", me);
                 mexPrintf("-- Set target area in window for rendering with 'camera' (the Viewport): Top left corner is (x,y), width is winWidth, height is winHeight.\n\n");
                 mexPrintf("%s('SetupCameraView', camera, aperture, aspect, nearClip, farClip);\n", me);
@@ -1275,6 +1279,22 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
                 mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
                 // Sets a string property of a scene node.
                 h3dSetNodeParamStr(i1, (int) mxGetScalar(prhs[2]), str);
+        }
+
+        if (IsCommand((char*)"SetNodeFlags")) {
+            if (nrhs < 3) mexErrMsgTxt("Horde3D: SetNodeFlags: One of the 3 required parameters missing!");
+            i1 = (int) mxGetScalar(prhs[1]);
+            // Sets an integer property of a scene node.
+            h3dSetNodeFlags(i1, (int) mxGetScalar(prhs[2]), (bool) mxGetScalar(prhs[3]));
+        }
+
+        if (IsCommand((char*)"GetNodeFlags")) {
+            if (nrhs < 1) mexErrMsgTxt("Horde3D: GetNodeFlags: One required parameter missing!");
+            i1 = (int) mxGetScalar(prhs[1]);
+            // Get the flags of a scene node.
+            i2 = (int) h3dGetNodeFlags(i1);
+            plhs[0] = mxCreateDoubleMatrix(1, 1, mxREAL);
+            *(mxGetPr(plhs[0])) = i2;
         }
 
         if (IsCommand((char*)"GetNodeAABB")) {
