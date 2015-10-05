@@ -33,6 +33,7 @@ PsychDefaultSetup(2);
 % Setup keys on keyboard that trigger actions:
 space = KbName('space');
 escape = KbName('ESCAPE');
+LeftShift = KbName('LeftShift');
 
 % Wait for all keys to be released:
 KbReleaseWait;
@@ -52,7 +53,7 @@ else
 end
 
 if ~isempty(hmd)
-    %PsychVRHMD('SetHSWDisplayDismiss', hmd, -1);
+    PsychVRHMD('SetHSWDisplayDismiss', hmd, -1);
 else
     screenid = max(0, screenid - 1);
 end
@@ -72,6 +73,11 @@ Screen('BeginOpenGL', win);
 try
     % Initialize Horde3DCore and define all HE.xxxx constants for use:
     HordeHelper('Initialize');
+    Horde3DCore('SetOption', HE.H3DOptions.MaxNumMessages, 100000);
+    Horde3DCore('SetOption', HE.H3DOptions.MaxLogLevel, 2);
+
+    %Horde3DCore('SetOption', HE.H3DOptions.LoadTextures, 0);
+    %Horde3DCore('SetOption', HE.H3DOptions.DebugViewMode, 1);
 catch %#ok<CTCH>
     sca;
     psychrethrow(psychlasterror);
@@ -86,35 +92,66 @@ try
     % HDR Pipe: PipeRes = Horde3DCore('AddResource', HE.H3DResTypes.Pipeline, 'pipelines/hdr.pipeline.xml');
     Horde3DCore('DumpMessages');
 
-    % Environment: 3D SceneGraph defining the rocky sphere etc.
-%    rockRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/sphere/sphere.scene.xml');
-%    Horde3DCore('DumpMessages');
-
-    % Environment: 3D SceneGraph defining the sky, ground, sphere etc.
+    % Environment: The sky and ground:
     skyRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/skybox/skybox.scene.xml');
     Horde3DCore('DumpMessages');
 
-    enterpriseRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/Enterprise_A_Hull_corrected/EnterpriseA.scene.xml');
+    % Load all assets from filesystem and instantiate corresponding nodes:
+    baseassetpath = [fileparts(mfilename('fullpath')) filesep 'StarTrek' filesep 'models' filesep];
+    assets = dir([ baseassetpath '*' ]);
+    assetres = zeros(1, length(assets));
+    for i = 1:length(assets)
+        if assets(i).isdir
+            assetdir = [ baseassetpath assets(i).name filesep];
+            assetfile = [assetdir assets(i).name '.scene.xml'];
+            if ~exist(assetfile, 'file')
+                assetres(i) = -1;
+                continue;
+            end
+            
+            assetfile = ['models' filesep assets(i).name filesep assets(i).name '.scene.xml'];
+            fprintf('Loading scene: %s\n', assetfile);
+            nodename{i} = assets(i).name;
+            assetres(i) = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, assetfile);
+            Horde3DCore('DumpMessages');
+            str = Horde3DCore('GetMessage');
+            if ~isempty(str)
+                disp(str);
+            end            
+        end
+    end
+
+    % Cut down to available scene nodes:
+    validres = find(assetres >= 0);
+    assetres = assetres(validres);
+    newnodename = {};
+
+    for i = 1:length(validres)
+        newnodename{end+1} = nodename{validres(i)};
+    end
+    nodename = newnodename
+
+%    enterpriseRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/Enterprise_A_Hull_corrected/EnterpriseA.scene.xml');
 %    enterpriseRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/Enterprise/Enterprise.scene.xml');
-    Horde3DCore('DumpMessages');
+%    Horde3DCore('DumpMessages');
 
 %    MagneticConstrictionRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/MagneticConstriction/MagneticConstriction.scene.xml');
 %    Horde3DCore('DumpMessages');
 
-    ImpulseEngineRoomRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/ImpulseEngineRoom/ImpulseEngineRoom.scene.xml');
-    Horde3DCore('DumpMessages');
-
-    FDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/F-Deck-PrimaryHull/F-Deck-PrimaryHull.scene.xml');
-    Horde3DCore('DumpMessages');
-
-    GDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/G-Deck-PrimaryHull/G-Deck-PrimaryHull.scene.xml');
-    Horde3DCore('DumpMessages');
-
-    HDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/HDeck/HDeck.scene.xml');
-    Horde3DCore('DumpMessages');
-
-    IDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/I-Deck-PrimaryHull/I-Deck-PrimaryHull.scene.xml');
-    Horde3DCore('DumpMessages');
+%     ImpulseEngineRoomRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/ImpulseEngineRoom/ImpulseEngineRoom.scene.xml');
+%     Horde3DCore('DumpMessages');
+% 
+%     FDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/F-Deck-PrimaryHull/F-Deck-PrimaryHull.scene.xml');
+%     Horde3DCore('DumpMessages');
+% 
+%     GDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/G-Deck-PrimaryHull/G-Deck-PrimaryHull.scene.xml');
+%     Horde3DCore('DumpMessages');
+% 
+%     HDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/HDeck/HDeck.scene.xml');
+%     Horde3DCore('DumpMessages');
+% 
+%     IDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/I-Deck-PrimaryHull/I-Deck-PrimaryHull.scene.xml');
+%     Horde3DCore('DumpMessages');
 
     % Load all the added resources into engine. 'Content' is the filesystem
     % path to the folder that contains all needed animation resources. All
@@ -127,6 +164,7 @@ try
     Horde3DCore('LoadResources', baseRes);
     Horde3DCore('DumpMessages');
     gluErrorString % Query and clear gl error on Apples fragile and buggy snowflake
+
 
     % Add a stereo camera pair to the scene: The behaviour and basic rendering parameters
     % of the cameras are defined by the Pipeline resource 'PipeRes', and they have the
@@ -159,24 +197,16 @@ try
     sky = Horde3DCore('AddNodes', HE.H3DRootNode, skyRes);
     Horde3DCore('SetNodeTransform', sky, 0, 0, 0, 0, 0, 0, 24000 * gs, 24000 * gs, 24000 * gs);
 
-    % Add our beauty:
-    enterprise = Horde3DCore('AddNodes', HE.H3DRootNode, enterpriseRes);
-    Horde3DCore('SetNodeTransform', enterprise, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
-
-    ImpulseEngineRoom = Horde3DCore('AddNodes', HE.H3DRootNode, ImpulseEngineRoomRes);
-    Horde3DCore('SetNodeTransform', ImpulseEngineRoom, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
-
-%    FDeck = Horde3DCore('AddNodes', HE.H3DRootNode, FDeckRes);
-%    Horde3DCore('SetNodeTransform', FDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
-
-%    GDeck = Horde3DCore('AddNodes', HE.H3DRootNode, GDeckRes);
-%    Horde3DCore('SetNodeTransform', GDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
-
-%    HDeck = Horde3DCore('AddNodes', HE.H3DRootNode, HDeckRes);
-%    Horde3DCore('SetNodeTransform', HDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
-
-    IDeck = Horde3DCore('AddNodes', HE.H3DRootNode, IDeckRes);
-    Horde3DCore('SetNodeTransform', IDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
+    % Add resources as scene nodes to the scene graph:
+    node = zeros(1, length(assetres));
+    for i = 1:length(assetres)
+        fprintf('Adding scene node %i.\n', i);
+        node(i) = Horde3DCore('AddNodes', HE.H3DRootNode, assetres(i));
+        Horde3DCore('SetNodeTransform', node(i), 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
+        if ~isempty(strfind(nodename{i}, 'Enterprise'))
+           enterprise = i;     
+        end
+    end
 
     % Add a light node which defines 1 light source:
     light = Horde3DCore('AddLightNode', HE.H3DRootNode, 'Light1', 0, 'LIGHTING', 'SHADOWMAP');
@@ -226,7 +256,6 @@ try
     modetxt = 'Press SPACE to switch control modes, mouse buttons to change parameters.';
     fc = 0;
     tstart = GetSecs;
-    weight = 0.0;
     mmode = 0;
     [xc, yc] = RectCenter(winRect);
     SetMouse(xc,yc, screenid);
@@ -235,6 +264,8 @@ try
 
     globalHeadPose = PsychGetPositionYawMatrix([cx, cy, cz], heading);
 
+    observerOutside = 1;
+    observerOutsideOld = -1;
     oldisdown = 0;
     tic;
 
@@ -257,6 +288,11 @@ try
                     case 1,
                         modetxt = 'Camera rotation: LMB = heading / pitch';
                 end
+            end
+            
+            if keyCode(LeftShift)
+                % Switch inside vs. outside view:
+                observerOutside = 1 - observerOutside;
             end
         end
         oldisdown = isdown;
@@ -341,6 +377,44 @@ try
                 % Setup Horde3D cameras from camera view matrices:
                 Horde3DCore('SetNodeTransMat', camera(1), state.cameraView{1});
                 Horde3DCore('SetNodeTransMat', camera(2), state.cameraView{2});
+            end
+        end
+
+        if observerOutside ~= observerOutsideOld
+            observerOutsideOld = observerOutside;
+            if observerOutside
+                for i=1:length(node)
+                    Horde3DCore('SetNodeFlags', node(i), HE.H3DNodeFlags.Inactive, 1);
+                end
+                Horde3DCore('SetNodeFlags', node(enterprise), 0, 1);
+
+                Horde3DCore('SetNodeParamf', camera(1), HE.H3DCamera.FarPlaneF, 0, clipFar);
+                Horde3DCore('SetNodeParamf', camera(2), HE.H3DCamera.FarPlaneF, 0, clipFar);
+                if ~isempty(hmd)
+                    % Retrieve camera projection matrices for optimal rendering on the HMD:
+                    [projL, projR] = PsychVRHMD('GetStaticRenderParameters', hmd, clipNear, clipFar);
+                    
+                    % Assign them to cameras:
+                    Horde3DCore('SetCameraProjMat', camera(1), projL);
+                    Horde3DCore('SetCameraProjMat', camera(2), projR);
+                end
+            else
+                for i=1:length(node)
+                    Horde3DCore('SetNodeFlags', node(i), 0, 1);
+                end
+                Horde3DCore('SetNodeFlags', node(enterprise), HE.H3DNodeFlags.Inactive, 1);
+
+                shortClip = 100;
+                Horde3DCore('SetNodeParamf', camera(1), HE.H3DCamera.FarPlaneF, 0, clipFar / shortClip);
+                Horde3DCore('SetNodeParamf', camera(2), HE.H3DCamera.FarPlaneF, 0, clipFar / shortClip);
+                if ~isempty(hmd)
+                    % Retrieve camera projection matrices for optimal rendering on the HMD:
+                    [projL, projR] = PsychVRHMD('GetStaticRenderParameters', hmd, clipNear, clipFar / shortClip);
+                    
+                    % Assign them to cameras:
+                    Horde3DCore('SetCameraProjMat', camera(1), projL);
+                    Horde3DCore('SetCameraProjMat', camera(2), projR);
+                end
             end
         end
 
