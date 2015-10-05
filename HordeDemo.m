@@ -134,6 +134,7 @@ try
     % files which define the scene/model/animation tracks etc.:
     Horde3DCore('LoadResources', [fileparts(mfilename('fullpath')) filesep 'Content']);
     Horde3DCore('DumpMessages');
+    gluErrorString % Query and clear gl error on Apples fragile and buggy snowflake
 
     % Add a camera to the scene: The behaviour and basic rendering parameters
     % of the camera are defined by the Pipeline resource 'PipeRes', and it has
