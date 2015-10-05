@@ -160,20 +160,20 @@ try
     Horde3DCore('SetNodeTransform', sky, 0, 0, 0, 0, 0, 0, 24000 * gs, 24000 * gs, 24000 * gs);
 
     % Add our beauty:
-%    enterprise = Horde3DCore('AddNodes', HE.H3DRootNode, enterpriseRes);
-%    Horde3DCore('SetNodeTransform', enterprise, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
+    enterprise = Horde3DCore('AddNodes', HE.H3DRootNode, enterpriseRes);
+    Horde3DCore('SetNodeTransform', enterprise, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
 
-%     ImpulseEngineRoom = Horde3DCore('AddNodes', HE.H3DRootNode, ImpulseEngineRoomRes);
-%     Horde3DCore('SetNodeTransform', ImpulseEngineRoom, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
+    ImpulseEngineRoom = Horde3DCore('AddNodes', HE.H3DRootNode, ImpulseEngineRoomRes);
+    Horde3DCore('SetNodeTransform', ImpulseEngineRoom, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
 
-%     FDeck = Horde3DCore('AddNodes', HE.H3DRootNode, FDeckRes);
-%     Horde3DCore('SetNodeTransform', FDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
+%    FDeck = Horde3DCore('AddNodes', HE.H3DRootNode, FDeckRes);
+%    Horde3DCore('SetNodeTransform', FDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
 
-%     GDeck = Horde3DCore('AddNodes', HE.H3DRootNode, GDeckRes);
-%     Horde3DCore('SetNodeTransform', GDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
+%    GDeck = Horde3DCore('AddNodes', HE.H3DRootNode, GDeckRes);
+%    Horde3DCore('SetNodeTransform', GDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
 
-%     HDeck = Horde3DCore('AddNodes', HE.H3DRootNode, HDeckRes);
-%     Horde3DCore('SetNodeTransform', HDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
+%    HDeck = Horde3DCore('AddNodes', HE.H3DRootNode, HDeckRes);
+%    Horde3DCore('SetNodeTransform', HDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
 
     IDeck = Horde3DCore('AddNodes', HE.H3DRootNode, IDeckRes);
     Horde3DCore('SetNodeTransform', IDeck, 0, 0, 0, 0, 0, 0, 1 * gs, 1 * gs, 1 * gs);
