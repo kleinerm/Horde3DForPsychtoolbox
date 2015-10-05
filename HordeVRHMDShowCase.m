@@ -183,8 +183,8 @@ try
     % Enable occlusion culling: Does not help much here, but it does cut
     % the triangle count to submit to GPU in half - sadly that is not
     % enough for us to get decent performance:
-    Horde3DCore('SetNodeParami', camera(1), HE.H3DCamera.OccCullingI, 1);
-    Horde3DCore('SetNodeParami', camera(2), HE.H3DCamera.OccCullingI, 1);
+    Horde3DCore('SetNodeParami', camera(1), HE.H3DCamera.OccCullingI, 0);
+    Horde3DCore('SetNodeParami', camera(2), HE.H3DCamera.OccCullingI, 0);
 
     % Add a rock to the root of the scenegraph, return handle 'rock' to it for later manipulations:
 %    rock = Horde3DCore('AddNodes', HE.H3DRootNode, rockRes);
