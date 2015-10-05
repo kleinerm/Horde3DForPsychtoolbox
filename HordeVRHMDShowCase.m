@@ -1,10 +1,10 @@
-function HordeVRHMDShowCase(forceMonoDisplay)
+function HordeVRHMDShowCase(forceMonoDisplay, perEyeRender)
 % Demonstration of usage of Horde3D engine from within Psychtoolbox with
 % supported VR Head mounted displays (HMDs), e.g., the Oculus Rift DK2.
 %
 % Usage:
 %
-% HordeVRHMDShowCase([forceMonoDisplay=0]);
+% HordeVRHMDShowCase([forceMonoDisplay=0][, perEyeRender=0]);
 %
 % Use mouse buttons, mouse moves and space key to change parameters.
 % Press ESCape key to exit.
@@ -20,6 +20,11 @@ global HE;
 if nargin < 1 || isempty(forceMonoDisplay)
     forceMonoDisplay = 0;
 end
+
+if nargin < 2 || isempty(perEyeRender)
+    perEyeRender = 0;
+end
+
 gs = 0.05;
 
 % Check if Psychtoolbox is properly installed and ready, set defaults:
@@ -47,7 +52,7 @@ else
 end
 
 if ~isempty(hmd)
-    PsychVRHMD('SetHSWDisplayDismiss', hmd, -1);
+    %PsychVRHMD('SetHSWDisplayDismiss', hmd, -1);
 else
     screenid = max(0, screenid - 1);
 end
@@ -329,15 +334,18 @@ try
             else
                 globalHeadPose = PsychGetPositionYawMatrix([cx, cy, cz], heading);
             end
+            
             state = PsychVRHMD('PrepareRender', hmd, globalHeadPose);
 
-            % Setup Horde3D cameras from camera view matrices:
-            %Horde3DCore('SetNodeTransMat', camera(1), state.cameraView{1});
-            %Horde3DCore('SetNodeTransMat', camera(2), state.cameraView{2});
+            if ~perEyeRender
+                % Setup Horde3D cameras from camera view matrices:
+                Horde3DCore('SetNodeTransMat', camera(1), state.cameraView{1});
+                Horde3DCore('SetNodeTransMat', camera(2), state.cameraView{2});
+            end
         end
 
         for renderPass = 0:(1-forceMonoDisplay)
-            if ~isempty(hmd)
+            if ~isempty(hmd) && perEyeRender
                 eyePose = PsychVRHMD('GetEyePose', hmd, renderPass, globalHeadPose);
                 sbuf = eyePose.eyeIndex;
                 Horde3DCore('SetNodeTransMat', camera(sbuf+1), eyePose.cameraView);
