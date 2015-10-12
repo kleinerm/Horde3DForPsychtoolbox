@@ -244,8 +244,8 @@ try
     end
 
     % Set initial camera position and orientation:
-    cx = 0; cy = 80; cz = 250; crx = -17; cry = 0; heading = 0;
-    cx = 0 * gs; cy = 80 * gs; cz = -7100 * gs; crx = -17; cry = 180; heading = 180;
+    cx = 0 * gs; cy = 80 * gs; cz = 450 *gs ; crx = -17; cry = 0; heading = 0;
+    %cx = 0 * gs; cy = 80 * gs; cz = -7100 * gs; crx = -17; cry = 180; heading = 180;
     
     Screen('EndOpenGL', win);
 
@@ -263,6 +263,7 @@ try
     [mxo, myo] = GetMouse(screenid);
 
     globalHeadPose = PsychGetPositionYawMatrix([cx, cy, cz], heading);
+    viewheading = 0;
 
     observerOutside = 1;
     observerOutsideOld = -1;
@@ -354,7 +355,15 @@ try
             if 1
                 if mb(1)
                     dcz = mdy * 0.25;
-                    dHeading = -mdx * 1;
+                    dcz = -1;
+                    if abs(dcz) > 0.01
+                        dviewheading = viewheading;
+                    else
+                        dviewheading = 0;
+                    end
+                    %dHeading = -mdx * 1;
+                    dHeading = dviewheading;
+                    heading = heading + dHeading;
                 else
                     dcz = 0;
                     dHeading = 0;
@@ -373,6 +382,9 @@ try
             
             state = PsychVRHMD('PrepareRender', hmd, globalHeadPose);
 
+            viewHeadingVector = state.localHeadPoseMatrix(1:3, 3)
+            viewheading = atan2d(viewHeadingVector(1), viewHeadingVector(3))
+            
             if ~perEyeRender
                 % Setup Horde3D cameras from camera view matrices:
                 Horde3DCore('SetNodeTransMat', camera(1), state.cameraView{1});
