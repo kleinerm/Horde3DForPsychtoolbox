@@ -38,7 +38,10 @@ if IsLinux
     if IsLinux(1)
         % 64-Bit: Use system installed Horde SDK
         mex -v Horde3DCore.cpp -I./HordeEngineSDK -lHorde3D -lHorde3DUtils
-        movefile(['Horde3DCore.' mexext], ['HordeLinux64/Horde3DCore.' mexext]);        
+        if IsOctave
+            striplibsfrommexfile('Horde3DCore.mex');
+        end
+        movefile(['Horde3DCore.' mexext], ['HordeLinux64/Horde3DCore.' mexext]);
     else
         % 32-Bit: Use bundled libraries in SDK folder
         mex -v Horde3DCore.cpp -I./HordeEngineSDK -L./HordeEngineSDK -lHorde3D -lHorde3DUtils
@@ -49,7 +52,7 @@ end
 if IsOSX
     % OS/X build:
     if IsOctave
-        mex -v Horde3DCore.cpp -I./HordeEngineSDK -W" -framework Horde3D -framework Horde3DUtils" "-W, -mmacosx-version-min='10.8'" "-Wl,-headerpad_max_install_names -F/System/Library/Frameworks/ -F/Library/Frameworks/,-syslibroot,'/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk' -mmacosx-version-min='10.8'"
+        mex -v Horde3DCore.cpp -I./HordeEngineSDK -W" -framework Horde3D -framework Horde3DUtils" "-W, -mmacosx-version-min='10.10'" "-Wl,-headerpad_max_install_names -F/System/Library/Frameworks/ -F/Library/Frameworks/,-syslibroot,'/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk' -mmacosx-version-min='10.10'"
         osxsetoctaverpath('Horde3DCore');
     else
         mex -v Horde3DCore.cpp -I./HordeEngineSDK LDFLAGS="\$LDFLAGS -framework Horde3D -framework Horde3DUtils"
