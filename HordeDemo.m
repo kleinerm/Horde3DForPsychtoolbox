@@ -399,7 +399,7 @@ try
         end
 
         % Print some status text onto the screen:
-        DrawFormattedText(win, [modetxt, sprintf('\nMorphWeight = %f\n', weight)], 0, 0, 255);
+        DrawFormattedText(win, [modetxt, sprintf('\nMorphWeight = %f\n', weight)], 0, 20, 255);
 
         % Show rendered frame at next vertical retrace, retrieve true stimulus
         % onset timestamp 't':
