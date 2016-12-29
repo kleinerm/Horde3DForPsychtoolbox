@@ -15,6 +15,6 @@
 *.TIF
 *.asv
 
-HordeOSX64/liboctave.3.dylib
+HordeOSX64/liboctave.4.dylib
 
-HordeOSX64/liboctinterp.3.dylib
+HordeOSX64/liboctinterp.4.dylib
