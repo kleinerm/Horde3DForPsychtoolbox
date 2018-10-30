@@ -386,7 +386,7 @@ try
             Screen('EndOpenGL', win);
 
             % Print some status text onto the screen:
-            DrawFormattedText(win, [modetxt, sprintf('\nMorphWeight = %f\n', weight)], 0, 0, 255);
+            DrawFormattedText(win, [modetxt, sprintf('\nMorphWeight = %f\n', weight)], 0, 25, 255);
         end
 
         % We're done with rendering for this frame:
