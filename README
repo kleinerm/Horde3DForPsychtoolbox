@@ -22,6 +22,16 @@ for building the mex files and precompiled versions of the Horde runtime
 libraries for all supported operating systems. The latest source distribution
 of Horde SDK can be found at their website.
 
+OSX + GNU/Octave:
+-----------------
+
+You will need to copy the octave runtime libraries liboctinterp.6.dylib and
+liboctave.6.dylib from your systems octave installation to the HordeOSX64/
+subfolder of this folder. A valid copy of these files can also be found
+in the Psychtoolbox/PsychBasic/OctaveOSX64/ folder of your Psychtoolbox
+installation.
+
+
 Acknowledgements:
 -----------------
 
