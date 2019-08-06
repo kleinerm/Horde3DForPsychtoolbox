@@ -17,3 +17,5 @@
 
 HordeOSX64/liboctave.6.dylib
 HordeOSX64/liboctinterp.6.dylib
+
+*.dylib
