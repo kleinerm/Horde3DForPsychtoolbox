@@ -38,9 +38,6 @@ if IsLinux
     if IsLinux(1)
         % 64-Bit: Use system installed Horde SDK
         mex -v Horde3DCore.cpp -I./HordeEngineSDK -lHorde3D -lHorde3DUtils
-        if IsOctave
-            striplibsfrommexfile('Horde3DCore.mex');
-        end
         movefile(['Horde3DCore.' mexext], ['HordeLinux64/Horde3DCore.' mexext]);
     else
         % 32-Bit: Use bundled libraries in SDK folder
