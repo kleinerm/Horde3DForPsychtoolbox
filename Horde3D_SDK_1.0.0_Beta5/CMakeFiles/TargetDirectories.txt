@@ -1,8 +1,0 @@
-/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Chicago/CMakeFiles/Chicago.dir
-/Users/kleinerm/projects/Horde3D/Horde3D/Source/ColladaConverter/CMakeFiles/ColladaConv.dir
-/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DEngine/CMakeFiles/Horde3D.dir
-/Users/kleinerm/projects/Horde3D/Extensions/Terrain/Source/CMakeFiles/Horde3DTerrain.dir
-/Users/kleinerm/projects/Horde3D/Horde3D/Source/Horde3DUtils/CMakeFiles/Horde3DUtils.dir
-/Users/kleinerm/projects/Horde3D/Horde3D/Samples/Knight/CMakeFiles/Knight.dir
-/Users/kleinerm/projects/Horde3D/Extensions/Terrain/Sample/CMakeFiles/Terrain.dir
-/Users/kleinerm/projects/Horde3D/Horde3D/Samples/glfw/CMakeFiles/glfw.dir
