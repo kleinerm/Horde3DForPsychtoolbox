@@ -381,6 +381,7 @@ try
         % Render updated models and scene into framebuffer, using camera
         % 'camera':
         Horde3DCore('Render', camera);
+        gluErrorString;
 
         % We're done with rendering for this frame:
         Horde3DCore('FinalizeFrame');

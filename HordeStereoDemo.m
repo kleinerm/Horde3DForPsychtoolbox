@@ -243,6 +243,7 @@ try
     Horde3DCore('SetNodeTransform', camera(1), cx-eyehalfsep, cy, cz, crx, cry-eyerot, 0, 1, 1, 1);
     Horde3DCore('SetNodeTransform', camera(2), cx+eyehalfsep, cy, cz, crx, cry+eyerot, 0, 1, 1, 1);
 
+    gluErrorString;
     Screen('EndOpenGL', win);
 
     modetxt = 'Press SPACE to switch control modes, mouse buttons to change parameters.';
@@ -382,6 +383,7 @@ try
             % Render updated models and scene into framebuffer, using camera
             % 'camera':
             Horde3DCore('Render', camera(sbuf+1));
+            gluErrorString;
 
             Screen('EndOpenGL', win);
 
