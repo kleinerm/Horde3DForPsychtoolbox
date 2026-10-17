@@ -248,8 +248,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
         if (nrhs < 1) {
                 mexPrintf("Horde3DCore: A simple Matlab and GNU/Octave MEX file for interfacing Psychtoolbox-3 with the Horde3D graphics engine.\n");
                 mexPrintf("Written by Mario Kleiner & Yasir N. Khan. Type %s('License') to see a printout of the full software license.\n\n", me);
-                mexPrintf("Acknowledgements: The development of an initial version Horde3DCore was supported by the department for Human Perception,\n");
-                mexPrintf("Cognition and Actionat the Max Planck Institute for Biological Cybernetics, Tuebingen, Germany.\n\n");
+                mexPrintf("Acknowledgements: The development of an initial version of Horde3DCore was supported by the department for Human Perception,\n");
+                mexPrintf("Cognition and Action at the Max Planck Institute for Biological Cybernetics, Tuebingen, Germany.\n\n");
                 mexPrintf("Website of Horde3D with online documentation, Wiki, mailinglist and other resources: <http://www.horde3d.org/>\n");
                 mexPrintf("Using Horde3D engine version: %s, which is licensed to you under Eclipse Public License V 1.0.\n", h3dGetVersionString());
                 mexPrintf("\n");

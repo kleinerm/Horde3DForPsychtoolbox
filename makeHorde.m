@@ -23,6 +23,7 @@ function makeHorde
 % Updated 19.9.2015 for current Horde 1.0.0-Beta 5 git master and VR HMD
 % rendering support, as well as for OSX 10.10 build environment.
 % Updated 6.10.2025 For Octave 10 and later on macOS. Some prep for Apple Silicon.
+% Updated 17.10.2026 for upgrade to Horde 2.1.0 git master. Build on macOS and Windows.
 
 if IsWin
     if ~IsWin(1)
@@ -30,7 +31,7 @@ if IsWin
     end
 
     % Windows 64-Bit build for Matlab:
-    mex -v Horde3DCore.cpp -I.\HordeEngineSDK -L.\HordeEngineSDK -lHorde3D_vc10 -lHorde3DUtils_vc10
+    mex -v Horde3DCore.cpp -I.\HordeEngineSDK -L.\HordeEngineSDK -lHorde3D -lHorde3DUtils
     movefile(['Horde3DCore.' mexext], ['HordeWin64/Horde3DCore.' mexext]);
 end
 
