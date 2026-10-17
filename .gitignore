@@ -15,7 +15,9 @@
 *.TIF
 *.asv
 
-HordeOSX64/liboctave.6.dylib
-HordeOSX64/liboctinterp.6.dylib
-
+HordeOSX64/*.dylib
+HordeOSXARM64/*.dylib
 *.dylib
+build-vs/*
+
+Horde3D_Log.html
