@@ -21,7 +21,7 @@
 *
 * This wrapper plugin is licensed as follows:
 *
-* Copyright (c) 2009 - 2015 Mario Kleiner.
+* Copyright (c) 2009 - 2026 Mario Kleiner.
 * Copyright (c) 2011 Yasir N. Khan.
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -70,6 +70,8 @@ char  str[MAX_STR_LENGTH];
 char  str1[MAX_STR_LENGTH];
 char  str2[MAX_STR_LENGTH];
 char  str3[MAX_STR_LENGTH];
+char  str4[MAX_STR_LENGTH];
+char  str5[MAX_STR_LENGTH];
 
 int            winWidth, winHeight;
 const char*    config;
@@ -81,10 +83,10 @@ H3DRes        _pipeRes, _hdrPipeRes, _forwardPipeRes;
 H3DNode       _knight, _particleSys;
 H3DNode       _cam;
 
-bool hordeInit(void)
+bool hordeInit(int glmajor)
 {
-        // Initialize engine
-        if( !h3dInit() )
+        // Initialize engine: Try for OpenGL-4 if at least OpenGL-3 context, fall back to OpenGL-2 otherwise:
+        if (!h3dInit((glmajor >= 3) ? H3DRenderDevice::OpenGL4 : H3DRenderDevice::OpenGL2))
         {
                 h3dutDumpMessages();
                 return(false);
@@ -206,7 +208,7 @@ void hordeUpdate(float tSimulation, float curFPS)
         h3dFinalizeFrame();
 
         // Remove all overlays
-        h3dClearOverlays();
+        // Dysfunctional on Horde 2+: h3dClearOverlays();
 
         // Write all mesages to log file
         h3dutDumpMessages();
@@ -246,13 +248,13 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
         if (nrhs < 1) {
                 mexPrintf("Horde3DCore: A simple Matlab and GNU/Octave MEX file for interfacing Psychtoolbox-3 with the Horde3D graphics engine.\n");
                 mexPrintf("Written by Mario Kleiner & Yasir N. Khan. Type %s('License') to see a printout of the full software license.\n\n", me);
-                mexPrintf("Acknowledgements: The development of Horde3DCore was supported by the department for Human Perception, Cognition and Action\n");
-                mexPrintf("at the Max Planck Institute for Biological Cybernetics, Tuebingen, Germany.\n\n");
+                mexPrintf("Acknowledgements: The development of an initial version Horde3DCore was supported by the department for Human Perception,\n");
+                mexPrintf("Cognition and Actionat the Max Planck Institute for Biological Cybernetics, Tuebingen, Germany.\n\n");
                 mexPrintf("Website of Horde3D with online documentation, Wiki, mailinglist and other resources: <http://www.horde3d.org/>\n");
                 mexPrintf("Using Horde3D engine version: %s, which is licensed to you under Eclipse Public License V 1.0.\n", h3dGetVersionString());
                 mexPrintf("\n");
                 mexPrintf("Usage:\n\n");
-                mexPrintf("%s('Initialize');\n", me);
+                mexPrintf("%s('Initialize', glMajorVersion);\n", me);
                 mexPrintf("-- Initialize Horde engine. You must call this command before any other command and while an OpenGL context is bound.\n\n");
                 mexPrintf("%s('DemoSetup', winWidth, winHeight [,overrideConfig]);\n", me);
                 mexPrintf("-- Setup Horde engine for rendering to a window of size 'winWidth' x 'winHeight' pixels.\n\n");
@@ -319,8 +321,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
                 mexPrintf("-- Frees resources that are no longer used.\n\n");
                 mexPrintf("handle = %s('CreateTexture', name, width, height, fmt, flags);\n", me);
                 mexPrintf("-- Creates a Texture resource with specified name, dimensions, texture format and flags.\n\n");
-                mexPrintf("%s('SetShaderPreambles', vertPreamble,     fragPreamble);\n", me);
-                mexPrintf("-- Sets text preambles of all vertex and fragment shader resources.\n\n");
+                mexPrintf("%s('SetShaderPreambles', vertPreamble, fragPreamble, geomPreamble, tessControlPreamble, tessEvalPreamble, computePreamble);\n", me);
+                mexPrintf("-- Sets text preambles of all shader resources.\n\n");
                 mexPrintf("%s('SetMaterialUniform', materialRes, name, a, b, c, d);\n", me);
                 mexPrintf("-- Sets the specified shader uniform of the specified material resource to the four specified values.\n\n");
                 mexPrintf("%s('GetRenderTargetData', pipelineRes, targetName, bufIndex, width, height, compCount, dataBuffer, bufferSize);\n", me);
@@ -367,7 +369,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
                 mexPrintf("-- Creates a new Model node and attaches it to the specified parent node.\n\n");
                 mexPrintf("%s('SetModelMorpher', modelNode, target, weight);\n", me);
                 mexPrintf("-- Sets the weight of a specified morph target in the specified model node, or of all morph targets if target is an empty string.\n\n");
-                mexPrintf("handle = %s('AddMeshNode', parent, name, materialRes, batchStart, batchCount, vertRStart, vertREnd);\n", me);
+                mexPrintf("handle = %s('AddMeshNode', parent, name, materialRes, primitiveType, batchStart, batchCount, vertRStart, vertREnd);\n", me);
                 mexPrintf("-- Creates a new Mesh node and attaches it to the specified parent node.\n\n");
                 mexPrintf("handle = %s('AddJointNode', parent, name, jointIndex);\n", me);
                 mexPrintf("-- Creates a new Joint node and attaches it to the specified parent node.\n\n");
@@ -447,7 +449,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 
         if (IsCommand((char*)"License")) {
                 // Dump or License info to screen:
-                mexPrintf("Copyright (c) 2009 - 2015 Mario Kleiner.\n");
+                mexPrintf("Copyright (c) 2009 - 2026 Mario Kleiner.\n");
                 mexPrintf("Copyright (c) 2011 Yasir N. Khan.\n");
                 mexPrintf("\n");
                 mexPrintf("Permission is hereby granted, free of charge, to any person obtaining a copy\n");
@@ -483,7 +485,9 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
                 if (mexinitialized) mexErrMsgTxt("Tried to initialize Horde3DCore, but it is already initialized! Call Horde3DCore('Shutdown') first!");
 
                 // Initialize and setup the engine:
-                if (!hordeInit()) { h3dRelease(); mexErrMsgTxt("Horde3D: Initialize: Horde3D engine init failed!"); }
+                if (!hordeInit((int) mxGetScalar(prhs[1]))) {
+                  h3dRelease(); mexErrMsgTxt("Horde3D: Initialize: Horde3D engine init failed!");
+                }
 
                 // Register shutDown() function for shutdown if MEX file is jettisoned:
                 mexAtExit(shutDown);
@@ -869,7 +873,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
         if (IsCommand((char*)"ShowOverlay")) {
                 if (nrhs < 22) mexErrMsgTxt("Horde3D: ShowOverlay: One of the 22 required parameters missing!");
 
-                // Shows an overlay on the screen
+                // Shows an overlay on the screen. No-go as of Horde 2+:
 // MK        h3dShowOverlays( (float) mxGetScalar(prhs[1]), (float) mxGetScalar(prhs[2]), (float) mxGetScalar(prhs[3]), (float) mxGetScalar(prhs[4]),    // x_tl, y_tl, u_tl, v_tl
 //                     (float) mxGetScalar(prhs[5]),  (float) mxGetScalar(prhs[6]),  (float) mxGetScalar(prhs[7]),  (float) mxGetScalar(prhs[8]),  // x_bl, y_bl, u_bl, v_bl
 //                     (float) mxGetScalar(prhs[9]),  (float) mxGetScalar(prhs[10]), (float) mxGetScalar(prhs[11]), (float) mxGetScalar(prhs[12]),    // x_br, y_br, u_br, v_br
@@ -880,7 +884,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
 
         if (IsCommand((char*)"ClearOverlays")) {
                 // Removes all overlays
-                h3dClearOverlays();
+                // No-go as of Horde 2+: h3dClearOverlays();
         }
 
         if (IsCommand((char*)"GetResType")) {
@@ -1091,13 +1095,22 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
         }
 
         if (IsCommand((char*)"SetShaderPreambles")) {
-                if (nrhs < 2) mexErrMsgTxt("Horde3D: SetShaderPreambles: One of the 2 required parameters missing!");
+                if (nrhs < 6) mexErrMsgTxt("Horde3D: SetShaderPreambles: One of the 6 required parameters missing!");
                 str[0] = 0;
                 mxGetString(prhs[1], (char*) &str, MAX_STR_LENGTH-1);
                 str1[0] = 0;
-                mxGetString(prhs[1], (char*) &str1, MAX_STR_LENGTH-1);
+                mxGetString(prhs[2], (char*) &str1, MAX_STR_LENGTH-1);
+                str2[0] = 0;
+                mxGetString(prhs[3], (char*) &str2, MAX_STR_LENGTH-1);
+                str3[0] = 0;
+                mxGetString(prhs[4], (char*) &str3, MAX_STR_LENGTH-1);
+                str4[0] = 0;
+                mxGetString(prhs[5], (char*) &str4, MAX_STR_LENGTH-1);
+                str5[0] = 0;
+                mxGetString(prhs[6], (char*) &str5, MAX_STR_LENGTH-1);
+
                 // Sets preambles of all Shader resources.
-                h3dSetShaderPreambles(str1, str2);
+                h3dSetShaderPreambles(str, str1, str2, str3, str4, str5);
         }
 
         if (IsCommand((char*)"SetMaterialUniform")) {
@@ -1384,14 +1397,14 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
         }
 
         if (IsCommand((char*)"AddMeshNode")) {
-                if (nrhs < 7) mexErrMsgTxt("Horde3D: AddMeshNode: One of the 7 required parameters missing!");
+                if (nrhs < 8) mexErrMsgTxt("Horde3D: AddMeshNode: One of the 8 required parameters missing!");
                 i1 = (int) mxGetScalar(prhs[1]);
                 str[0] = 0;
                 mxGetString(prhs[2], (char*) &str, MAX_STR_LENGTH-1);
                 i2 = (int) mxGetScalar(prhs[3]);
                 // Adds a Mesh node to the scene.
-                i3 = (int)h3dAddMeshNode(i1, str, i2, (int) mxGetScalar(prhs[3]), (int) mxGetScalar(prhs[3]),
-                                                (int) mxGetScalar(prhs[3]), (int) mxGetScalar(prhs[3]));
+                i3 = (int)h3dAddMeshNode(i1, str, i2, (int) mxGetScalar(prhs[4]), (int) mxGetScalar(prhs[5]),
+                                                (int) mxGetScalar(prhs[6]), (int) mxGetScalar(prhs[7]), (int) mxGetScalar(prhs[8]));
                 plhs[0] = mxCreateDoubleMatrix(1, 1, mxREAL);
                 *(mxGetPr(plhs[0])) = i3;
                 if (i3 == 0)

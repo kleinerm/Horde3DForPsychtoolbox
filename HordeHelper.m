@@ -32,6 +32,7 @@ function varargout = HordeHelper(cmd, varargin)
 % 29.7.2009  MK  Written.
 % ??.?.2010  YNK  Updated to Horde version 1.0.0 Beta4.
 % 16.9.2015  MK  Updated to Horde version 1.0.0 Beta5 - Current git master.
+% 17.10.2026 MK  Updated to Horde version 2.1.0 - Current git master.
 
 % This global variable will hold all global Horde data structures and
 % enumerations of Horde3D parameters:
@@ -51,11 +52,11 @@ if strcmpi(cmd, 'Initialize')
         
         error('HordeHelper: Tried to call "Initialize" without calling Screen(''BeginOpenGL'',...) beforehand!');
     end
-    
+
     % Call Initialize routine of Horde engine core to setup the engine for
     % all further commands:
-    Horde3DCore('Initialize');
-    
+    Horde3DCore('Initialize', sscanf(glGetString(GL.VERSION), '%i'));
+
     % Eat gl errors to cope with Apples fragile OSX:
     while glGetError; end;
 
@@ -69,7 +70,8 @@ if strcmpi(cmd, 'Initialize')
     HE.H3DResTypes.Shader     = 6;
     HE.H3DResTypes.Texture    = 7;
     HE.H3DResTypes.ParticleEffect = 8;
-    HE.H3DResTypes.Pipeline   = 9;
+    HE.H3DResTypes.Pipeline       = 9;
+    HE.H3DResTypes.ComputeBuffer  = 10;
 
     HE.H3DRootNode = 1;
 
@@ -78,14 +80,17 @@ if strcmpi(cmd, 'Initialize')
     HE.H3DOptions.TrilinearFiltering  = 3;
     HE.H3DOptions.MaxAnisotropy       = 4;
     HE.H3DOptions.TexCompression      = 5;
-    HE.H3DOptions.LoadTextures        = 6;
-    HE.H3DOptions.FastAnimation       = 7;
-    HE.H3DOptions.ShadowMapSize       = 8;
-    HE.H3DOptions.SampleCount         = 9;
-    HE.H3DOptions.WireframeMode       = 10;
-    HE.H3DOptions.DebugViewMode       = 11;
-    HE.H3DOptions.DumpFailedShaders   = 12;
-    
+    HE.H3DOptions.SRGBLinearization   = 6;
+    HE.H3DOptions.LoadTextures        = 7;
+    HE.H3DOptions.FastAnimation       = 8;
+    HE.H3DOptions.ShadowMapSize       = 9;
+    HE.H3DOptions.SampleCount         = 10;
+    HE.H3DOptions.WireframeMode       = 11;
+    HE.H3DOptions.DebugViewMode       = 12;
+    HE.H3DOptions.DumpFailedShaders   = 13;
+    HE.H3DOptions.GatherTimeStats     = 14;
+    HE.H3DOptions.DebugRenderBackend  = 15;
+
     HE.H3DNodeTypes.Undefined = 0;
     HE.H3DNodeTypes.Group     = 1;
     HE.H3DNodeTypes.Model     = 2;
@@ -94,6 +99,12 @@ if strcmpi(cmd, 'Initialize')
     HE.H3DNodeTypes.Light     = 5;
     HE.H3DNodeTypes.Camera    = 6;
     HE.H3DNodeTypes.Emitter   = 7;
+    HE.H3DNodeTypes.Compute   = 8;
+
+    HE.H3DMeshPrimType.TriangleList = 0;
+    HE.H3DMeshPrimType.LineList     = 1;
+    HE.H3DMeshPrimType.Patches      = 2;
+    HE.H3DMeshPrimType.Points       = 3;
 
     HE.H3DStats.TriCount            = 100;
     HE.H3DStats.BatchCount          = 101;
@@ -108,16 +119,18 @@ if strcmpi(cmd, 'Initialize')
     HE.H3DStats.ParticleGPUTime     = 110;
     HE.H3DStats.TextureVMem         = 111;
     HE.H3DStats.GeometryVMem        = 112;
+    HE.H3DStats.ComputeGPUTime      = 113;
 
     HE.H3DLight.MatResI     = 500;
     HE.H3DLight.RadiusF     = 501;
     HE.H3DLight.FovF        = 502;
     HE.H3DLight.ColorF3     = 503;
-%    HE.H3DLight.Col_G       = 504;  % TODO: figure out the colors
-%    HE.H3DLight.Col_B       = 505;
-    HE.H3DLight.ShadowMapCountI     = 504;
-    HE.H3DLight.ShadowSplitLambdaF  = 505;
-    HE.H3DLight.ShadowMapBiasF      = 506;
+    HE.H3DLight.ColorMultiplierF    = 504;
+    HE.H3DLight.ShadowMapCountI     = 505;
+    HE.H3DLight.ShadowSplitLambdaF  = 506;
+    HE.H3DLight.ShadowMapBiasF      = 507;
+    HE.H3DLight.LightingContextStr  = 508;
+    HE.H3DLight.ShadowContextStr    = 509;
 
     HE.H3DCamera.PipeResI        = 600;
     HE.H3DCamera.OutTexResI          = 601;
