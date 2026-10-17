@@ -3,7 +3,7 @@
 // Horde3D
 //   Next-Generation Graphics Engine
 // --------------------------------------
-// Copyright (C) 2006-2011 Nicolas Schulz
+// Copyright (C) 2006-2021 Nicolas Schulz and Horde3D team
 //
 // This software is distributed under the terms of the Eclipse Public License v1.0.
 // A copy of the license may be obtained at: http://www.eclipse.org/legal/epl-v10.html
@@ -45,7 +45,8 @@ struct EngineOptions
 		WireframeMode,
 		DebugViewMode,
 		DumpFailedShaders,
-		GatherTimeStats
+		GatherTimeStats,
+		DebugRenderBackend
 	};
 };
 
@@ -56,7 +57,7 @@ class EngineConfig
 public:
 	EngineConfig();
 
-	float getOption( EngineOptions::List param );
+	float getOption( EngineOptions::List param ) const;
 	bool setOption( EngineOptions::List param, float value );
 
 public:
@@ -73,6 +74,7 @@ public:
 	bool  debugViewMode;
 	bool  dumpFailedShaders;
 	bool  gatherTimeStats;
+	bool  debugRenderBackend;
 };
 
 
@@ -101,6 +103,10 @@ struct LogMessage
 class EngineLog
 {
 public:
+	typedef void (*MessageCallback)(int, const char*);
+	// This is callable before the engine has been initialised to allow to get all the messages
+	static void setMessageCallback(MessageCallback f);
+
 	EngineLog();
 
 	void writeError( const char *msg, ... );
@@ -110,7 +116,7 @@ public:
 
 	bool getMessage( LogMessage &msg );
 
-	uint32 getMaxNumMessages() { return _maxNumMessages; }
+	uint32 getMaxNumMessages() const { return _maxNumMessages; }
 	void setMaxNumMessages( uint32 maxNumMessages ) { _maxNumMessages = maxNumMessages; }
 	
 protected:
@@ -118,6 +124,8 @@ protected:
 	void pushMessage( int level, const char *msg, va_list ap );
 
 protected:
+	static MessageCallback    _callback;
+
 	Timer                     _timer;
 	char                      _textBuf[2048];
 	uint32                    _maxNumMessages;
@@ -145,7 +153,9 @@ struct EngineStats
 		ShadowsGPUTime,
 		ParticleGPUTime,
 		TextureVMem,
-		GeometryVMem
+		GeometryVMem,
+		ComputeGPUTime,
+		CullingTime
 	};
 };
 
@@ -157,10 +167,12 @@ public:
 	StatManager();
 	~StatManager();
 	
+	bool init();	// Should be called after Renderer initialization
+
 	float getStat( int param, bool reset );
 	void incStat( int param, float value );
 	Timer *getTimer( int param );
-	GPUTimer *getGPUTimer( int param );
+	GPUTimer *getGPUTimer( int param ) const;
 
 protected:
 	uint32    _statTriCount;
@@ -171,15 +183,41 @@ protected:
 	Timer     _animTimer;
 	Timer     _geoUpdateTimer;
 	Timer     _particleSimTimer;
+	Timer	  _cullingTimer;
+
 	float     _frameTime;
 
 	GPUTimer  *_fwdLightsGPUTimer;
 	GPUTimer  *_defLightsGPUTimer;
 	GPUTimer  *_shadowsGPUTimer;
 	GPUTimer  *_particleGPUTimer;
-
+	GPUTimer  *_computeGPUTimer;
 	friend class ProfSample;
 };
+
+// =================================================================================================
+// Render Device Capabilities
+// =================================================================================================
+
+struct RenderDeviceCapabilities
+{
+	enum List
+	{
+		GeometryShaders = 200,
+		Tessellation,
+		Compute,
+		TextureFloatRenderable,
+		TextureCompressionDXT,
+		TextureCompressionETC2,
+		TextureCompressionBPTC,
+		TextureCompressionASTC,
+		BinaryShaders
+	};
+};
+
+// =================================================================================================
+
+float getRenderDeviceCapabilities( int param );
 
 }
 #endif // _egCom_H_

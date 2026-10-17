@@ -3,7 +3,7 @@
 // Horde3D
 //   Next-Generation Graphics Engine
 // --------------------------------------
-// Copyright (C) 2006-2011 Nicolas Schulz
+// Copyright (C) 2006-2021 Nicolas Schulz and Horde3D team
 //
 // This software is distributed under the terms of the Eclipse Public License v1.0.
 // A copy of the license may be obtained at: http://www.eclipse.org/legal/epl-v10.html
@@ -36,7 +36,9 @@ struct GeometryResData
 		GeoIndexStream,
 		GeoVertPosStream,
 		GeoVertTanStream,
-		GeoVertStaticStream
+		GeoVertStaticStream,
+		GeoMorphTargetCountI,
+		GeoMorphTargetNameStr
 	};
 };
 
@@ -90,28 +92,31 @@ public:
 	
 	GeometryResource( const std::string &name, int flags );
 	~GeometryResource();
-	Resource *clone();
+	Resource *clone() override;
 	
-	void initDefault();
-	void release();
-	bool load( const char *data, int size );
+	void initDefault() override;
+	void release() override;
+	bool load( const char *data, int size ) override;
 
-	int getElemCount( int elem );
-	int getElemParamI( int elem, int elemIdx, int param );
-	void *mapStream( int elem, int elemIdx, int stream, bool read, bool write );
-	void unmapStream();
+	int getElemCount( int elem ) const override;
+	int getElemParamI( int elem, int elemIdx, int param ) const override;
+	const char *getElemParamStr( int elem, int elemIdx, int param ) const override;
+
+	void *mapStream( int elem, int elemIdx, int stream, bool read, bool write ) override;
+	void unmapStream() override;
 
 	void updateDynamicVertData();
 
-	uint32 getVertCount() { return _vertCount; }
-	char *getIndexData() { return _indexData; }
-	Vec3f *getVertPosData() { return _vertPosData; }
-	VertexDataTan *getVertTanData() { return _vertTanData; }
-	VertexDataStatic *getVertStaticData() { return _vertStaticData; }
-	uint32 getPosVBuf() { return _posVBuf; }
-	uint32 getTanVBuf() { return _tanVBuf; }
-	uint32 getStaticVBuf() { return _staticVBuf; }
-	uint32 getIndexBuf() { return _indexBuf; }
+	uint32 getVertCount() const { return _vertCount; }
+	char *getIndexData() const { return _indexData; }
+	Vec3f *getVertPosData() const { return _vertPosData; }
+	VertexDataTan *getVertTanData() const { return _vertTanData; }
+	VertexDataStatic *getVertStaticData() const { return _vertStaticData; }
+	uint32 getGeometryInfo() const { return _geoObj; }
+	uint32 getPosVBuf() const { return _posVBuf; }
+	uint32 getTanVBuf() const { return _tanVBuf; }
+	uint32 getStaticVBuf() const { return _staticVBuf; }
+	uint32 getIndexBuf() const { return _indexBuf; }
 	Matrix4f &getInvBindMat( uint32 jointIndex ) { return _joints[jointIndex].invBindMat; }
 
 public:
@@ -124,6 +129,7 @@ private:
 	static int                  mappedWriteStream;
 	
 	uint32                      _indexBuf, _posVBuf, _tanVBuf, _staticVBuf;
+	uint32						_geoObj;
 
 	uint32                      _indexCount, _vertCount;
 	bool                        _16BitIndices;
