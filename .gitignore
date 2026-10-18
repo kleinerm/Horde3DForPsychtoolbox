@@ -4,12 +4,29 @@
 *.manifest
 *.asv
 
+# Cached shader binaries, per OS + gfx-driver combo:
 Content/shaderCache/*
+
+# macOS Octave .dylibs, e.g., liboctmex-1.dylib:
 HordeOSX64/*.dylib
 HordeOSXARM64/*.dylib
 *.dylib
+
+# Windows MSVC build directory with configs and build products:
 build-vs/*
 
+# Linux build config and build products:
+Horde3D_SDK_2.1.0/project_glfw-prefix/
+Horde3D_SDK_2.1.0/CMakeCache.txt
+CMakeFiles/
+*.cmake
+Makefile
+config.h
+egExtensions_auto_*
+
+# Runtime debug log:
 Horde3D_Log.html
+
+# kleinerm's private assets:
 StarTrek/*
 StarTrek.zip
