@@ -36,15 +36,24 @@ if IsWin
 end
 
 if IsLinux
-    % GNU/Linux build: Works for both Matlab and GNU/Octave 3.2.x:
-    if IsLinux(1)
-        % 64-Bit: Use system installed Horde SDK
-        mex -v Horde3DCore.cpp -I./HordeEngineSDK -lHorde3D -lHorde3DUtils
-        movefile(['Horde3DCore.' mexext], ['HordeLinux64/Horde3DCore.' mexext]);
+    % GNU/Linux build: Works for both Matlab and GNU/Octave:
+    % Note: During build-time linking, copies of the Horde libraries
+    % are used if they are in the arch specific folder, otherwise the
+    % fallback is to system-wide installed libraries.
+    % During *runtime* however, system-wide installed libraries are
+    % used atm., e.g., in /usr/local/lib etc.
+    %
+    % Therefore it makes sense to install libraries system wide only,
+    % and only use the per-arch-folder libraries in HordeLinux[ARM]64/
+    % if there are specific circumstances enforcing this.
+    if IsARM
+        % 64-Bit ARM:
+        mex -v Horde3DCore.cpp -I./HordeEngineSDK -L./HordeLinuxARM64 -lHorde3D -lHorde3DUtils
+        movefile(['Horde3DCore.' mexext], ['HordeLinuxARM64/Horde3DCore.' mexext]);
     else
-        % 32-Bit: Use bundled libraries in SDK folder
-        mex -v Horde3DCore.cpp -I./HordeEngineSDK -L./HordeEngineSDK -lHorde3D -lHorde3DUtils
-        movefile(['Horde3DCore.' mexext], ['HordeLinux32/Horde3DCore.' mexext]);
+        % 64-Bit Intel:
+        mex -v Horde3DCore.cpp -I./HordeEngineSDK -L./HordeLinux64 -lHorde3D -lHorde3DUtils
+        movefile(['Horde3DCore.' mexext], ['HordeLinux64/Horde3DCore.' mexext]);
     end
 end
 
