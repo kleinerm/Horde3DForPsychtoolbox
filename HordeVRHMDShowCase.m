@@ -1,10 +1,10 @@
-function HordeVRHMDShowCase(forceMonoDisplay, perEyeRender)
+function HordeVRHMDShowCase(forceMonoDisplay, msaa)
 % Demonstration of usage of Horde3D engine from within Psychtoolbox with
 % supported VR Head mounted displays (HMDs), e.g., the Oculus Rift DK2.
 %
 % Usage:
 %
-% HordeVRHMDShowCase([forceMonoDisplay=0][, perEyeRender=0]);
+% HordeVRHMDShowCase([forceMonoDisplay=0][, msaa=0]);
 %
 % Use mouse buttons, mouse moves and space key to change parameters.
 % Press ESCape key to exit.
@@ -21,8 +21,8 @@ if nargin < 1 || isempty(forceMonoDisplay)
     forceMonoDisplay = 0;
 end
 
-if nargin < 2 || isempty(perEyeRender)
-    perEyeRender = 0;
+if nargin < 2 || isempty(msaa)
+    msaa = 0;
 end
 
 gs = 0.05;
@@ -57,7 +57,8 @@ if ~isempty(hmd)
 else
     screenid = max(0, screenid - 1);
 end
-[win, winRect] = PsychImaging('OpenWindow', screenid, 0);
+
+[win, winRect] = PsychImaging('OpenWindow', screenid, 0, [], [], [], [], msaa);
 [w,h] = Screen('WindowSize', win);
 
 % Set textsize to 24 pixels:
@@ -117,7 +118,7 @@ try
             str = Horde3DCore('GetMessage');
             if ~isempty(str)
                 disp(str);
-            end            
+            end
         end
     end
 
@@ -328,7 +329,6 @@ try
                     mdy = mdy * 0.1;
 
                     % Camera rotation:
-                    % Camera rotation:
                     crx = crx + mdy;
                     cry = cry - mdx;
 
@@ -379,17 +379,15 @@ try
             else
                 globalHeadPose = PsychGetPositionYawMatrix([cx, cy, cz], heading);
             end
-            
+
             state = PsychVRHMD('PrepareRender', hmd, globalHeadPose);
 
-            viewHeadingVector = state.localHeadPoseMatrix(1:3, 3)
-            viewheading = atan2d(viewHeadingVector(1), viewHeadingVector(3))
-            
-            if ~perEyeRender
-                % Setup Horde3D cameras from camera view matrices:
-                Horde3DCore('SetNodeTransMat', camera(1), state.cameraView{1});
-                Horde3DCore('SetNodeTransMat', camera(2), state.cameraView{2});
-            end
+            viewHeadingVector = state.localHeadPoseMatrix(1:3, 3);
+            viewheading = atan2d(viewHeadingVector(1), viewHeadingVector(3));
+
+            % Setup Horde3D cameras from camera view matrices:
+            Horde3DCore('SetNodeTransMat', camera(1), state.cameraView{1});
+            Horde3DCore('SetNodeTransMat', camera(2), state.cameraView{2});
         end
 
         if observerOutside ~= observerOutsideOld
@@ -431,21 +429,13 @@ try
         end
 
         for renderPass = 0:(1-forceMonoDisplay)
-            if ~isempty(hmd) && perEyeRender
-                eyePose = PsychVRHMD('GetEyePose', hmd, renderPass, globalHeadPose);
-                sbuf = eyePose.eyeIndex;
-                Horde3DCore('SetNodeTransMat', camera(sbuf+1), eyePose.cameraView);
-            else
-                sbuf = renderPass;
-            end
-
-            Screen('SelectStereoDrawbuffer', win, sbuf);
+            Screen('SelectStereoDrawbuffer', win, renderPass);
 
             % Prepare next 3D render-pass:
             Screen('BeginOpenGL', win);
 
             % Render updated models and scene into framebuffer, using camera 'camera':
-            Horde3DCore('Render', camera(sbuf+1));
+            Horde3DCore('Render', camera(renderPass+1));
 
             Screen('EndOpenGL', win);
         end
@@ -495,8 +485,10 @@ try
     avgfps = fc / (t - tstart);
     fprintf('Average update rate was %f FPS.\n', avgfps);
     plot(stats(1, :));
+    title('Triangles per frame:');
     figure;
     plot(stats(2, :));
+    title('Draw calls/batches per frame:');
 catch
     % Shutdown Horde3DCore:
     Horde3DCore('Shutdown');
