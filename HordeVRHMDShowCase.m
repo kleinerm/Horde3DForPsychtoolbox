@@ -46,6 +46,7 @@ screenid = max(Screen('Screens'));
 
 % Use Psychtoolbox imaging pipeline. This needs special setup...
 PsychImaging('PrepareConfiguration');
+controllerTypes = 0;
 if ~forceMonoDisplay
     hmd = PsychVRHMD('AutoSetupHMD', 'Tracked3DVR', 'LowPersistence');
 else
@@ -63,6 +64,33 @@ end
 
 % Set textsize to 24 pixels:
 Screen('TextSize', win, 24);
+
+if ~isempty(hmd)
+    hmdinfo = PsychVRHMD('GetInfo', hmd);
+    if hmdinfo.VRControllersSupported
+        fprintf('\n\nConnected controllers:\n\n');
+        controllerTypes = PsychVRHMD('Controllers', hmd);
+        if bitand(controllerTypes, OVR.ControllerType_Remote)
+            fprintf('Remote control connected.\n');
+        end
+        if bitand(controllerTypes, OVR.ControllerType_XBox)
+            fprintf('XBox controller connected.\n');
+        end
+        if bitand(controllerTypes, OVR.ControllerType_LTouch)
+            fprintf('Left hand controller connected.\n');
+        end
+        if bitand(controllerTypes, OVR.ControllerType_RTouch)
+            fprintf('Right hand controller connected.\n');
+        end
+
+        fprintf('\n\n');
+
+        % If controller not detected, override to "touch controllers":
+        if ~controllerTypes
+            controllerTypes = OVR.ControllerType_Touch;
+        end
+    end
+end
 
 % Get initial timestamp and setup defaults:
 ts = Screen('Flip', win);
@@ -259,10 +287,13 @@ try
     tstart = GetSecs;
     mmode = 0;
     [xc, yc] = RectCenter(winRect);
-    SetMouse(xc,yc, screenid);
-    HideCursor(screenid);
-    [mxo, myo] = GetMouse(screenid);
 
+    if ~controllerTypes
+      SetMouse(xc,yc, screenid);
+      HideCursor(screenid);
+    end
+
+    [mxo, myo] = GetMouse(screenid);
     globalHeadPose = PsychGetPositionYawMatrix([cx, cy, cz], heading);
     viewheading = 0;
 
@@ -299,11 +330,33 @@ try
         end
         oldisdown = isdown;
 
-        % Query mouse position and button state:
-        [mx, my, mb] = GetMouse(screenid);
-        % Deltas for mouse relative movement:
-        mdx = mx - mxo;
-        mdy = my - myo;
+        if ~controllerTypes
+            % Query mouse position and button state:
+            [mx, my, mb] = GetMouse(screenid);
+            % Deltas for mouse relative movement:
+            mdx = mx - mxo;
+            mdy = my - myo;
+        else
+            mb = [0, 0, 0];
+
+            % Get controller input state, buttons, triggers etc.:
+            istate = PsychVRHMD('GetInputState', hmd, OVR.ControllerType_Active);
+
+            % Allow to use thumbsticks, if any, to move the teapot:
+            if istate.Buttons(OVR.Button_LThumb) || istate.Buttons(OVR.Button_RThumb)
+              thumbmult = 5.0;
+            else
+              thumbmult = 0.25;
+            end
+
+            cx = cx - thumbmult * istate.Thumbstick(1,1);
+            cy = cy - thumbmult * istate.Thumbstick(2,1);
+            cz = cz + thumbmult * istate.Thumbstick(2,2);
+
+            % Apply new camera node transform:
+            Horde3DCore('SetNodeTransform', camera(1), cx, cy, cz, crx, cry, 0, 1, 1, 1);
+            Horde3DCore('SetNodeTransform', camera(2), cx, cy, cz, crx, cry, 0, 1, 1, 1);
+        end
 
         if any(mb)
             % Some mouse button pressed: Trigger action depending on mmode:
@@ -342,9 +395,11 @@ try
             end
         end
 
-        % Reposition mouse cursor for next drive cycle:
-        SetMouse(xc,yc, screenid);
-        [mxo, myo] = GetMouse(screenid);
+        if ~controllerTypes
+            % Reposition mouse cursor for next drive cycle:
+            SetMouse(xc,yc, screenid);
+            [mxo, myo] = GetMouse(screenid);
+        end
 
         % Update animation for simulationtime t - ts, render scene:
         tSimulation = t - ts;
@@ -352,7 +407,7 @@ try
         if ~isempty(hmd)
             % Track head position and orientation, retrieve camera matrices for each eye,
             % as well as tracking state. Apply global pose transform globalHeadPose:
-            if 1
+            if 0
                 if mb(1)
                     dcz = mdy * 0.25;
                     dcz = -1;
