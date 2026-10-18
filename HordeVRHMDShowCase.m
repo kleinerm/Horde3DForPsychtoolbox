@@ -102,8 +102,8 @@ Screen('BeginOpenGL', win);
 try
     % Initialize Horde3DCore and define all HE.xxxx constants for use:
     HordeHelper('Initialize');
-    Horde3DCore('SetOption', HE.H3DOptions.MaxNumMessages, 100000);
-    Horde3DCore('SetOption', HE.H3DOptions.MaxLogLevel, 2);
+    Horde3DCore('SetOption', HE.H3DOptions.MaxNumMessages, 100);
+    Horde3DCore('SetOption', HE.H3DOptions.MaxLogLevel, 1);
 
     %Horde3DCore('SetOption', HE.H3DOptions.LoadTextures, 0);
     %Horde3DCore('SetOption', HE.H3DOptions.DebugViewMode, 1);
@@ -212,8 +212,8 @@ try
     % Enable occlusion culling: Does not help much here, but it does cut
     % the triangle count to submit to GPU in half - sadly that is not
     % enough for us to get decent performance:
-    Horde3DCore('SetNodeParami', camera(1), HE.H3DCamera.OccCullingI, 0);
-    Horde3DCore('SetNodeParami', camera(2), HE.H3DCamera.OccCullingI, 0);
+    Horde3DCore('SetNodeParami', camera(1), HE.H3DCamera.OccCullingI, 1);
+    Horde3DCore('SetNodeParami', camera(2), HE.H3DCamera.OccCullingI, 1);
 
     % Add a rock to the root of the scenegraph, return handle 'rock' to it for later manipulations:
 %    rock = Horde3DCore('AddNodes', HE.H3DRootNode, rockRes);
@@ -244,7 +244,7 @@ try
     % Set light specific parameters:
     Horde3DCore('SetNodeParamf', light, HE.H3DLight.RadiusF, 0, 30000 );
     Horde3DCore('SetNodeParamf', light, HE.H3DLight.FovF, 0, 360 );
-    Horde3DCore('SetNodeParami', light, HE.H3DLight.ShadowMapCountI, 1 );
+    Horde3DCore('SetNodeParami', light, HE.H3DLight.ShadowMapCountI, 0 );
     Horde3DCore('SetNodeParamf', light, HE.H3DLight.ShadowMapBiasF, 0, 0.01 );
     %Horde3DCore('SetNodeParamf', light, HE.H3DLight.ColorF3, 0, 1.0 );
     
