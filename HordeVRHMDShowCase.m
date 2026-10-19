@@ -117,7 +117,8 @@ try
     % Add all required resources:
 
     % Rendering pipeline - Defines all basic rendering settings for redrawing a frame:
-    PipeRes = Horde3DCore('AddResource', HE.H3DResTypes.Pipeline, 'pipelines/forward.pipeline.xml');
+    PipeRes = Horde3DCore('AddResource', HE.H3DResTypes.Pipeline, 'pipelines/forward.pipeline_culloptimized.xml');
+    %PipeRes = Horde3DCore('AddResource', HE.H3DResTypes.Pipeline, 'pipelines/forward.pipeline.xml');
     % HDR Pipe: PipeRes = Horde3DCore('AddResource', HE.H3DResTypes.Pipeline, 'pipelines/hdr.pipeline.xml');
     Horde3DCore('DumpMessages');
 
@@ -158,29 +159,10 @@ try
     for i = 1:length(validres)
         newnodename{end+1} = nodename{validres(i)};
     end
-    nodename = newnodename
-
-%    enterpriseRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/Enterprise_A_Hull_corrected/EnterpriseA.scene.xml');
-%    enterpriseRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/Enterprise/Enterprise.scene.xml');
-%    Horde3DCore('DumpMessages');
+    nodename = newnodename;
 
 %    MagneticConstrictionRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/MagneticConstriction/MagneticConstriction.scene.xml');
 %    Horde3DCore('DumpMessages');
-
-%     ImpulseEngineRoomRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/ImpulseEngineRoom/ImpulseEngineRoom.scene.xml');
-%     Horde3DCore('DumpMessages');
-% 
-%     FDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/F-Deck-PrimaryHull/F-Deck-PrimaryHull.scene.xml');
-%     Horde3DCore('DumpMessages');
-% 
-%     GDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/G-Deck-PrimaryHull/G-Deck-PrimaryHull.scene.xml');
-%     Horde3DCore('DumpMessages');
-% 
-%     HDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/HDeck/HDeck.scene.xml');
-%     Horde3DCore('DumpMessages');
-% 
-%     IDeckRes = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, 'models/I-Deck-PrimaryHull/I-Deck-PrimaryHull.scene.xml');
-%     Horde3DCore('DumpMessages');
 
     % Load all the added resources into engine. 'Content' is the filesystem
     % path to the folder that contains all needed animation resources. All
@@ -192,7 +174,7 @@ try
                fileparts(mfilename('fullpath')) filesep 'StarTrek'];
     Horde3DCore('LoadResources', baseRes);
     Horde3DCore('DumpMessages');
-    gluErrorString % Query and clear gl error on Apples fragile and buggy snowflake
+    gluErrorString; % Query and clear gl error on Apples fragile and buggy snowflake
 
 
     % Add a stereo camera pair to the scene: The behaviour and basic rendering parameters
@@ -203,8 +185,9 @@ try
     camera(1) = Horde3DCore('AddCamera', 'MyLeftCamera', PipeRes);
     camera(2) = Horde3DCore('AddCamera', 'MyRightCamera', PipeRes);
 
-    clipFar = 100000.0 * gs / 1;
+    clipFar = 10000.0 * gs;
     clipNear = 0.1;
+    shortClip = 10; % clipFar / shortClip for interior rendering.
 
     Horde3DCore('SetNodeParamf', camera(1), HE.H3DCamera.FarPlaneF, 0, clipFar);
     Horde3DCore('SetNodeParamf', camera(2), HE.H3DCamera.FarPlaneF, 0, clipFar);
@@ -342,16 +325,30 @@ try
             % Get controller input state, buttons, triggers etc.:
             istate = PsychVRHMD('GetInputState', hmd, OVR.ControllerType_Active);
 
-            % Allow to use thumbsticks, if any, to move the teapot:
+            % Allow exit via button:
+            if istate.Buttons(OVR.Button_Enter)
+                break;
+            end
+
+            % Allow to use thumbsticks to move us around:
             if istate.Buttons(OVR.Button_LThumb) || istate.Buttons(OVR.Button_RThumb)
               thumbmult = 5.0;
             else
               thumbmult = 0.25;
             end
 
+            if istate.Buttons(OVR.Button_A)
+                % Switch inside vs. outside view:
+                observerOutside = 1 - observerOutside;
+                while istate.Buttons(OVR.Button_A)
+                    istate = PsychVRHMD('GetInputState', hmd, OVR.ControllerType_Active);
+                end
+            end
+
             cx = cx - thumbmult * istate.Thumbstick(1,1);
             cy = cy - thumbmult * istate.Thumbstick(2,1);
             cz = cz + thumbmult * istate.Thumbstick(2,2);
+            heading = heading - thumbmult * istate.Thumbstick(1,2);
 
             % Apply new camera node transform:
             Horde3DCore('SetNodeTransform', camera(1), cx, cy, cz, crx, cry, 0, 1, 1, 1);
@@ -469,7 +466,6 @@ try
                 end
                 Horde3DCore('SetNodeFlags', node(enterprise), HE.H3DNodeFlags.Inactive, 1);
 
-                shortClip = 100;
                 Horde3DCore('SetNodeParamf', camera(1), HE.H3DCamera.FarPlaneF, 0, clipFar / shortClip);
                 Horde3DCore('SetNodeParamf', camera(2), HE.H3DCamera.FarPlaneF, 0, clipFar / shortClip);
                 if ~isempty(hmd)
@@ -516,13 +512,13 @@ try
         % Stats for nerds:
         tricount = Horde3DCore('GetStat', HE.H3DStats.TriCount, 1);
         batchcount = Horde3DCore('GetStat', HE.H3DStats.BatchCount, 1);
-%         GeoUpdateTime = Horde3DCore('GetStat', HE.H3DStats.GeoUpdateTime, 1)
-%        FwdLightsGPUTime = Horde3DCore('GetStat', HE.H3DStats.FwdLightsGPUTime, 1)
-%         ShadowsGPUTime = Horde3DCore('GetStat', HE.H3DStats.ShadowsGPUTime, 1)
+        frameTime = Horde3DCore('GetStat', HE.H3DStats.FrameTime, 1);
+        %FwdLightsGPUTime = Horde3DCore('GetStat', HE.H3DStats.FwdLightsGPUTime, 1)
+        %ShadowsGPUTime = Horde3DCore('GetStat', HE.H3DStats.ShadowsGPUTime, 1)
         
         % Repeat...
         fc = fc + 1;
-        stats(:, fc) = [tricount ; batchcount];
+        stats(:, fc) = [tricount ; batchcount ; frameTime];
     end
 
     % Enable 3D rendering so we can call Horde shutdown properly:
@@ -544,6 +540,9 @@ try
     figure;
     plot(stats(2, :));
     title('Draw calls/batches per frame:');
+    figure;
+    plot(stats(3, :));
+    title('Frame processing time in msecs per frame:');
 catch
     % Shutdown Horde3DCore:
     Horde3DCore('Shutdown');

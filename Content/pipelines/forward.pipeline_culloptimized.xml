@@ -1,0 +1,13 @@
+<!-- Forward Shading Pipeline -->
+<Pipeline>
+	<CommandQueue>
+		<Stage id="Geometry" link="pipelines/globalSettings.material.xml">
+			<ClearTarget depthBuf="true" colBuf0="true" />
+			
+			<DrawGeometry context="AMBIENT" class="~Translucent" order="FRONT_TO_BACK" />
+			<DoForwardLightLoop class="~Translucent" />
+			
+			<DrawGeometry context="TRANSLUCENT" class="Translucent" order="FRONT_TO_BACK" />
+		</Stage>
+	</CommandQueue>
+</Pipeline>
