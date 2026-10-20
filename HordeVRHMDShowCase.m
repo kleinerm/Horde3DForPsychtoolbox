@@ -102,7 +102,7 @@ Screen('BeginOpenGL', win);
 try
     % Initialize Horde3DCore and define all HE.xxxx constants for use:
     HordeHelper('Initialize');
-    Horde3DCore('SetOption', HE.H3DOptions.MaxNumMessages, 100);
+    Horde3DCore('SetOption', HE.H3DOptions.MaxNumMessages, 1000);
     Horde3DCore('SetOption', HE.H3DOptions.MaxLogLevel, 1);
 
     %Horde3DCore('SetOption', HE.H3DOptions.LoadTextures, 0);
@@ -144,7 +144,7 @@ try
             nodename{i} = assets(i).name;
             assetres(i) = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, assetfile);
             Horde3DCore('DumpMessages');
-            str = Horde3DCore('GetMessage');
+            str = ''; % = Horde3DCore('GetMessage');
             if ~isempty(str)
                 disp(str);
             end
@@ -152,7 +152,7 @@ try
     end
 
     % Cut down to available scene nodes:
-    validres = find(assetres >= 0);
+    validres = find(assetres > 0);
     assetres = assetres(validres);
     newnodename = {};
 
@@ -185,7 +185,7 @@ try
     camera(1) = Horde3DCore('AddCamera', 'MyLeftCamera', PipeRes);
     camera(2) = Horde3DCore('AddCamera', 'MyRightCamera', PipeRes);
 
-    clipFar = 10000.0 * gs;
+    clipFar = 15000.0 * gs;
     clipNear = 0.1;
     shortClip = 10; % clipFar / shortClip for interior rendering.
 
@@ -207,7 +207,7 @@ try
 
     % Some sky box, so the world has an (open) ending:
     sky = Horde3DCore('AddNodes', HE.H3DRootNode, skyRes);
-    Horde3DCore('SetNodeTransform', sky, 0, 0, 0, 0, 0, 0, 24000 * gs, 24000 * gs, 24000 * gs);
+    Horde3DCore('SetNodeTransform', sky, 0, 0, 0, 0, 0, 0, 14000 * gs, 14000 * gs, 14000 * gs);
 
     % Add resources as scene nodes to the scene graph:
     node = zeros(1, length(assetres));
@@ -487,6 +487,7 @@ try
 
             % Render updated models and scene into framebuffer, using camera 'camera':
             Horde3DCore('Render', camera(renderPass+1));
+            gluErrorString;
 
             Screen('EndOpenGL', win);
         end
