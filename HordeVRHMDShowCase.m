@@ -105,8 +105,12 @@ try
     Horde3DCore('SetOption', HE.H3DOptions.MaxNumMessages, 1000);
     Horde3DCore('SetOption', HE.H3DOptions.MaxLogLevel, 1);
 
+    Horde3DCore('SetOption', HE.H3DOptions.MaxAnisotropy, 4);
+    Horde3DCore('SetOption', HE.H3DOptions.TexCompression, 1);
+    %Horde3DCore('SetOption', HE.H3DOptions.SampleCount, 1);
+
     %Horde3DCore('SetOption', HE.H3DOptions.LoadTextures, 0);
-    %Horde3DCore('SetOption', HE.H3DOptions.DebugViewMode, 1);
+    %Horde3DCore('SetOption', HE.H3DOptions.WireframeMode, 1);
 catch %#ok<CTCH>
     sca;
     psychrethrow(psychlasterror);
@@ -144,7 +148,7 @@ try
             nodename{i} = assets(i).name;
             assetres(i) = Horde3DCore('AddResource', HE.H3DResTypes.SceneGraph, assetfile);
             Horde3DCore('DumpMessages');
-            str = ''; % = Horde3DCore('GetMessage');
+            str = Horde3DCore('GetMessage');
             if ~isempty(str)
                 disp(str);
             end
@@ -187,7 +191,7 @@ try
 
     clipFar = 15000.0 * gs;
     clipNear = 0.1;
-    shortClip = 10; % clipFar / shortClip for interior rendering.
+    shortClip = 5; % clipFar / shortClip for interior rendering.
 
     Horde3DCore('SetNodeParamf', camera(1), HE.H3DCamera.FarPlaneF, 0, clipFar);
     Horde3DCore('SetNodeParamf', camera(2), HE.H3DCamera.FarPlaneF, 0, clipFar);
@@ -257,7 +261,6 @@ try
 
     % Set initial camera position and orientation:
     cx = 0 * gs; cy = 80 * gs; cz = 450 *gs ; crx = -17; cry = 0; heading = 0;
-    %cx = 0 * gs; cy = 80 * gs; cz = -7100 * gs; crx = -17; cry = 180; heading = 180;
     
     Screen('EndOpenGL', win);
 
@@ -442,41 +445,50 @@ try
             Horde3DCore('SetNodeTransMat', camera(2), state.cameraView{2});
         end
 
-        if observerOutside ~= observerOutsideOld
+        clipDist = clipFar;
+
+        if 1 %observerOutside ~= observerOutsideOld
             observerOutsideOld = observerOutside;
             if observerOutside
                 for i=1:length(node)
                     Horde3DCore('SetNodeFlags', node(i), HE.H3DNodeFlags.Inactive, 1);
                 end
                 Horde3DCore('SetNodeFlags', node(enterprise), 0, 1);
-
-                Horde3DCore('SetNodeParamf', camera(1), HE.H3DCamera.FarPlaneF, 0, clipFar);
-                Horde3DCore('SetNodeParamf', camera(2), HE.H3DCamera.FarPlaneF, 0, clipFar);
-                if ~isempty(hmd)
-                    % Retrieve camera projection matrices for optimal rendering on the HMD:
-                    [projL, projR] = PsychVRHMD('GetStaticRenderParameters', hmd, clipNear, clipFar);
-                    
-                    % Assign them to cameras:
-                    Horde3DCore('SetCameraProjMat', camera(1), projL);
-                    Horde3DCore('SetCameraProjMat', camera(2), projR);
-                end
             else
+                rcnt = 0;
+                fprintf('Vis: ');
                 for i=1:length(node)
-                    Horde3DCore('SetNodeFlags', node(i), 0, 1);
+                    [minx, miny, minz, maxx, maxy, maxz] = Horde3DCore('GetNodeAABB', node(i));
+                    inbbox = (cx >= minx) && (cx <= maxx) && (cy >= miny) && (cy <= maxy) && (cz >= minz) && (cz <= maxz);
+                    if inbbox
+                        rcnt = rcnt + 1;
+                        Horde3DCore('SetNodeFlags', node(i), 0, 1);
+                        fprintf('%s ', nodename{i});
+                    else
+                        Horde3DCore('SetNodeFlags', node(i), HE.H3DNodeFlags.Inactive, 1);
+                    end
                 end
-                Horde3DCore('SetNodeFlags', node(enterprise), HE.H3DNodeFlags.Inactive, 1);
+                Horde3DCore('SetNodeFlags', node(enterprise), 0, 1);
+                %Horde3DCore('SetNodeFlags', node(enterprise), HE.H3DNodeFlags.Inactive, 1);
 
-                Horde3DCore('SetNodeParamf', camera(1), HE.H3DCamera.FarPlaneF, 0, clipFar / shortClip);
-                Horde3DCore('SetNodeParamf', camera(2), HE.H3DCamera.FarPlaneF, 0, clipFar / shortClip);
-                if ~isempty(hmd)
-                    % Retrieve camera projection matrices for optimal rendering on the HMD:
-                    [projL, projR] = PsychVRHMD('GetStaticRenderParameters', hmd, clipNear, clipFar / shortClip);
-                    
-                    % Assign them to cameras:
-                    Horde3DCore('SetCameraProjMat', camera(1), projL);
-                    Horde3DCore('SetCameraProjMat', camera(2), projR);
+                fprintf(' => %i nodes.\n', rcnt);
+
+                % If inside the interior, reduce clipping distance:
+                if (rcnt > 2)
+                    clipDist = clipFar / shortClip;
                 end
             end
+        end
+
+        Horde3DCore('SetNodeParamf', camera(1), HE.H3DCamera.FarPlaneF, 0, clipDist);
+        Horde3DCore('SetNodeParamf', camera(2), HE.H3DCamera.FarPlaneF, 0, clipDist);
+        if ~isempty(hmd)
+            % Retrieve camera projection matrices for optimal rendering on the HMD:
+            [projL, projR] = PsychVRHMD('GetStaticRenderParameters', hmd, clipNear, clipDist);
+            
+            % Assign them to cameras:
+            Horde3DCore('SetCameraProjMat', camera(1), projL);
+            Horde3DCore('SetCameraProjMat', camera(2), projR);
         end
 
         for renderPass = 0:(1-forceMonoDisplay)
