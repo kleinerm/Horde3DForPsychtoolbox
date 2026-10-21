@@ -264,7 +264,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
                 mexPrintf("-- Set Horde engine parameter 'param' to new value 'value'\n\n");
                 mexPrintf("%s('Clear;\n", me);
                 mexPrintf("-- Removes all resources and scene nodes.\n\n");
-                mexPrintf("str = %s('GetMessage', level, time);\n", me);
+                mexPrintf("[str, level, time] = %s('GetMessage');\n", me);
                 mexPrintf("-- Gets the next message from the message queue and returns it as a string. Additionally stores message level and time in the corresponding parameters.\n\n");
                 mexPrintf("value = %s('GetOption', param);\n", me);
                 mexPrintf("-- Gets the specified option parameter of the engine and returns its value as a double.\n\n");
@@ -838,15 +838,21 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
         }
 
         if (IsCommand((char*)"GetMessage")) {
-                // if (nrhs < 2) mexErrMsgTxt("Horde3D: GetMessage: One of the 2 required parameters missing!");
                 // Gets the next message from the message queue
                 const char* msg=h3dGetMessage(&i1, &v[0]);
 
-                plhs[0] = mxCreateString(msg);
-                plhs[1]  = mxCreateDoubleMatrix(1, 1, mxREAL);
-                *(mxGetPr(plhs[1])) = (int) i1;
-                plhs[2]  = mxCreateDoubleMatrix(1, 1, mxREAL);
-                *(mxGetPr(plhs[2])) = (double) v[0];
+                if (nlhs >= 1)
+                        plhs[0] = mxCreateString(msg);
+
+                if (nlhs >= 2) {
+                        plhs[1]  = mxCreateDoubleMatrix(1, 1, mxREAL);
+                        *(mxGetPr(plhs[1])) = (int) i1;
+                }
+
+                if (nlhs >= 3) {
+                        plhs[2]  = mxCreateDoubleMatrix(1, 1, mxREAL);
+                        *(mxGetPr(plhs[2])) = (double) v[0];
+                }
         }
 
         if (IsCommand((char*)"GetOption")) {
@@ -1316,8 +1322,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray*prhs[])
                 // Get the bounding box of a scene node.
                 h3dGetNodeAABB(i1, &v[0], &v[1], &v[2], &v[3], &v[4], &v[5]);
                 for (i2=0; i2<6; i2++) {
-                        plhs[i2+1] = mxCreateDoubleMatrix(1, 1, mxREAL);
-                        *(mxGetPr(plhs[i2+1])) = v[i2];
+                        plhs[i2] = mxCreateDoubleMatrix(1, 1, mxREAL);
+                        *(mxGetPr(plhs[i2])) = v[i2];
                 }
         }
 
